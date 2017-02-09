@@ -1,0 +1,67 @@
+[
+    {
+        "name": "C# 6.0",
+        "image": "csharp",
+        "level": "advanced"
+    },
+    {
+        "name": "Visual Basic 2015",
+        "image": "vb",
+        "level": "advanced"
+    },
+    {
+        "name": "Open Web Platform",
+        "image": "owp",
+        "level": "advanced"
+    },
+    {
+        "name": ".NET Framework",
+        "image": "net",
+        "level": "advanced"
+    },
+    {
+        "name": "Visual Studio",
+        "image": "visualstudio",
+        "level": "advanced"
+    },
+    {
+        "name": "PHP 5",
+        "image": "php5",
+        "level": "intermediate"
+    },
+    {
+        "name": "MySQL",
+        "image": "mysql",
+        "level": "intermediate"
+    },
+    {
+        "name": "jQuery",
+        "image": "jquery",
+        "level": "learning"
+    },
+    {
+        "name": "SQL Server",
+        "image": "sqlserver",
+        "level": "learning"
+    },
+    {
+        "name": "Angular 2",
+        "image": "angular2",
+        "level": "learning"
+    },
+    {
+        "name": "Less",
+        "image": "less",
+        "level": "learning"
+    },
+    {
+        "name": "Node.js",
+        "image": "node",
+        "level": "learning"
+    },
+    {
+        "name": "TypeScript",
+        "image": "typescript",
+        "level": "learning"
+    }
+]
