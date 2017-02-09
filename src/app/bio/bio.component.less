@@ -1,0 +1,120 @@
+.content {
+    &.mobile {
+        .container {
+            width: 80%;
+            height: auto;
+            .portrait {
+                width: 100%;
+                float: none;
+                border-right: none;
+                border-bottom-style: inset;
+                border-bottom-style: 2px;
+                padding-bottom: 20px;
+                img {
+                    width: 150px;
+                }                
+            }
+            .text {
+                margin-top: 20px;
+                width: 100%;
+                float: none;
+            }
+        }
+    }
+    .container {
+        transition: background 0.5s linear;
+        width: 700px;
+        height: 350px;
+        padding: 25px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 15px;
+        box-shadow: 0 0 15px rgba(0,0,0,0.5);
+        .portrait {
+            width: 20%;
+            display: block;
+            float: left;
+            border-right-style: inset;
+            border-right-width: 2px;
+            height: 100%;
+            img {
+                width: 100px;
+                filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+            }
+        }
+        .text {
+            width: 75%;
+            display: block;
+            float: right;
+            text-align: left;
+            font-family: freight-sans-pro;
+            font-size: 14pt;
+            a, a:visited {
+                cursor: pointer;
+                position: relative;
+                transition: color 0.5s linear;
+                div {
+                    position: absolute;
+                    width: 220px;
+                    left: 50%;
+                    top: 15px;
+                    margin-left: -110px;
+                    text-align: center;
+                    border-radius: 10px;
+                    opacity: 0;
+                    z-index: 4;
+                    visibility: hidden;
+                    transition: opacity 0.5s linear, transform 0.5s linear, visibility 0.5s linear;
+                    ul {
+                        list-style-type: none;
+                        font-style: italic;
+                        padding: 0;
+                    }
+                }
+                &:hover{
+                    div {
+                        opacity: 1;
+                        visibility: visible;
+                        transform: translateY(10px);
+                    }
+                }
+            }
+        }
+    }
+    &.light {
+        .container {
+            background-image: url("assets/white_wall_@2X.png");
+            .text {
+                a, a:visited {
+                    color: dodgerblue;
+                    div {
+                        color: black;
+                        background-color: rgba(200,200,200,0.8);
+                    }
+                    &:hover {
+                        color: mediumpurple;
+                    }
+                }
+            }
+        }
+    }
+    &.dark {
+        .container {
+            background-image: url("assets/black_linen_v2_@2X.png");
+            color: white;
+            .text {
+                a, a:visited {
+                    color: dodgerblue;
+                    div {
+                        color: white;
+                        background-color: rgba(0,0,0,0.8);
+                    }
+                    &:hover {
+                        color: lightblue;
+                    }
+                }
+            }
+        }
+    }
+}
