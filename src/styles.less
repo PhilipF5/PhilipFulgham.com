@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+html, body {
+    &.mobile {
+        width: 100%;
+    }
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    transition: background 0.5s linear;
+    &.light {
+        background-color: white;
+    }
+    &.dark {
+        background-color: #2D3031;
+    }
+}
+
+.content {
+    &.mobile {
+        width: 100%;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    min-height: 100%;
+    padding-top: 150px;
+    padding-bottom: 50px;
+    text-align: center;
+    transition: background 0.5s linear;
+    &.light {
+        background-color: white;
+    }
+    &.dark {
+        background-color: #2D3031;
+    }
+}
