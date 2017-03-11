@@ -17,6 +17,14 @@ export class FooterComponent implements OnInit {
     
     public loadTheme(theme) {
         this.themeService.theme = theme;
+        switch (theme) {
+            case "light":
+                document.body.style.backgroundColor = "white";
+                break;
+            case "dark":
+                document.body.style.backgroundColor = "#2D3031";
+                break;
+        }
     }
     
     ngOnInit() {
