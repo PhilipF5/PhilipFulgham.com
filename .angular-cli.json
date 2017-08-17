@@ -1,7 +1,7 @@
 {
   "project": {
-    "version": "1.0.0-beta.25.5",
-    "name": "philip-fulgham-v2"
+    "version": "2.0.0",
+    "name": "personal-website"
   },
   "apps": [
     {
@@ -21,8 +21,8 @@
         "styles.less"
       ],
       "scripts": [],
+      "environmentSource": "environments/environment.ts",
       "environments": {
-        "source": "environments/environment.ts",
         "dev": "environments/environment.ts",
         "prod": "environments/environment.prod.ts"
       }
