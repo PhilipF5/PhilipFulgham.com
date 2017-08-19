@@ -16,6 +16,7 @@ div {
 		font-size: 46pt;
 		color: white;
 		text-align: center;
+		animation: 3s ease-out 0s 1 appear;
 		&:before {
 			content: "“";
 			font-family: "Baskerville";
@@ -25,6 +26,7 @@ div {
 			position: absolute;
 			left: 20px;
 			top: 20px;
+			animation: 2s ease-out 3s 1 appear both;
 		}
 		&:after {
 			content: "”";
@@ -35,6 +37,7 @@ div {
 			position: absolute;
 			right: 20px;
 			top: 250px;
+			animation: 2s ease-out 3s 1 appear both;
 		}
 	}
 	p.byline {
@@ -43,5 +46,16 @@ div {
 		font-style: italic;
 		color: white;
 		text-align: right;
+		animation: 3s ease-out 2s 1 appear both;
+	}
+	@keyframes appear {
+		0% {
+			transform: translateX(-5%);
+			opacity: 0;
+		}
+		100% {
+			transform: translateX(0);
+			opacity: 1;
+		}
 	}
 }
