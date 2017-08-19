@@ -1,0 +1,47 @@
+div {
+	width: 70%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	div {
+		text-align: center;
+		display: inline-block;
+		position: relative;
+		width: 100%;
+		top: 75%;
+		transform: translateY(-50%);
+	}
+	p.quote {
+		font-family: "Futura";
+		font-size: 46pt;
+		color: white;
+		text-align: center;
+		&:before {
+			content: "“";
+			font-family: "Baskerville";
+			font-weight: 600;
+			font-size: 90pt;
+			color: white;
+			position: absolute;
+			left: 20px;
+			top: 20px;
+		}
+		&:after {
+			content: "”";
+			font-family: "Baskerville";
+			font-weight: 600;
+			font-size: 90pt;
+			color: white;
+			position: absolute;
+			right: 20px;
+			top: 250px;
+		}
+	}
+	p.byline {
+		font-family: "Avenir";
+		font-size: 26pt;
+		font-style: italic;
+		color: white;
+		text-align: right;
+	}
+}
