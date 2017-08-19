@@ -58,6 +58,7 @@ header {
 	border-image: linear-gradient(to right, red 0%, orange 20%, yellow 40%, green 60%, blue 80%, violet 100%);
 	border-image-slice: 0 0 1 0;
 	border: 0;
+	animation: 3s ease-out 1s 1 introHeader both;
 	//background-image: linear-gradient(#FFFFFF 0%, #F8F8F8 95%, rgba(238,238,238,0) 100%), linear-gradient(to right, red 0%, orange 20%, yellow 40%, green 60%, blue 80%, violet 100%);
 	&:before {
 		//background-image: linear-gradient(#2D3031 0%, #2D3031 95%, rgba(238,238,238,0) 100%), linear-gradient(to right, red 0%, orange 20%, yellow 40%, green 60%, blue 80%, violet 100%);
@@ -82,6 +83,7 @@ header {
 		vertical-align: middle;
 		transition: transform 0.5s ease-out;
 		transform-origin: left;
+		animation: 3s ease-in-out 1s 1 introTitle both;
 		&:hover {
 			transform: scale(1.1);
 		}
@@ -93,6 +95,23 @@ header {
 		.separator {
 			text-shadow: none !important;
 			transition: color 0.5s linear;
+		}
+	}
+	@keyframes introHeader {
+		from {
+			text-align: center;
+		}
+		to {
+			text-align: left;
+		}
+	}
+	@keyframes introTitle {
+		from {
+			transform: scale(2) translateX(42%) translateY(50%);
+			margin: 0;
+		}
+		to {
+			margin: 0 0 0 30px;
 		}
 	}
 	nav {
