@@ -1,28 +1,28 @@
 <div *isDesktop class="content {{this.themeService.theme}}">
-    <div class="skill-card" *ngFor="let skill of skills">
-        <div class="img-container">
-            <img src="assets/techs/{{skill.image}}.png">
-        </div>
-        <div class="caption">
-            <div class="level {{skill.level}}">{{skill.level}}</div>
-            {{skill.name}}
-        </div>
-    </div>
-    <div class="notice low">
-        All logos are the property of their respective owners.
-    </div>
+	<div class="skill-card" *ngFor="let skill of skills">
+		<div class="img-container">
+			<img src="assets/techs/{{skill.image}}.png">
+		</div>
+		<div class="caption">
+			<div class="level {{skill.level}}">{{skill.level}}</div>
+			{{skill.name}}
+		</div>
+	</div>
+	<div class="notice low">
+		All logos are the property of their respective owners.
+	</div>
 </div>
 <div *showItDevice="['mobile', 'tablet']" class="content {{this.themeService.theme}} mobile">
-    <div class="skill-card" *ngFor="let skill of skills">
-        <div class="img-container">
-            <img src="assets/techs/{{skill.image}}.png">
-        </div>
-        <div class="caption">
-            <div class="level {{skill.level}}">{{skill.level}}</div>
-            {{skill.name}}
-        </div>
-    </div>
-    <div class="notice low">
-        All logos are the property of their respective owners.
-    </div>
+	<div class="skill-card" *ngFor="let skill of skills">
+		<div class="img-container">
+			<img src="assets/techs/{{skill.image}}.png">
+		</div>
+		<div class="caption">
+			<div class="level {{skill.level}}">{{skill.level}}</div>
+			{{skill.name}}
+		</div>
+	</div>
+	<div class="notice low">
+		All logos are the property of their respective owners.
+	</div>
 </div>

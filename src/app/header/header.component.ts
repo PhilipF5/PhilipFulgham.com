@@ -1,21 +1,21 @@
-import { Component, OnInit } from '@angular/core';
-import { ThemeService } from '../theme.service';
+import { Component, OnInit } from "@angular/core";
+import { ThemeService } from "../theme.service";
 
 @Component({
-    selector: 'app-header',
-    templateUrl: './header.component.html',
-    styleUrls: ['./header.component.less']
+	selector: "app-header",
+	templateUrl: "./header.component.html",
+	styleUrls: ["./header.component.less"]
 })
 export class HeaderComponent implements OnInit {
 
-    bio;
-    skills;
-    work;
+	bio;
+	skills;
+	work;
 
-    constructor(private themeService: ThemeService) { }
+	constructor(private themeService: ThemeService) { }
 
-    ngOnInit() {
-        
-    }
+	ngOnInit() {
+		
+	}
 
 }

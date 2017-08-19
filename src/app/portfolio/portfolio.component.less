@@ -1,72 +1,72 @@
 .content {
-    &.mobile {
-        .outer {
-            position: relative;
-            top: 0;
-            width: 90%;
-            height: auto;
-            transform: none !important;
-            margin-bottom: 10px;
-            .inner {
-                width: auto;
-                height: auto;
-            }
-        }
-    }
-    .outer {
-        display: block;
-        position: sticky;
-        top: 150px;
-        width: 700px;
-        height: 500px;
-        padding: 10px;
-        margin: auto;
-        border-radius: 25px;
-        transition: background 0.5s linear, box-shadow 0.5s linear;
-        .inner {
-            display: block;
-            width: 640px;
-            border-radius: 10px;
-            height: 480px;
-            margin: auto;
-            transition: border 0.5s linear;
-            img {
-                display: block;
-                width: 100%;
-                height: 100%;
-                margin: auto;
-                border-radius: 10px;
-            }
-        }
-    }
+	&.mobile {
+		.outer {
+			position: relative;
+			top: 0;
+			width: 90%;
+			height: auto;
+			transform: none !important;
+			margin-bottom: 10px;
+			.inner {
+				width: auto;
+				height: auto;
+			}
+		}
+	}
+	.outer {
+		display: block;
+		position: sticky;
+		top: 150px;
+		width: 700px;
+		height: 500px;
+		padding: 10px;
+		margin: auto;
+		border-radius: 25px;
+		transition: background 0.5s linear, box-shadow 0.5s linear;
+		.inner {
+			display: block;
+			width: 640px;
+			border-radius: 10px;
+			height: 480px;
+			margin: auto;
+			transition: border 0.5s linear;
+			img {
+				display: block;
+				width: 100%;
+				height: 100%;
+				margin: auto;
+				border-radius: 10px;
+			}
+		}
+	}
 
-    .portfolio-slides(@n, @i: 1) when (@i =< @n) {
-        #portfolio@{i} {
-            transform: translateX(unit(-110 + (20 * @i), px));
-        }
-        .portfolio-slides(@n, (@i + 1));
-    }
+	.portfolio-slides(@n, @i: 1) when (@i =< @n) {
+		#portfolio@{i} {
+			transform: translateX(unit(-110 + (20 * @i), px));
+		}
+		.portfolio-slides(@n, (@i + 1));
+	}
 
-    .portfolio-slides(10);
-    
-    &.light {
-        .outer {
-            //border: 4px outset gray;
-            background-image: url("../../assets/white_wall_@2X.png");
-            box-shadow: 0 0 10px rgba(0,0,0,0.75);
-            .inner {
-                border: 4px inset white;
-            }
-        }
-    }
-    
-    &.dark {
-        .outer {
-            background-image: url("../../assets/black_linen_v2_@2X.png");
-            box-shadow: 0 0 10px rgba(0,0,0,0.75);
-            .inner {
-                border: 4px inset black;
-            }
-        }
-    }
+	.portfolio-slides(10);
+	
+	&.light {
+		.outer {
+			//border: 4px outset gray;
+			background-image: url("../../assets/white_wall_@2X.png");
+			box-shadow: 0 0 10px rgba(0,0,0,0.75);
+			.inner {
+				border: 4px inset white;
+			}
+		}
+	}
+	
+	&.dark {
+		.outer {
+			background-image: url("../../assets/black_linen_v2_@2X.png");
+			box-shadow: 0 0 10px rgba(0,0,0,0.75);
+			.inner {
+				border: 4px inset black;
+			}
+		}
+	}
 }
