@@ -12,6 +12,7 @@ import { FooterComponent } from "./footer/footer.component";
 import { SkillsComponent } from "./skills/skills.component";
 import { BioComponent } from "./bio/bio.component";
 import { ThemeService } from "./theme.service";
+import { QuoteDisplayComponent } from './quote-display/quote-display.component';
 
 @NgModule({
 	declarations: [
@@ -20,7 +21,8 @@ import { ThemeService } from "./theme.service";
 			PortfolioComponent,
 			FooterComponent,
 			SkillsComponent,
-			BioComponent
+			BioComponent,
+			QuoteDisplayComponent
 	],
 	imports: [
 		BrowserModule,
