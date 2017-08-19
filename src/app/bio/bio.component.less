@@ -36,20 +36,34 @@
 			border-right-style: inset;
 			border-right-width: 2px;
 			height: 100%;
-			vertical-align: top;
+			vertical-align: middle;
 			img {
-				width: 100px;
+				display: block;
+				margin: auto auto auto auto;
+				position: relative;
+				top: 50%;
+				transform: translateY(-50%);
+				width: 150px;
 				filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
 			}
 		}
 		.text {
 			width: 70%;
+			height: 100%;
 			display: inline-block;
 			text-align: left;
 			font-family: freight-sans-pro;
 			font-size: 14pt;
-			vertical-align: top;
+			vertical-align: middle;
 			margin-left: 5%;
+			div.title {
+				display: block;
+				text-align: center;
+				text-transform: uppercase;
+				font-family: ff-dagny-web-pro;
+				font-size: 20pt;
+				margin-bottom: 10px;
+			}
 			a, a:visited {
 				cursor: pointer;
 				position: relative;
