@@ -1,53 +1,34 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpModule } from "@angular/http";
-import { RouterModule }   from "@angular/router";
+import { NgModule } from "@angular/core";
 import { ResponsiveModule } from "ng2-responsive";
+import { RouterModule } from "@angular/router";
 
 import { AppComponent } from "./app.component";
+import { BioComponent } from "./bio/bio.component";
+import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
 import { PortfolioComponent } from "./portfolio/portfolio.component";
-import { FooterComponent } from "./footer/footer.component";
+import { QuoteDisplayComponent } from "./quote-display/quote-display.component";
 import { SkillsComponent } from "./skills/skills.component";
-import { BioComponent } from "./bio/bio.component";
 import { ThemeService } from "./theme.service";
-import { QuoteDisplayComponent } from './quote-display/quote-display.component';
 
 @NgModule({
 	declarations: [
 		AppComponent,
-			HeaderComponent,
-			PortfolioComponent,
-			FooterComponent,
-			SkillsComponent,
-			BioComponent,
-			QuoteDisplayComponent
+		BioComponent,
+		FooterComponent,
+		HeaderComponent,
+		PortfolioComponent,
+		QuoteDisplayComponent,
+		SkillsComponent
 	],
 	imports: [
 		BrowserModule,
-			ResponsiveModule,
 		FormsModule,
 		HttpModule,
-			RouterModule.forRoot([
-	{
-		path: "portfolio",
-		component: PortfolioComponent
-	},
-					{
-							path: "skills",
-							component: SkillsComponent
-					},
-					{
-							path: "bio",
-							component: BioComponent
-					},
-					{
-							path: "",
-							redirectTo: "/bio",
-							pathMatch: "full"
-					}
-])
+		ResponsiveModule,
 	],
 	providers: [ThemeService],
 	bootstrap: [AppComponent]
