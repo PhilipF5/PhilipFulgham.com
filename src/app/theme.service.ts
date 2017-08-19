@@ -11,7 +11,7 @@ export class ThemeService {
 				document.body.style.backgroundColor = "white";
 				break;
 			case "dark":
-				document.body.style.backgroundColor = "#2D3031";
+				document.body.style.backgroundColor = "black";
 				break;
 		}
 	}
