@@ -11,8 +11,16 @@ export class SkillsComponent implements OnInit {
 	skills;
 	
 	constructor(private http: Http) {
-		http.get("assets/skills.json")
-			.subscribe(res => this.skills = res.json());
+		var skills = require("../../assets/skills.json");
+		this.skills = skills;
+		skills.sort((a, b) => {
+			if (a.name.toLowerCase() < b.name.toLowerCase()) {
+				return -1;
+			}
+			if (a.name.toLowerCase() > b.name.toLowerCase()) {
+				return 1;
+			}
+		});
 	}
 
 	ngOnInit() {
