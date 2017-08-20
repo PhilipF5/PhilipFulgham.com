@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { ThemeService } from "../theme.service";
 
 @Component({
 	selector: "app-header",
@@ -12,7 +11,7 @@ export class HeaderComponent implements OnInit {
 	skills;
 	work;
 
-	constructor(private themeService: ThemeService) { }
+	constructor() { }
 
 	ngOnInit() {
 		

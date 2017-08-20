@@ -1,4 +1,4 @@
-<header *isDesktop class="{{this.themeService.theme}}">
+<header *isDesktop>
 	<h1><a routerLink="">PHILIP <span class="separator">|</span> FULGHAM</a></h1>
 	<nav>
 		<a routerLink="/bio" routerLinkActive="active">BIO<div class="indicator"></div></a>
@@ -6,7 +6,7 @@
 		<a routerLink="/skills" routerLinkActive="active">SKILLS<div class="indicator"></div></a>
 	</nav>
 </header>
-<header *showItDevice="['mobile', 'tablet']" class="{{this.themeService.theme}} mobile">
+<header *showItDevice="['mobile', 'tablet']" class="mobile">
 	<h1><a routerLink="">PHILIP <span class="separator">|</span> FULGHAM</a></h1>
 	<nav>
 		<a routerLink="/bio" routerLinkActive="active">BIO<div class="indicator"></div></a>
