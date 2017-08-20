@@ -12,7 +12,6 @@ import { HeaderComponent } from "./header/header.component";
 import { PortfolioComponent } from "./portfolio/portfolio.component";
 import { QuoteDisplayComponent } from "./quote-display/quote-display.component";
 import { SkillsComponent } from "./skills/skills.component";
-import { ThemeService } from "./theme.service";
 
 @NgModule({
 	declarations: [
@@ -30,7 +29,7 @@ import { ThemeService } from "./theme.service";
 		HttpModule,
 		ResponsiveModule,
 	],
-	providers: [ThemeService],
+	providers: [],
 	bootstrap: [AppComponent]
 })
 export class AppModule { }

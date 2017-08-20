@@ -30,6 +30,8 @@
 		margin-left: auto;
 		margin-right: auto;
 		box-shadow: 0 0 15px rgba(0,0,0,0.5);
+		background-image: url("../../assets/black_linen_v2_@2X.png");
+		color: white;
 		.portrait {
 			width: 20%;
 			display: inline-block;
@@ -68,6 +70,7 @@
 				cursor: pointer;
 				position: relative;
 				transition: color 0.5s linear;
+				color: dodgerblue;
 				div {
 					position: absolute;
 					width: 220px;
@@ -80,6 +83,8 @@
 					z-index: 4;
 					visibility: hidden;
 					transition: opacity 0.5s linear, transform 0.5s linear, visibility 0.5s linear;
+					color: white;
+					background-color: rgba(0,0,0,0.8);
 					ul {
 						list-style-type: none;
 						font-style: italic;
@@ -87,45 +92,11 @@
 					}
 				}
 				&:hover{
+					color: lightblue;
 					div {
 						opacity: 1;
 						visibility: visible;
 						transform: translateY(10px);
-					}
-				}
-			}
-		}
-	}
-	&.light {
-		.container {
-			background-image: url("../../assets/white_wall_@2X.png");
-			.text {
-				a, a:visited {
-					color: dodgerblue;
-					div {
-						color: black;
-						background-color: rgba(200,200,200,0.8);
-					}
-					&:hover {
-						color: mediumpurple;
-					}
-				}
-			}
-		}
-	}
-	&.dark {
-		.container {
-			background-image: url("../../assets/black_linen_v2_@2X.png");
-			color: white;
-			.text {
-				a, a:visited {
-					color: dodgerblue;
-					div {
-						color: white;
-						background-color: rgba(0,0,0,0.8);
-					}
-					&:hover {
-						color: lightblue;
 					}
 				}
 			}

@@ -71,6 +71,7 @@ header {
 		width: 100%;
 		z-index: -100;
 		transition: opacity 0.5s linear;
+		opacity: 1;
 	}
 	h1 {
 		display: inline-block;
@@ -86,15 +87,18 @@ header {
 		animation: 3s ease-in-out 1s 1 introTitle backwards;
 		&:hover {
 			transform: scale(1.1);
+			text-shadow: 0.2em 0.2em 0.2em rgba(0,0,0,0.5);
 		}
 		a, a:visited {
 			transition: text-shadow 0.5s ease-out, color 0.5s linear;
 			display: inline-block;
 			height: 100%;
+			color: white;
 		}
 		.separator {
 			text-shadow: none !important;
 			transition: color 0.5s linear;
+			color: darkgray;
 		}
 	}
 	@keyframes introHeader {
@@ -130,6 +134,8 @@ header {
 			margin-right: 30px;
 			letter-spacing: 10px;
 			transition: text-shadow 0.5s linear, color 0.5s linear;
+			color: white;
+			text-shadow: 0 0 45px rgba(255,255,255,0), 0 0 45px rgba(255,255,255,0);
 			.indicator {
 				opacity: 0;
 				visibility: hidden;
@@ -144,69 +150,17 @@ header {
 				border-bottom-width: 8.66px;
 				border-bottom-style: solid;
 				transition: all 0.5s linear;
+				border-bottom-color: white;
+				filter: drop-shadow(0 0 2px white) blur(1px);
+			}
+			&:hover {
+				text-shadow: 0 0 4px rgba(255,255,255,1), 0 0 4px rgba(255,255,255,1);
 			}
 			&.active {
 				.indicator {
 					opacity: 1;
 					transform: translateY(-20px);
 					visibility: visible;
-				}
-			}
-		}
-	}
-	&.light {
-		h1 {
-			a, a:visited {
-				color: black;
-				&:hover {
-					text-shadow: 0.2em 0.2em 0.2em rgba(0,0,0,0.5);
-				}
-			}
-			.separator {
-				color: #F0F0F0;
-			}
-		}
-		nav {
-			a, a:visited {
-				color: black;
-				text-shadow: 0 0 45px rgba(0,0,0,0), 0 0 45px rgba(0,0,0,0);
-				&:hover {
-					//color: white;
-					text-shadow: 0 0 4px rgba(0,0,0,1), 0 0 4px rgba(0,0,0,1);
-				}
-				.indicator {
-					border-bottom-color: black;
-					filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.5));
-				}
-			}
-		}
-	}
-	&.dark {
-		&:before {
-			opacity: 1;
-		}
-		h1 {
-			a, a:visited {
-				color: white;
-				&:hover {
-					text-shadow: 0.2em 0.2em 0.2em rgba(0,0,0,0.5);
-				}
-			}
-			.separator {
-				color: darkgray;
-			}
-		}
-		nav {
-			a, a:visited {
-				color: white;
-				text-shadow: 0 0 45px rgba(255,255,255,0), 0 0 45px rgba(255,255,255,0);
-				&:hover {
-					//color: black;
-					text-shadow: 0 0 4px rgba(255,255,255,1), 0 0 4px rgba(255,255,255,1);
-				}
-				.indicator {
-					border-bottom-color: white;
-					filter: drop-shadow(0 0 2px white) blur(1px);
 				}
 			}
 		}

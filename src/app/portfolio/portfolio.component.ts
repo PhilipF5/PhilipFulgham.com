@@ -1,5 +1,4 @@
 import { Component, OnInit } from "@angular/core";
-import { ThemeService } from "../theme.service";
 
 @Component({
 	selector: "app-portfolio",
@@ -8,7 +7,7 @@ import { ThemeService } from "../theme.service";
 })
 export class PortfolioComponent implements OnInit {
 
-	constructor(private themeService: ThemeService) { }
+	constructor() { }
 
 	ngOnInit() {
 		

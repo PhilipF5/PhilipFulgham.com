@@ -1,6 +1,5 @@
 import { Component, OnInit } from "@angular/core";
 import { Http, Response } from "@angular/http";
-import { ThemeService } from "../theme.service";
 
 @Component({
 	selector: "app-skills",
@@ -11,7 +10,7 @@ export class SkillsComponent implements OnInit {
 	
 	skills;
 	
-	constructor(private http: Http, private themeService: ThemeService) {
+	constructor(private http: Http) {
 		http.get("assets/skills.json")
 			.subscribe(res => this.skills = res.json());
 	}

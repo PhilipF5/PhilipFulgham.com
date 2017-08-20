@@ -1,12 +1,6 @@
-<footer *isDesktop class="{{this.themeService.theme}}">
+<footer *isDesktop>
 	&copy; 2008-{{year}} Philip Fulgham. All rights reserved unless otherwise specified.
-	<div class="theme">
-		Theme: <a id="light" (click)="loadTheme('light')">Light</a> | <a id="dark" (click)="loadTheme('dark')">Dark</a>
-	</div>
 </footer>
-<footer *showItDevice="['mobile', 'tablet']" class="{{this.themeService.theme}} mobile">
+<footer *showItDevice="['mobile', 'tablet']" class="mobile">
 	&copy; 2008-{{year}} Philip Fulgham. All rights reserved unless otherwise specified.
-	<div class="theme">
-		Theme: <a id="light" (click)="loadTheme('light')">Light</a> | <a id="dark" (click)="loadTheme('dark')">Dark</a>
-	</div>
 </footer>

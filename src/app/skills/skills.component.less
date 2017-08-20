@@ -10,6 +10,33 @@
 		font-family: freight-sans-pro;
 		font-size: 18pt;
 		transition: box-shadow 0.5s linear, background 0.5s linear, color 0.5s linear, transform 0.5s ease-out;
+		color: white;
+		box-shadow: 0 0 4px rgba(0,0,0,0.5);
+		background-image: url("../../assets/black_linen_v2_@2X.png");
+		.img-container {
+			background-color: white;
+		}
+		&:hover {
+			transform: scale(1.1);
+		}
+		&:nth-child(6n-5):hover {
+			box-shadow: 0 0 16px red;
+		}
+		&:nth-child(6n-4):hover {
+			box-shadow: 0 0 16px orange;
+		}
+		&:nth-child(6n-3):hover {
+			box-shadow: 0 0 16px yellow;
+		}
+		&:nth-child(6n-2):hover {
+			box-shadow: 0 0 16px green;
+		}
+		&:nth-child(6n-1):hover {
+			box-shadow: 0 0 16px blue;
+		}
+		&:nth-child(6n-0):hover {
+			box-shadow: 0 0 16px violet;
+		}
 		.img-container {
 			display: block;
 			height: 200px;
@@ -68,60 +95,10 @@
 		margin-left: auto;
 		margin-right: auto;
 		transition: all 0.5s linear;
-	}
-	&.light {
-		.skill-card {
-			box-shadow: 0 0 4px rgba(0,0,0,0.5);
-			background-image: url("../../assets/white_wall_@2X.png");
-			&:hover {
-				box-shadow: 8px 8px 8px rgba(0,0,0,0.5);
-				transform: scale(1.1);
-			}
-		}
-		.notice {
-			&.low {
-				border-color: rgb(200,200,200);
-				color: black;
-				background-color: rgb(240,240,240);
-			}
-		}
-	}
-	&.dark {
-		.skill-card {
+		&.low {
+			border-color: darkgray;
 			color: white;
-			box-shadow: 0 0 4px rgba(0,0,0,0.5);
-			background-image: url("../../assets/black_linen_v2_@2X.png");
-			.img-container {
-				background-color: white;
-			}
-			&:hover {
-				transform: scale(1.1);
-			}
-			&:nth-child(6n-5):hover {
-				box-shadow: 0 0 16px red;
-			}
-			&:nth-child(6n-4):hover {
-				box-shadow: 0 0 16px orange;
-			}
-			&:nth-child(6n-3):hover {
-				box-shadow: 0 0 16px yellow;
-			}
-			&:nth-child(6n-2):hover {
-				box-shadow: 0 0 16px green;
-			}
-			&:nth-child(6n-1):hover {
-				box-shadow: 0 0 16px blue;
-			}
-			&:nth-child(6n-0):hover {
-				box-shadow: 0 0 16px violet;
-			}
-		}
-		.notice {
-			&.low {
-				border-color: darkgray;
-				color: white;
-				background-color: #555;
-			}
+			background-color: #555;
 		}
 	}
 }
