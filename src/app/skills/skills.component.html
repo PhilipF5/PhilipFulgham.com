@@ -4,7 +4,7 @@
 			<div class="title">
 				Tech I've Used
 			</div>
-			<span class="skill" *ngFor="let skill of skills">
+			<span class="skill" [ngClass]="{'active': skill.active}" *ngFor="let skill of skills">
 				{{skill.name}}
 			</span>
 		</div>
