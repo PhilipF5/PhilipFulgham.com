@@ -10,6 +10,7 @@ import { BioComponent } from "./bio/bio.component";
 import { FooterComponent } from "./footer/footer.component";
 import { HeaderComponent } from "./header/header.component";
 import { PortfolioComponent } from "./portfolio/portfolio.component";
+import { ProjectsComponent } from "./projects/projects.component";
 import { QuoteDisplayComponent } from "./quote-display/quote-display.component";
 import { SkillsComponent } from "./skills/skills.component";
 
@@ -20,6 +21,7 @@ import { SkillsComponent } from "./skills/skills.component";
 		FooterComponent,
 		HeaderComponent,
 		PortfolioComponent,
+		ProjectsComponent,
 		QuoteDisplayComponent,
 		SkillsComponent
 	],
