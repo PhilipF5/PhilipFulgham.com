@@ -1,15 +1,16 @@
 <div *isDesktop class="content">
-	<div class="skill-card" *ngFor="let skill of skills">
-		<div class="img-container">
-			<img src="assets/techs/{{skill.image}}.png">
+	<div class="container">
+		<div class="list">
+			<div class="title">
+				Skills
+			</div>
+			<span class="skill" *ngFor="let skill of skills">
+				{{skill.name}}
+			</span>
 		</div>
-		<div class="caption">
-			<div class="level {{skill.level}}">{{skill.level}}</div>
-			{{skill.name}}
+		<div class="info">
+			
 		</div>
-	</div>
-	<div class="notice low">
-		All logos are the property of their respective owners.
 	</div>
 </div>
 <div *showItDevice="['mobile', 'tablet']" class="content mobile">
