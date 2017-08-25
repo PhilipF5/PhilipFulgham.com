@@ -1,8 +1,9 @@
 <div *isDesktop class="content">
-	<div id="portfolio{{value}}" class="outer" *ngFor="let value of [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]">
-		<div class="inner">
-			<img src="assets/portfolio{{value}}.png">
+	<div class="container">
+		<div class="title">
+			Portfolio
 		</div>
+		<img *ngFor="let value of [1, 2, 3, 4, 5, 6]" src="assets/portfolio/{{value}}.png" />
 	</div>
 </div>
 <div *showItDevice="['mobile', 'tablet']" class="content mobile">
