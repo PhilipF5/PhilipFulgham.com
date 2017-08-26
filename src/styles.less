@@ -1,47 +1,47 @@
 /* You can add global styles to this file, and also import other style files */
 html, body {
+	height: 100%;
+	margin: 0;
 	&.mobile {
 		width: 100%;
 	}
-	margin: 0;
-	height: 100%;
 }
 
 body {
-	transition: background 0.5s linear;
 	background-color: black;
+	transition: background 0.5s linear;
+}
+
+.container {
+	box-shadow: 0 0 15px rgba(0,0,0,0.5);
+	color: white;
+	display: block;
+	font-family: ff-dagny-web-pro;
+	height: auto;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 25px 0 25px 0;
+	width: 100%;
 }
 
 .content {
-	&.mobile {
-		width: 100%;
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}
 	//min-height: 100%;
 	//padding-top: 150px;
 	//padding-bottom: 50px;
 	text-align: center;
 	transition: background 0.5s linear;
-}
-
-.container {
-	width: 100%;
-	height: auto;
-	padding: 25px 0 25px 0;
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-	box-shadow: 0 0 15px rgba(0,0,0,0.5);
-	color: white;
-	font-family: ff-dagny-web-pro;
+	&.mobile {
+		padding-bottom: 20px;
+		padding-top: 20px;
+		width: 100%;
+	}
 }
 
 .title {
 	display: block;
-	text-align: center;
-	text-transform: uppercase;
 	font-family: ff-dagny-web-pro;
 	font-size: 20pt;
 	margin-bottom: 10px;
+	text-align: center;
+	text-transform: uppercase;
 }
