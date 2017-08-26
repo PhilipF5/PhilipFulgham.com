@@ -1,61 +1,62 @@
+@keyframes appear {
+	0% {
+		opacity: 0;
+		transform: translateX(-5%);
+	}
+	100% {
+		opacity: 1;
+		transform: translateX(0);
+	}
+}
+
 div {
-	width: 70%;
 	height: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	width: 70%;
 	div {
-		text-align: center;
 		display: inline-block;
 		position: relative;
-		width: 100%;
+		text-align: center;
 		top: 75%;
 		transform: translateY(-50%);
+		width: 100%;
 	}
-	p.quote {
-		font-family: "Futura";
-		font-size: 46pt;
+	.byline {
+		animation: 3s ease-out 3.5s 1 appear both;
 		color: white;
-		text-align: center;
-		animation: 3s ease-out 1.5s 1 appear backwards;
-		&:before {
-			content: "“";
-			font-family: "Baskerville";
-			font-weight: 600;
-			font-size: 90pt;
-			color: white;
-			position: absolute;
-			left: 20px;
-			top: 20px;
-			animation: 2s ease-out 4.5s 1 appear both;
-		}
-		&:after {
-			content: "”";
-			font-family: "Baskerville";
-			font-weight: 600;
-			font-size: 90pt;
-			color: white;
-			position: absolute;
-			right: 20px;
-			top: 250px;
-			animation: 2s ease-out 4.5s 1 appear both;
-		}
-	}
-	p.byline {
 		font-family: "Avenir";
 		font-size: 26pt;
 		font-style: italic;
-		color: white;
 		text-align: right;
-		animation: 3s ease-out 3.5s 1 appear both;
 	}
-	@keyframes appear {
-		0% {
-			transform: translateX(-5%);
-			opacity: 0;
+	.quote {
+		animation: 3s ease-out 1.5s 1 appear backwards;
+		color: white;
+		font-family: "Futura";
+		font-size: 46pt;
+		text-align: center;
+		&:after {
+			animation: 2s ease-out 4.5s 1 appear both;
+			color: white;
+			content: "”";
+			font-family: "Baskerville";
+			font-size: 90pt;
+			font-weight: 600;
+			position: absolute;
+			right: 20px;
+			top: 250px;
 		}
-		100% {
-			transform: translateX(0);
-			opacity: 1;
+		&:before {
+			animation: 2s ease-out 4.5s 1 appear both;
+			color: white;
+			content: "“";
+			font-family: "Baskerville";
+			font-size: 90pt;
+			font-weight: 600;
+			left: 20px;
+			position: absolute;
+			top: 20px;
 		}
 	}
 }
