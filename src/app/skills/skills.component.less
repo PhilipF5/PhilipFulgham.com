@@ -1,14 +1,6 @@
 .content {
 	.container {
-		width: 100%;
-		height: auto;
-		padding: 25px 0 25px 0;
-		display: block;
-		margin-left: auto;
-		margin-right: auto;
-		box-shadow: 0 0 15px rgba(0,0,0,0.5);
 		background-color: #1E1247;
-		color: white;
 		.list {
 			text-align: center;
 			font-family: ff-dagny-web-pro;
@@ -28,116 +20,6 @@
 						0 0 14px rgb(255, 48, 255);
 				}
 			}
-			div.title {
-				display: block;
-				text-align: center;
-				text-transform: uppercase;
-				font-family: ff-dagny-web-pro;
-				font-size: 20pt;
-				margin-bottom: 20px;
-			}
-		}
-	}
-	.skill-card {
-		display: inline-block;
-		width: 250px;
-		height: 320px;
-		margin: 0 25px 50px 25px;
-		text-align: left;
-		padding: 10px;
-		border-radius: 5px;
-		font-family: freight-sans-pro;
-		font-size: 18pt;
-		transition: box-shadow 0.5s linear, background 0.5s linear, color 0.5s linear, transform 0.5s ease-out;
-		color: white;
-		box-shadow: 0 0 4px rgba(0,0,0,0.5);
-		background-image: url("../../assets/black_linen_v2_@2X.png");
-		.img-container {
-			background-color: white;
-		}
-		&:hover {
-			transform: scale(1.1);
-		}
-		&:nth-child(6n-5):hover {
-			box-shadow: 0 0 16px red;
-		}
-		&:nth-child(6n-4):hover {
-			box-shadow: 0 0 16px orange;
-		}
-		&:nth-child(6n-3):hover {
-			box-shadow: 0 0 16px yellow;
-		}
-		&:nth-child(6n-2):hover {
-			box-shadow: 0 0 16px green;
-		}
-		&:nth-child(6n-1):hover {
-			box-shadow: 0 0 16px blue;
-		}
-		&:nth-child(6n-0):hover {
-			box-shadow: 0 0 16px violet;
-		}
-		.img-container {
-			display: block;
-			height: 200px;
-			width: 200px;
-			position: relative;
-			padding-left: 5%;
-			padding-right: 5%;
-			border-radius: 10px;
-			margin-right: auto;
-			margin-left: auto;
-			img {
-				display: block;
-				max-width: 80%;
-				max-height: 80%;
-				margin: auto;
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translate(-50%, -50%);
-			}
-		}
-		.level {
-			display: block;
-			text-transform: uppercase;
-			font-size: 10pt;
-			font-weight: bold;
-			margin-top: 10px;
-			margin-bottom: 10px;
-			font-family: sans-serif;
-			&.expert {
-				color: blue;
-			}
-			&.advanced {
-				color: green;
-			}
-			&.intermediate {
-				color: gold;
-			}
-			&.learning {
-				color: red;
-			}
-		}
-		.caption {
-			display: block;
-		}
-	}
-	.notice {
-		display: block;
-		width: 65%;
-		padding: 25px;
-		border-style: solid;
-		border-width: 2px;
-		text-align: center;
-		font: 14pt freight-sans-pro;
-		opacity: 0.5;
-		margin-left: auto;
-		margin-right: auto;
-		transition: all 0.5s linear;
-		&.low {
-			border-color: darkgray;
-			color: white;
-			background-color: #555;
 		}
 	}
 }
