@@ -3,47 +3,6 @@ a {
 }
 
 header {
-	&.mobile {
-		position: relative;
-		h1 {
-			display: block;
-			width: 100%;
-			margin-top: 0;
-			margin-bottom: 10px;
-			padding-top: 10px;
-			min-width: 100%;
-			&:hover {
-				transform: none !important;
-			}
-			a, a:visited {
-				&:hover {
-					text-shadow: none !important;
-				}
-			}
-		}
-		nav {
-			width: 100%;
-			min-width: 100%;
-			margin-bottom: 10px;
-			line-height: 2;
-			a, a:visited {
-				margin-left: 10px;
-				margin-right: 10px;
-				letter-spacing: 3px;
-				.indicator {
-					bottom: -5px;
-				}
-				&.active {
-					.indicator {
-						transform: translateY(-5px);
-					}
-				}
-				&:hover {
-					text-shadow: none !important;
-				}
-			}
-		}
-	}
 	position: absolute;
 	display: block;
 	z-index: 999;
