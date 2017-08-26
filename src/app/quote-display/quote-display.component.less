@@ -9,6 +9,25 @@
 	}
 }
 
+@keyframes arrow {
+	0% {
+		opacity: 0;
+	}
+	25% {
+		opacity: 1;
+		stroke-width: 3;
+	}
+	50% {
+		stroke-width: 1;
+	}
+	75% {
+		stroke-width: 3;
+	}
+	100% {
+		stroke-width: 1;
+	}
+}
+
 div {
 	height: 100%;
 	margin-left: auto;
@@ -21,6 +40,28 @@ div {
 		top: 75%;
 		transform: translateY(-50%);
 		width: 100%;
+	}
+	svg {
+		bottom: 10px;
+		height: 40px;
+		left: 50%;
+		position: absolute;
+		transform: translateX(-50%);
+		width: 100px;
+		&:hover {
+			polyline {
+				stroke-width: 3;
+			}
+		}
+		polyline {
+			animation: 4s ease-in-out 7s arrow backwards;
+			fill: none;
+			stroke: white;
+			stroke-linecap: round;
+			stroke-linejoin: round;
+			stroke-width: 1;
+			transition: stroke-width 0.5s ease-in-out;
+		}
 	}
 	.byline {
 		animation: 3s ease-out 3.5s 1 appear both;
