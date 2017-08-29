@@ -33,11 +33,15 @@ div {
 	margin-left: auto;
 	margin-right: auto;
 	width: 70%;
+	@media (max-device-width: 1024px) {
+		width: 95%;
+	}
 	div {
 		display: inline-block;
+		height: auto;
 		position: relative;
 		text-align: center;
-		top: 75%;
+		top: 50%;
 		transform: translateY(-50%);
 		width: 100%;
 	}
@@ -77,6 +81,9 @@ div {
 		font-family: "Futura";
 		font-size: 3.75rem;
 		text-align: center;
+		@media (max-device-width: 1024px) {
+			font-size: 2rem;
+		}
 		&:after {
 			animation: 2s ease-out 4.5s 1 appear both;
 			color: white;
@@ -85,8 +92,8 @@ div {
 			font-size: 1.5em;
 			font-weight: 600;
 			position: absolute;
-			right: 20px;
-			top: 250px;
+			right: 0.15em;
+			top: 2.85em;
 		}
 		&:before {
 			animation: 2s ease-out 4.5s 1 appear both;
@@ -95,9 +102,9 @@ div {
 			font-family: "Baskerville";
 			font-size: 1.5em;
 			font-weight: 600;
-			left: 20px;
+			left: 0.15em;
 			position: absolute;
-			top: 20px;
+			top: 0.25em;
 		}
 	}
 }

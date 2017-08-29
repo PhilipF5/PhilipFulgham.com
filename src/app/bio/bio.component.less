@@ -1,7 +1,7 @@
 .content {
 	.container {
 		background-image: url("../../assets/black_linen_v2_@2X.png");
-		height: 350px;
+		height: auto;
 		.portrait {
 			border-right-style: inset;
 			border-right-width: 2px;
@@ -9,13 +9,15 @@
 			height: 100%;
 			vertical-align: middle;
 			width: 20%;
+			@media (max-device-width: 1024px) {
+				border: none;
+				width: 95%;
+			}
 			img {
 				display: block;
 				filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
 				margin: auto auto auto auto;
 				position: relative;
-				top: 50%;
-				transform: translateY(-50%);
 				width: 150px;
 			}
 		}
@@ -28,6 +30,11 @@
 			text-align: left;
 			vertical-align: middle;
 			width: 70%;
+			@media (max-device-width: 1024px) {
+				margin-left: 0;
+				text-align: justify;
+				width: 95%;
+			}
 			a, a:visited {
 				color: dodgerblue;
 				cursor: pointer;

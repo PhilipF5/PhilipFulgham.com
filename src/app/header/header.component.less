@@ -1,9 +1,11 @@
 @keyframes introTitle {
 	from {
+		left: 50%;
 		margin: 0;
-		transform: scale(2) translateX(42%) translateY(50%);
+		transform: scale(2) translateX(-50%) translateY(50%);
 	}
 	to {
+		left: 0;
 		margin: 0 0 0 30px;
 	}
 }
@@ -31,11 +33,11 @@ header {
 		font-weight: 100;
 		height: 100%;
 		margin: 0 0 0 30px;
-		max-width: 35%;
-		min-width: 450px;
+		position: relative;
 		transform-origin: left;
 		transition: transform 0.5s ease-out;
 		vertical-align: middle;
+		width: auto;
 		&:hover {
 			text-shadow: 0.2em 0.2em 0.2em rgba(0,0,0,0.5);
 			transform: scale(1.1);
