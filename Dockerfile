@@ -8,7 +8,10 @@ COPY src/assets/jobs /src/assets/jobs/
 COPY src/assets/portfolio /src/assets/portfolio/
 COPY package.json package-lock.json ./
 RUN npm install
-
+RUN apt-get update && apt-get install -y python-dev
+RUN curl -O https://bootstrap.pypa.io/get-pip.py
+RUN python get-pip.py
+RUN pip install awscli
 USER node
 RUN mkdir /home/node/.npm-global
 ENV PATH=/home/node/.npm-global/bin:$PATH
