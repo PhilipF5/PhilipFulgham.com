@@ -1,0 +1,16 @@
+FROM node
+RUN mkdir -p /src/assets/creds
+RUN mkdir -p /src/assets/jobs
+RUN mkdir -p /src/assets/portfolio
+COPY src/assets/*.json src/assets/portrait.png /src/assets/
+COPY src/assets/creds /src/assets/creds/
+COPY src/assets/jobs /src/assets/jobs/
+COPY src/assets/portfolio /src/assets/portfolio/
+COPY package.json package-lock.json ./
+RUN npm install
+
+USER node
+RUN mkdir /home/node/.npm-global
+ENV PATH=/home/node/.npm-global/bin:$PATH
+ENV NPM_CONFIG_PREFIX=/home/node/.npm-global
+RUN npm install -g @angular/cli
