@@ -1,0 +1,20 @@
+image:
+  name: philipf5/personal-website
+  username: $DOCKER_USERNAME
+  password: $DOCKER_PASSWORD
+  email: $DOCKER_EMAIL
+
+pipelines:
+  branches:
+    dev:
+      - step:
+          script:
+          - cp -r /node_modules /src $BITBUCKET_CLONE_DIR
+          - ng build --prod
+          - aws s3 sync --delete --acl public-read dist/. s3://beta.philipfulgham.com
+    master:
+      - step:
+          script:
+          - cp -r /node_modules /src $BITBUCKET_CLONE_DIR
+          - ng build --prod
+          - aws s3 sync --delete --acl public-read dist/. s3://philipfulgham.com
