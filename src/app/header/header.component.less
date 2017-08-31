@@ -2,11 +2,13 @@
 	from {
 		left: 50%;
 		margin: 0;
+		pointer-events: none;
 		transform: scale(2) translateX(-50%) translateY(50%);
 	}
 	to {
 		left: 0;
 		margin: 0 0 0 30px;
+		pointer-events: none;
 	}
 }
 
@@ -38,6 +40,9 @@ header {
 		transition: transform 0.5s ease-out;
 		vertical-align: middle;
 		width: auto;
+		&:hover {
+			transform: scale(1.1);
+		}
 		a, a:visited {
 			color: white;
 			display: inline-block;
