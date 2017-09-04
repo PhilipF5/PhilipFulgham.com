@@ -2,14 +2,14 @@
 	<div class="container">
 		<div class="list">
 			<div class="title">
-				Tech I've Used
+				Skills
 			</div>
 			<span class="skill" [ngClass]="{'active': skill.active}" *ngFor="let skill of skills">
 				{{skill.name}}
 			</span>
-		</div>
-		<div class="info">
-			
+			<div class="footnote">
+				Recently used skills <span class="glow">glow</span>
+			</div>
 		</div>
 	</div>
 </div>
