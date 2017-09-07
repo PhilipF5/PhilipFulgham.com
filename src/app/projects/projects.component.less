@@ -10,6 +10,9 @@
 			height: auto;
 			vertical-align: middle;
 			width: 75px;
+			@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: landscape) {
+				width: 50px;
+			}
 		}
 		.details {
 			display: inline-block;
@@ -31,14 +34,22 @@
 			height: 100%;
 			vertical-align: top;
 			width: 30%;
-			@media (max-device-width: 1024px) {
+			@media (max-device-width: 700px) {
 				margin-bottom: 20px;
 				width: 95%;
+			}
+			@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: portrait) {
+				margin-bottom: 20px;
+				width: 45%;
 			}
 		}
 		.job {
 			ul {
 				list-style-type: none;
+				@media (min-device-width: 701px) and (max-device-width: 1000px) {
+					list-style-type: square;
+					text-align: left;
+				}
 			}
 		}
 	}
