@@ -17,12 +17,12 @@
 			@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: landscape) {
 				&:nth-child(even) {
 					transform-origin: left center;
+					&:last-child {
+						transform-origin: center center;
+					}
 				}
 				&:nth-child(odd) {
 					transform-origin: right center;
-				}
-				&:last-child {
-					transform-origin: center center;
 				}
 			}
 			&:hover {
