@@ -8,6 +8,9 @@
 			margin-top: 20px;
 			text-align: center;
 			width: 100%;
+			@media (max-device-width: 700px) {
+				font-size: 0.5em;
+			}
 			.glow {
 				text-shadow: 0 0 7px rgb(255, 48, 255),
 				0 0 7px rgb(255, 48, 255),
@@ -28,6 +31,8 @@
 				width: 200px;
 				@media (max-device-width: 700px) {
 					margin: 5px;
+				}
+				@media (max-device-width: 700px) and (orientation: portrait) {
 					width: 45%;
 				}
 				@media (min-device-width: 701px) and (max-device-width: 1000px) {
