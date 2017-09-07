@@ -26,9 +26,15 @@
 				line-height: 50px;
 				margin: 30px;
 				width: 200px;
-				@media (max-device-width: 1024px) {
+				@media (max-device-width: 700px) {
 					margin: 5px;
 					width: 45%;
+				}
+				@media (min-device-width: 701px) and (max-device-width: 1000px) {
+					margin: 15px;
+				}
+				@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: portrait) {
+					width: 20%;
 				}
 				&.active {
 					text-shadow: 0 0 14px rgb(255, 48, 255),

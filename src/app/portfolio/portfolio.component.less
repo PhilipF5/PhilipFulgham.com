@@ -11,8 +11,19 @@
 			margin: 50px;
 			transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 			width: 350px;
-			@media (max-device-width: 1024px) {
+			@media (max-device-width: 700px) {
 				margin: 50px 0 50px 0;
+			}
+			@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: landscape) {
+				&:nth-child(even) {
+					transform-origin: left center;
+				}
+				&:nth-child(odd) {
+					transform-origin: right center;
+				}
+				&:last-child {
+					transform-origin: center center;
+				}
 			}
 			&:hover {
 				box-shadow: 0 0 15px 15px rgba(0,0,0,0.5);
