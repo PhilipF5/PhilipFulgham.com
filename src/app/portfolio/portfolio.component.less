@@ -14,6 +14,18 @@
 			@media (max-device-width: 700px) {
 				margin: 50px 0 50px 0;
 			}
+			@media (max-device-width: 700px) and (orientation: landscape) {
+				width: 75%;
+			}
+			@media (max-device-width: 700px) and (orientation: portrait) {
+				width: 95%;
+			}
+			@media (min-device-width: 701px) {
+				&:hover {
+					box-shadow: 0 0 15px 15px rgba(0,0,0,0.5);
+					transform: scale(2);
+				}
+			}
 			@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: landscape) {
 				&:nth-child(even) {
 					transform-origin: left center;
@@ -24,10 +36,6 @@
 				&:nth-child(odd) {
 					transform-origin: right center;
 				}
-			}
-			&:hover {
-				box-shadow: 0 0 15px 15px rgba(0,0,0,0.5);
-				transform: scale(2);
 			}
 		}
 	}
