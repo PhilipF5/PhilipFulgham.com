@@ -24,7 +24,7 @@ header {
 	width: 100%;
 	z-index: 999;
 	h1 {
-		animation: 3s ease-in-out 1s 1 introTitle both;
+		animation: 3s ease-in-out 1s 1 introTitle backwards;
 		display: inline-block;
 		font-size: 1.625em;
 		font-weight: 100;
@@ -32,6 +32,7 @@ header {
 		left: 50%;
 		margin: 0;
 		position: relative;
+		transform: translate3d(-45vw, 50%, 0);
 		transform-origin: left;
 		transition: transform 0.5s ease-out;
 		vertical-align: middle;
