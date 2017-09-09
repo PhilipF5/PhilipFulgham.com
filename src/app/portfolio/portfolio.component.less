@@ -13,8 +13,9 @@
 			display: inline-block;
 			height: auto;
 			margin: 50px;
+			max-width: 350px;
+			min-width: 33%;
 			transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-			width: 350px;
 			@media (max-device-width: 700px) {
 				margin: 50px 0 50px 0;
 			}
@@ -31,7 +32,7 @@
 					transform: scale(2);
 				}
 			}
-			@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: landscape) {
+			@media (min-device-width: 701px) and (orientation: landscape) {
 				&:nth-child(even) {
 					transform-origin: left center;
 					&:last-child {
