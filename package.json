@@ -44,5 +44,17 @@
     "ts-node": "~2.0.0",
     "tslint": "~4.5.0",
     "typescript": "~2.4.0"
-  }
+  },
+  "description": "This repo contains the source code for my personal website.  The site is built in Angular, so \"view source\" isn't really sufficient to see what the website is doing.",
+  "main": "karma.conf.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PhilipF5/personal-website.git"
+  },
+  "author": "Philip Fulgham",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/PhilipF5/personal-website/issues"
+  },
+  "homepage": "https://github.com/PhilipF5/personal-website#readme"
 }
