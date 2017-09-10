@@ -2,7 +2,7 @@ FROM node
 RUN mkdir -p /src/assets/creds
 RUN mkdir -p /src/assets/jobs
 RUN mkdir -p /src/assets/portfolio
-COPY src/assets/*.json src/assets/portrait.png /src/assets/
+COPY src/assets/*.json src/assets/portrait.png src/assets/galaxy.jpg /src/assets/
 COPY src/assets/creds /src/assets/creds/
 COPY src/assets/jobs /src/assets/jobs/
 COPY src/assets/portfolio /src/assets/portfolio/
