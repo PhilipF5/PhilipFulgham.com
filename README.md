@@ -1,6 +1,6 @@
 # Philip Fulgham's Personal Website
 
-This repo contains the source code for my personal website at http://philipfulgham.name.  The site is built in Angular, so "view source" isn't really sufficient to see what the website is doing.
+This repo contains the source code for my personal website.  The site is built in Angular, so "view source" isn't really sufficient to see what the website is doing.
 
 ## Legal
 
