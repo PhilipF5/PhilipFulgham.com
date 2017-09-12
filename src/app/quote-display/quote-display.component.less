@@ -84,8 +84,11 @@ div {
 		font-family: "Futura";
 		font-size: 3.75rem;
 		text-align: center;
-		@media (max-device-width: 700px), (max-device-height: 1040px) and (orientation: portrait) {
+		@media (max-device-width: 700px), (max-device-height: 1000px) and (orientation: portrait) {
 			font-size: 2rem;
+		}
+		@media (min-device-height: 1001px) and (max-device-height: 1040px) and (orientation: portrait) {
+			font-size: 3rem;
 		}
 		@media (min-device-width: 701px) and (max-device-width: 1040px) and (max-device-height: 1000px) and (orientation: landscape) {
 			font-size: 3rem;
