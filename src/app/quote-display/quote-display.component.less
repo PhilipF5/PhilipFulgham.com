@@ -36,6 +36,9 @@ div {
 	@media (max-device-width: 700px) {
 		width: 95%;
 	}
+	@media (min-device-width: 701px) and (orientation: portrait) {
+		width: 85%;
+	}
 	div {
 		display: inline-block;
 		height: auto;
@@ -81,10 +84,10 @@ div {
 		font-family: "Futura";
 		font-size: 3.75rem;
 		text-align: center;
-		@media (max-device-width: 700px), (orientation: portrait) {
+		@media (max-device-width: 700px), (max-device-height: 1040px) and (orientation: portrait) {
 			font-size: 2rem;
 		}
-		@media (min-device-width: 701px) and (max-device-width: 1040px) and (orientation: landscape) {
+		@media (min-device-width: 701px) and (max-device-width: 1040px) and (max-device-height: 1000px) and (orientation: landscape) {
 			font-size: 3rem;
 		}
 		&:after {
