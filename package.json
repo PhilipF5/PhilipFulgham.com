@@ -1,6 +1,6 @@
 {
 	"name": "personal-website",
-	"version": "3.0.0-beta.8",
+	"version": "3.0.0-rc.1",
 	"angular-cli": {},
 	"scripts": {
 		"ng": "ng",
