@@ -13,7 +13,6 @@
 			display: inline-block;
 			height: auto;
 			margin: 50px;
-			max-width: 350px;
 			min-width: 33%;
 			transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 			@media (max-device-width: 700px) {
@@ -24,13 +23,6 @@
 			}
 			@media (max-device-width: 700px) and (orientation: portrait) {
 				width: 95%;
-			}
-			@media (min-device-width: 701px) {
-				&:hover {
-					box-shadow: 30px 30px 15px rgba(0,0,0,0.5),
-					0 0 5px 5px rgba(0, 0, 0, 0.5);
-					transform: scale(2);
-				}
 			}
 			@media (min-device-width: 701px) and (orientation: landscape) {
 				&:nth-child(even) {
