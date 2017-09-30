@@ -13,6 +13,7 @@
 			display: inline-block;
 			height: auto;
 			margin: 50px;
+			max-width: 80%;
 			min-width: 33%;
 			transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 			@media (max-device-width: 700px) {
@@ -34,6 +35,9 @@
 				&:nth-child(odd) {
 					transform-origin: right center;
 				}
+			}
+			@media (min-device-width: 1000px) and (orientation: landscape) {
+				max-width: 75%;
 			}
 		}
 	}
