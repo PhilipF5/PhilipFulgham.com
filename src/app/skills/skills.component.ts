@@ -4,7 +4,7 @@ import { Http, Response } from "@angular/http";
 @Component({
 	selector: "app-skills",
 	templateUrl: "./skills.component.html",
-	styleUrls: ["./skills.component.less"]
+	styleUrls: ["./skills.component.scss"]
 })
 export class SkillsComponent implements OnInit {
 	

@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 @Component({
 	selector: "app-bio",
 	templateUrl: "./bio.component.html",
-	styleUrls: ["./bio.component.less"]
+	styleUrls: ["./bio.component.scss"]
 })
 export class BioComponent implements OnInit {
 	favoriteGames = ["Dishonored", "Minecraft", "Assassin's Creed", "The Elder Scrolls", "Batman: Arkham"];
@@ -12,7 +12,7 @@ export class BioComponent implements OnInit {
 	constructor() { }
 
 	ngOnInit() {}
-	
+
 	ngAfterViewInit() {
 		window.scrollTo(0, 0);
 	}

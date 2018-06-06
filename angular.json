@@ -16,7 +16,7 @@
 						"main": "src/main.ts",
 						"tsConfig": "src/tsconfig.json",
 						"assets": ["src/assets", "src/favicon.ico", "src/js"],
-						"styles": ["src/styles.less"],
+						"styles": ["src/styles.scss"],
 						"scripts": []
 					},
 					"configurations": {
@@ -62,7 +62,7 @@
 						"main": "src/test.ts",
 						"karmaConfig": "./karma.conf.js",
 						"scripts": [],
-						"styles": ["src/styles.less"],
+						"styles": ["src/styles.scss"],
 						"assets": ["src/assets", "src/favicon.ico", "src/js"]
 					}
 				},
@@ -101,7 +101,7 @@
 	"schematics": {
 		"@schematics/angular:component": {
 			"prefix": "app",
-			"styleext": "less"
+			"styleext": "scss"
 		},
 		"@schematics/angular:directive": {
 			"prefix": "app"
