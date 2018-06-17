@@ -1,11 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-	selector: "skills",
-	templateUrl: "./skills.component.html",
-	styleUrls: ["./skills.component.scss"]
+	selector: "skills-grid",
+	templateUrl: "./skills-grid.component.html",
+	styleUrls: ["./skills-grid.component.scss"]
 })
-export class SkillsComponent implements OnInit {
+export class SkillsGridComponent implements OnInit {
 
 	skills;
 
