@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-	selector: "app-projects",
+	selector: "projects",
 	templateUrl: "./projects.component.html",
 	styleUrls: ["./projects.component.scss"]
 })
@@ -10,7 +10,7 @@ export class ProjectsComponent implements OnInit {
 	jobs;
 
 	constructor() {
-		var jobs = require("../../assets/jobs.json");
+		var jobs = require("../../../assets/jobs.json");
 		this.jobs = jobs;
 		jobs.sort((a, b) => {
 			if (a.start > b.start) {

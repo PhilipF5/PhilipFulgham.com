@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 
 @Component({
-	selector: "app-quote-display",
+	selector: "quote-display",
 	templateUrl: "./quote-display.component.html",
 	styleUrls: ["./quote-display.component.scss"]
 })

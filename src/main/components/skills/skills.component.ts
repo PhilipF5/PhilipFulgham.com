@@ -1,17 +1,16 @@
 import { Component, OnInit } from "@angular/core";
-import { Http, Response } from "@angular/http";
 
 @Component({
-	selector: "app-skills",
+	selector: "skills",
 	templateUrl: "./skills.component.html",
 	styleUrls: ["./skills.component.scss"]
 })
 export class SkillsComponent implements OnInit {
-	
+
 	skills;
-	
-	constructor(private http: Http) {
-		var skills = require("../../assets/skills.json");
+
+	constructor() {
+		var skills = require("../../../assets/skills.json");
 		this.skills = skills;
 		skills.sort((a, b) => {
 			if (a.name.toLowerCase() < b.name.toLowerCase()) {
@@ -24,9 +23,9 @@ export class SkillsComponent implements OnInit {
 	}
 
 	ngOnInit() {
-		
+
 	}
-	
+
 	ngAfterViewInit() {
 		window.scrollTo(0, 0);
 	}

@@ -1,35 +1,19 @@
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
-import { HttpModule } from "@angular/http";
 import { NgModule } from "@angular/core";
 import { ResponsiveModule } from "ng2-responsive";
-import { RouterModule } from "@angular/router";
 
+import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { BioComponent } from "./bio/bio.component";
-import { FooterComponent } from "./footer/footer.component";
-import { HeaderComponent } from "./header/header.component";
-import { PortfolioComponent } from "./portfolio/portfolio.component";
-import { ProjectsComponent } from "./projects/projects.component";
-import { QuoteDisplayComponent } from "./quote-display/quote-display.component";
-import { SkillsComponent } from "./skills/skills.component";
+
+import { MainModule } from "main/main.module";
 
 @NgModule({
-	declarations: [
-		AppComponent,
-		BioComponent,
-		FooterComponent,
-		HeaderComponent,
-		PortfolioComponent,
-		ProjectsComponent,
-		QuoteDisplayComponent,
-		SkillsComponent
-	],
+	declarations: [AppComponent],
 	imports: [
 		BrowserModule,
-		FormsModule,
-		HttpModule,
+		AppRoutingModule,
 		ResponsiveModule,
+		MainModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

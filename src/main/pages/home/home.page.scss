@@ -1,0 +1,35 @@
+@keyframes intro {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+h1 {
+	display: none;
+}
+
+img {
+	animation: 6s ease-in-out 2s 1 intro backwards;
+	height: auto;
+	position: fixed;
+	width: 100%;
+	z-index: -999;
+	@media (max-device-width: 700px) and (orientation: portrait) {
+		height: 100%;
+		transform: translateX(-50%);
+		width: auto;
+	}
+	@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: portrait) {
+		height: 100%;
+		transform: translateX(-33%);
+		width: auto;
+	}
+	@media (min-device-height: 1040px) and (orientation: portrait) {
+		height: 100%;
+		transform: translateX(-33%);
+		width: auto;
+	}
+}
