@@ -1,0 +1,16 @@
+<div class="title">
+  Pro
+</div>
+<div class="job" *ngFor="let job of jobs">
+  <history-item
+    image="assets/jobs/{{ job.logo }}"
+    [place]="job.company"
+    [name]="job.title"
+    subtitle="{{ job.start }}–{{ job.end || '' }}"
+  ></history-item>
+  <ul>
+    <li *ngFor="let project of job.projects">
+      {{ project }}
+    </li>
+  </ul>
+</div>

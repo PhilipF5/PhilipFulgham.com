@@ -1,0 +1,25 @@
+img {
+	display: inline-block;
+	filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+	height: auto;
+	vertical-align: middle;
+	width: 75px;
+	@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: landscape) {
+		width: 50px;
+	}
+}
+
+.job {
+	ul {
+		list-style-position: inside;
+		list-style-type: none;
+		padding-left: 0;
+		li {
+			margin-bottom: 10px;
+		}
+		@media (min-device-width: 701px) and (max-device-width: 1000px) {
+			list-style-type: square;
+			text-align: left;
+		}
+	}
+}

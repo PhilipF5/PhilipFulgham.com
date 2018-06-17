@@ -1,27 +1,8 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 @Component({
 	selector: "projects",
 	templateUrl: "./projects.component.html",
-	styleUrls: ["./projects.component.scss"]
+	styleUrls: ["./projects.component.scss"],
 })
-export class ProjectsComponent implements OnInit {
-
-	jobs;
-
-	constructor() {
-		var jobs = require("../../../assets/jobs.json");
-		this.jobs = jobs;
-		jobs.sort((a, b) => {
-			if (a.start > b.start) {
-				return -1;
-			}
-			if (a.start < b.start) {
-				return 1;
-			}
-		});
-	}
-
-	ngOnInit() {}
-
-}
+export class ProjectsComponent {}

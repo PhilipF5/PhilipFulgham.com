@@ -1,41 +1,7 @@
 <div class="content">
 	<div class="container">
-		<div class="github">
-			<div class="title">
-				GitHub
-			</div>
-			<div id="github-card" data-username="PhilipF5" data-sort-by="updateTime" data-header-text="Recent repositories"></div>
-		</div>
-		<div class="work">
-			<div class="title">
-				Pro
-			</div>
-			<div class="job" *ngFor="let job of jobs">
-				<img src="assets/jobs/{{job.logo}}" />
-				<div class="details">
-					<div class="company">{{job.company}}</div>
-					<div class="role">{{job.title}}</div>
-					<div class="duration">{{job.start}}–{{job.end}}</div>
-				</div>
-				<ul>
-					<li *ngFor="let project of job.projects">
-						{{project}}
-					</li>
-				</ul>
-			</div>
-		</div>
-		<div class="edu">
-			<div class="title">
-				Edu
-			</div>
-			<div class="cred">
-				<img src="assets/creds/VT.png" />
-				<div class="details">
-					<div class="school">Virginia Tech</div>
-					<div class="cert">Bachelor of Science</div>
-					<div class="time">August 2017 with highest honors</div>
-				</div>
-			</div>
-		</div>
+		<github-profile></github-profile>
+		<work-history></work-history>
+		<edu-history></edu-history>
 	</div>
 </div>

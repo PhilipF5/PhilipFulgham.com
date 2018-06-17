@@ -1,0 +1,33 @@
+:host {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+}
+
+img {
+	filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
+	height: auto;
+	width: 75px;
+	@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: landscape) {
+		width: 50px;
+	}
+}
+
+.details {
+	display: flex;
+	flex-direction: column;
+	text-align: left;
+
+	.place {
+		font-size: 1.313em;
+		font-weight: bold;
+	}
+
+	.name {
+		font-size: 1.125em;
+	}
+
+	.subtitle {
+		font-size: 1em;
+	}
+}
