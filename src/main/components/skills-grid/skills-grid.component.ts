@@ -1,33 +1,21 @@
 import { Component, OnInit } from "@angular/core";
 
+import { AngularFirestore } from "angularfire2/firestore";
+import { Observable } from "rxjs";
+
+import { Skill } from "main/models";
+
 @Component({
 	selector: "skills-grid",
 	templateUrl: "./skills-grid.component.html",
 	styleUrls: ["./skills-grid.component.scss"]
 })
 export class SkillsGridComponent implements OnInit {
+	public skills: Observable<Skill[]>;
 
-	skills;
-
-	constructor() {
-		var skills = require("../../../assets/skills.json");
-		this.skills = skills;
-		skills.sort((a, b) => {
-			if (a.name.toLowerCase() < b.name.toLowerCase()) {
-				return -1;
-			}
-			if (a.name.toLowerCase() > b.name.toLowerCase()) {
-				return 1;
-			}
-		});
-	}
+	constructor(private afs: AngularFirestore) {}
 
 	ngOnInit() {
-
+		this.skills = this.afs.collection<Skill>("skills", skill => skill.orderBy("name")).valueChanges();
 	}
-
-	ngAfterViewInit() {
-		window.scrollTo(0, 0);
-	}
-
 }

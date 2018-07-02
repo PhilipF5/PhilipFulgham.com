@@ -4,7 +4,7 @@
 			<div class="title">
 				Skills
 			</div>
-			<span class="skill" [ngClass]="{'active': skill.active}" *ngFor="let skill of skills">
+			<span class="skill" [ngClass]="{'active': skill.active}" *ngFor="let skill of skills | async">
 				{{skill.name}}
 			</span>
 			<div class="footnote">
