@@ -1,12 +1,12 @@
 <div class="title">
   Pro
 </div>
-<div class="job" *ngFor="let job of jobs">
+<div class="job" *ngFor="let job of jobs | async">
   <history-item
-    image="assets/jobs/{{ job.logo }}"
-    [place]="job.company"
+    [image]="job.image | async"
+    [place]="job.org"
     [name]="job.title"
-    subtitle="{{ job.start }}–{{ job.end || '' }}"
+    [subtitle]="formatDateRange(job)"
   ></history-item>
   <ul>
     <li *ngFor="let project of job.projects">

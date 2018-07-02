@@ -3,9 +3,10 @@
 </div>
 <div class="cred">
   <history-item
-    image="assets/creds/VT.png"
-    place="Virginia Tech"
-    name="Bachelor of Science"
-    subtitle="August 2017 with highest honors"
+    *ngFor="let cred of creds | async"
+    [image]="cred.image | async"
+    [place]="cred.issuer"
+    [name]="cred.name"
+    [subtitle]="formatDate(cred.date)"
   ></history-item>
 </div>
