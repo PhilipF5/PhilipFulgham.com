@@ -1,47 +1,54 @@
-.content {
-	.container {
-		background-color: rgba(30, 26, 57, 0.80);
-		.footnote {
-			font-family: sans-serif;
-			font-size: 0.6em;
-			font-style: italic;
-			margin-top: 20px;
-			text-align: center;
-			width: 100%;
-			@media (max-device-width: 700px) {
-				font-size: 0.5em;
-			}
-			.glow {
-				color: rgb(255, 225, 255);
-				text-shadow: 0 0 7px rgb(255, 48, 255),
-				0 0 7px rgb(255, 48, 255);
-			}
+:host {
+	background-color: rgba(30, 26, 57, 0.80);
+
+	.footnote {
+		font-family: sans-serif;
+		font-size: 0.6em;
+		font-style: italic;
+		margin-top: 20px;
+		text-align: center;
+		width: 100%;
+
+		@media (max-device-width: 700px) {
+			font-size: 0.5em;
 		}
-		.list {
-			font-family: ff-dagny-web-pro;
-			font-size: 1.375em;
-			list-style-type: none;
-			text-align: center;
-			.skill {
-				border-radius: 20px;
-				display: inline-block;
-				line-height: 50px;
-				margin: 20px;
-				width: 200px;
-				@media (max-device-width: 700px) {
-					margin: 5px;
-				}
-				@media (max-device-width: 700px) and (orientation: portrait) {
-					width: 45%;
-				}
-				@media (min-device-width: 701px) and (max-device-width: 1000px) {
-					margin: 15px;
-				}
-				&.active {
-					color: rgb(255, 225, 255);
-					text-shadow: 0 0 14px rgb(255, 48, 255),
-					0 0 14px rgb(255, 48, 255);
-				}
+
+		.glow {
+			color: rgb(255, 225, 255);
+			text-shadow: 0 0 7px rgb(255, 48, 255),
+			0 0 7px rgb(255, 48, 255);
+		}
+	}
+
+	.list {
+		font-family: ff-dagny-web-pro;
+		font-size: 1.375em;
+		list-style-type: none;
+		text-align: center;
+
+		.skill {
+			border-radius: 20px;
+			display: inline-block;
+			line-height: 50px;
+			margin: 20px;
+			width: 200px;
+
+			@media (max-device-width: 700px) {
+				margin: 5px;
+			}
+
+			@media (max-device-width: 700px) and (orientation: portrait) {
+				width: 45%;
+			}
+
+			@media (min-device-width: 701px) and (max-device-width: 1000px) {
+				margin: 15px;
+			}
+			
+			&.active {
+				color: rgb(255, 225, 255);
+				text-shadow: 0 0 14px rgb(255, 48, 255),
+				0 0 14px rgb(255, 48, 255);
 			}
 		}
 	}

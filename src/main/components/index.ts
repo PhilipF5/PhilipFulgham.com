@@ -2,6 +2,7 @@ import { AboutMeComponent } from "./about-me/about-me.component";
 import { EduHistoryComponent } from "./edu-history/edu-history.component";
 import { GitHubProfileComponent } from "./github-profile/github-profile.component";
 import { HistoryItemComponent } from "./history-item/history-item.component";
+import { PageSectionComponent } from "./page-section/page-section.component";
 import { PortfolioComponent } from "./portfolio/portfolio.component";
 import { ProjectsComponent } from "./projects/projects.component";
 import { QuoteDisplayComponent } from "./quote-display/quote-display.component";
@@ -14,6 +15,7 @@ export { AboutMeComponent } from "./about-me/about-me.component";
 export { EduHistoryComponent } from "./edu-history/edu-history.component";
 export { GitHubProfileComponent } from "./github-profile/github-profile.component";
 export { HistoryItemComponent } from "./history-item/history-item.component";
+export { PageSectionComponent } from "./page-section/page-section.component";
 export { PortfolioComponent } from "./portfolio/portfolio.component";
 export { ProjectsComponent } from "./projects/projects.component";
 export { QuoteDisplayComponent } from "./quote-display/quote-display.component";
@@ -27,6 +29,7 @@ export const COMPONENTS = [
 	EduHistoryComponent,
 	GitHubProfileComponent,
 	HistoryItemComponent,
+	PageSectionComponent,
 	PortfolioComponent,
 	ProjectsComponent,
 	QuoteDisplayComponent,

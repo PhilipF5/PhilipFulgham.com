@@ -1,8 +1,4 @@
-<div class="content">
-	<div class="container">
-		<div class="title">
-			Portfolio
-		</div>
-		<img *ngFor="let url of photoUrls" [src]="url | async">
-	</div>
+<div class="title">
+	Portfolio
 </div>
+<img *ngFor="let url of photoUrls" [src]="url | async">
