@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
 import { AngularFireStorage } from "angularfire2/storage";
 import { AngularFirestore } from "angularfire2/firestore";
@@ -13,7 +13,7 @@ import { Job } from "main/models";
 	templateUrl: "./work-history.component.html",
 	styleUrls: ["./work-history.component.scss"],
 })
-export class WorkHistoryComponent {
+export class WorkHistoryComponent implements OnInit {
 	public jobs: Observable<Job[]>;
 
 	constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
