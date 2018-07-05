@@ -1,5 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 
+import { AngularFireStorage } from "angularfire2/storage";
+import { Observable } from "rxjs";
+
 @Component({
 	selector: "about-me",
 	templateUrl: "./about-me.component.html",
@@ -8,13 +11,12 @@ import { Component, OnInit } from "@angular/core";
 export class AboutMeComponent implements OnInit {
 	favoriteGames = ["Dishonored", "Minecraft", "Assassin's Creed", "The Elder Scrolls", "Batman: Arkham"];
 	favoriteShows = ["Doctor Who", "The Flash", "Gotham", "The Big Bang Theory"];
+	public photoUrl: Observable<string | null>;
 
-	constructor() { }
-
-	ngOnInit() {}
-
-	ngAfterViewInit() {
-		window.scrollTo(0, 0);
+	constructor(private storage: AngularFireStorage) {
 	}
 
+	ngOnInit() {
+		this.photoUrl = this.storage.ref("portrait.png").getDownloadURL();
+	}
 }
