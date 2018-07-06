@@ -1,0 +1,25 @@
+:host {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.category {
+	font-weight: bold;
+}
+
+ul {
+	list-style-position: inside;
+	list-style-type: none;
+	padding-left: 0;
+	text-align: center;
+
+	li {
+		margin-bottom: 10px;
+	}
+
+	@media (min-device-width: 701px) and (max-device-width: 1000px) {
+		list-style-type: square;
+		text-align: left;
+	}
+}

@@ -1,0 +1,6 @@
+<div class="category">{{ title || category }}</div>
+<ul>
+  <li *ngFor="let item of items | async">
+    {{ item.name }}
+  </li>
+</ul>
