@@ -21,19 +21,19 @@
 	text-align: center;
 
 	.byline {
-		animation: 3s ease-out 3.5s 1 appear both;
 		color: white;
 		font-family: ff-dagny-web-pro;
 		font-size: 2rem;
 		font-style: italic;
+		opacity: 0;
 		text-align: right;
 	}
 
 	.quote-text {
-		animation: 3s ease-out 1.5s 1 appear backwards;
 		color: white;
 		font-family: niveau-grotesk;
 		font-size: 4.5rem;
+		opacity: 0;
 		text-align: center;
 
 		@media (max-device-width: 700px), (max-device-height: 1000px) and (orientation: portrait) {
