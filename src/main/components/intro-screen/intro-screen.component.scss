@@ -1,0 +1,51 @@
+:host {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%;
+
+	@media (max-device-width: 700px) {
+		width: 95%;
+	}
+
+	@media (min-device-width: 701px) and (orientation: portrait) {
+		width: 85%;
+	}
+}
+
+.quote {
+	height: auto;
+	text-align: center;
+
+	.byline {
+		animation: 3s ease-out 3.5s 1 appear both;
+		color: white;
+		font-family: ff-dagny-web-pro;
+		font-size: 2rem;
+		font-style: italic;
+		text-align: right;
+	}
+
+	.quote-text {
+		animation: 3s ease-out 1.5s 1 appear backwards;
+		color: white;
+		font-family: niveau-grotesk;
+		font-size: 4.5rem;
+		text-align: center;
+
+		@media (max-device-width: 700px), (max-device-height: 1000px) and (orientation: portrait) {
+			font-size: 2rem;
+		}
+
+		@media (min-device-height: 1001px) and (max-device-height: 1040px) and (orientation: portrait) {
+			font-size: 3rem;
+		}
+
+		@media (min-device-width: 701px) and (max-device-width: 1040px) and (max-device-height: 1025px) and (orientation: landscape) {
+			font-size: 3.5rem;
+		}
+	}
+}
