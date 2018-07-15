@@ -1,8 +1,16 @@
 .title {
+	align-items: center;
+	display: flex;
 	font-family: estilo-regular;
 	font-size: 1.875rem;
+	justify-content: center;
 	margin-bottom: 10px;
 	text-align: center;
 	text-shadow: 0 0 7px rgb(255, 255, 255);
 	text-transform: uppercase;
+
+	arrow {
+		margin-left: 10px;
+		transform: translateY(-0.1em);
+	}
 }
