@@ -3,11 +3,11 @@
 		<img [src]="photoUrl | async">
 	</div>
 	<div class="text">
-		<div class="title">About Me</div>
+		<section-title>About Me</section-title>
 		I’m a professional software engineer, specializing in Node.js and C#.NET, with additional experience working with Angular, SQL, and HTML/CSS. I studied business information technology at Virginia Tech, and built programming skills via hobbyist and volunteer projects over several years.<br><br>At my current job, I work on an Agile software team that develops custom sales enablement solutions based on a latest-gen tech stack. This role gives me opportunities to work in both front-end and back-end development, as well as exposure to various business problems presented by a wide array of clients in different industries.<br><br>I like to spend my time watching college sports, catching up on my favorite TV shows, playing one of my favorite video games, or working on pet projects to sharpen my programming skills.
 	</div>
 </div>
-<div class="title">Favorite Things</div>
+<section-title [expandable]="true">Favorite Things</section-title>
 <div class="favorites">
 	<favorites-list category="game" title="Games"></favorites-list>
 	<favorites-list category="show" title="TV Shows"></favorites-list>

@@ -8,6 +8,7 @@ import { IntroScreenComponent } from "./intro-screen/intro-screen.component";
 import { PageSectionComponent } from "./page-section/page-section.component";
 import { PortfolioComponent } from "./portfolio/portfolio.component";
 import { ProjectsComponent } from "./projects/projects.component";
+import { SectionTitleComponent } from "./section-title/section-title.component";
 import { SiteFooterComponent } from "./site-footer/site-footer.component";
 import { SiteHeaderComponent } from "./site-header/site-header.component";
 import { SkillsGridComponent } from "./skills-grid/skills-grid.component";
@@ -23,6 +24,7 @@ export { IntroScreenComponent } from "./intro-screen/intro-screen.component";
 export { PageSectionComponent } from "./page-section/page-section.component";
 export { PortfolioComponent } from "./portfolio/portfolio.component";
 export { ProjectsComponent } from "./projects/projects.component";
+export { SectionTitleComponent } from "./section-title/section-title.component";
 export { SiteFooterComponent } from "./site-footer/site-footer.component";
 export { SiteHeaderComponent } from "./site-header/site-header.component";
 export { SkillsGridComponent } from "./skills-grid/skills-grid.component";
@@ -39,6 +41,7 @@ export const COMPONENTS = [
 	PageSectionComponent,
 	PortfolioComponent,
 	ProjectsComponent,
+	SectionTitleComponent,
 	SiteFooterComponent,
 	SiteHeaderComponent,
 	SkillsGridComponent,
