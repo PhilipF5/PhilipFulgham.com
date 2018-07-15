@@ -1,19 +1,10 @@
 svg {
-	bottom: 10px;
-	height: 40px;
-	left: 50%;
-	position: absolute;
+	height: 10px;
 	transform: translateX(-50%);
-	width: 100px;
-
-	&:hover {
-		polyline {
-			stroke-width: 3;
-		}
-	}
+	transform-origin: bottom center;
+	width: 25px;
 
 	polyline {
-		animation: 4s ease-in-out 7s arrow backwards;
 		fill: none;
 		stroke: white;
 		stroke-linecap: round;
