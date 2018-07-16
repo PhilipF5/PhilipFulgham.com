@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from "@angular/core";
 
 import { AngularFirestore } from "angularfire2/firestore";
 import { Observable } from "rxjs";
+import { map } from "rxjs/operators";
 
 import { Favorite } from "main/models";
 
@@ -19,7 +20,20 @@ export class FavoritesListComponent {
 
 	ngOnInit() {
 		this.items = this.afs
-			.collection<Favorite>("favorites", item => item.where("type", "==", this.category).orderBy("name"))
-			.valueChanges();
+			.collection<Favorite>("favorites", item => item.where("type", "==", this.category))
+			.valueChanges()
+			.pipe(
+				map(c => {
+					return c.sort((a, b) => {
+						let nameA = a.alphaSort || a.name;
+						let nameB = b.alphaSort || b.name;
+						if (nameA < nameB) {
+							return -1;
+						} else {
+							return 1;
+						}
+					});
+				})
+			);
 	}
 }
