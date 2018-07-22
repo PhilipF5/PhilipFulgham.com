@@ -1,5 +1,5 @@
 <site-header></site-header>
-<img src="assets/galaxy.jpg">
+<img [src]="imageUrl | async" #background>
 <intro-screen></intro-screen>
 <about-me></about-me>
 <projects></projects>
