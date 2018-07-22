@@ -1,4 +1,4 @@
-import { Component, Input, ViewChild } from "@angular/core";
+import { Component, EventEmitter, Input, ViewChild, Output } from "@angular/core";
 
 import { ArrowComponent } from "main/components/arrow/arrow.component";
 
@@ -8,6 +8,7 @@ import { ArrowComponent } from "main/components/arrow/arrow.component";
 	styleUrls: ["./section-title.component.scss"]
 })
 export class SectionTitleComponent {
+	@Output() public expand: EventEmitter<void> = new EventEmitter();
 	@Input() public expandable: boolean;
 	@Input() public text: string;
 
@@ -18,10 +19,12 @@ export class SectionTitleComponent {
 		if (this.expandable && !this.expanded) {
 			this.arrow.flip();
 			this.expanded = !this.expanded;
+			this.expand.emit();
 		}
 		else if (this.expandable && this.expanded) {
 			this.arrow.flipBack();
 			this.expanded = !this.expanded;
+			this.expand.emit();
 		}
 	}
 }

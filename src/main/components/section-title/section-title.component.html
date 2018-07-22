@@ -1,4 +1,6 @@
-<div class="title" (click)="trigger()" [ngClass]="{ 'expandable': expandable }">
-	<ng-content></ng-content>
-	<arrow *ngIf="expandable"></arrow>
+<div class="title" [ngClass]="{ 'expandable': expandable }">
+	<div class="clickable" (click)="trigger()">
+		<ng-content></ng-content>
+		<arrow *ngIf="expandable"></arrow>
+	</div>
 </div>
