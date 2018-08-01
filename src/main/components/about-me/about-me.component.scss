@@ -6,11 +6,16 @@
 .favorites {
 	display: flex;
 	justify-content: space-evenly;
+
+	@media (max-device-width: 700px) {
+		padding: 0 10px;
+	}
 }
 
 .profile {
 	align-items: center;
 	display: flex;
+	flex-wrap: wrap;
 	margin-bottom: 25px;
 }
 
@@ -21,7 +26,7 @@
 
 	@media (max-device-width: 700px) {
 		border: none;
-		width: 95%;
+		width: 100%;
 	}
 
 	img {
@@ -45,8 +50,9 @@
 
 	@media (max-device-width: 700px) {
 		margin-left: 0;
+		padding: 0 10px;
 		text-align: justify;
-		width: 95%;
+		width: 100%;
 	}
 
 	a, a:visited {
