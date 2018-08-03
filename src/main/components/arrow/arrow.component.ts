@@ -30,10 +30,10 @@ export class ArrowComponent {
 	}
 
 	public flip(): TweenMax {
-		return TweenMax.to(this.svg, 1, { rotationX: 180, transformOrigin: "center center", ease: Power1.easeInOut });
+		return TweenMax.to(this.svg, 1, { rotationZ: 180, transformOrigin: "center center", ease: Power1.easeInOut });
 	}
 
 	public flipBack(): TweenMax {
-		return TweenMax.to(this.svg, 1, { rotationX: 0, transformOrigin: "center center", ease: Power1.easeInOut });
+		return TweenMax.to(this.svg, 1, { rotationZ: 0, transformOrigin: "center center", ease: Power1.easeInOut });
 	}
 }
