@@ -1,6 +1,6 @@
 <div class="profile">
 	<div class="portrait">
-		<img [src]="photoUrl | async">
+		<img [src]="(photoUrl | async) || ''">
 	</div>
 	<div class="text">
 		<section-title>About Me</section-title>
