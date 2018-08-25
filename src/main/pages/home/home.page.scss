@@ -3,23 +3,20 @@ h1 {
 }
 
 img {
-	height: auto;
+	height: 100vh;
 	opacity: 0;
 	position: fixed;
 	width: 100%;
 	z-index: -999;
 	@media (max-device-width: 700px) and (orientation: portrait) {
-		height: 100%;
 		transform: translateX(-50%);
 		width: auto;
 	}
 	@media (min-device-width: 701px) and (max-device-width: 1000px) and (orientation: portrait) {
-		height: 100%;
 		transform: translateX(-33%);
 		width: auto;
 	}
 	@media (min-device-height: 1040px) and (orientation: portrait) {
-		height: 100%;
 		transform: translateX(-33%);
 		width: auto;
 	}
