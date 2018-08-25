@@ -15,6 +15,6 @@ export class SiteHeaderComponent implements OnInit {
 	constructor(private _elem: ElementRef) {}
 
 	ngOnInit() {
-		new TimelineLite().from(this.elem, 3, { opacity: 0, x: "10%", ease: Power1.easeInOut });
+		new TimelineLite().from(this.elem, 3, { opacity: 0, ease: Power1.easeInOut });
 	}
 }
