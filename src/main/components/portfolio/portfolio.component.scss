@@ -17,15 +17,15 @@
 		min-width: 33%;
 		transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
 
-		@media (max-device-width: 700px) {
+		@media (max-device-width: 767px) {
 			margin: 50px 0 50px 0;
 		}
 
-		@media (max-device-width: 700px) and (orientation: landscape) {
+		@media (max-device-width: 767px) and (orientation: landscape) {
 			width: 75%;
 		}
 
-		@media (max-device-width: 700px) and (orientation: portrait) {
+		@media (max-device-width: 767px) and (orientation: portrait) {
 			width: 95%;
 		}
 

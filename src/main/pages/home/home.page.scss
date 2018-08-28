@@ -8,7 +8,7 @@ img {
 	position: fixed;
 	width: 100%;
 	z-index: -999;
-	@media (max-device-width: 700px) and (orientation: portrait) {
+	@media (max-device-width: 767px) and (orientation: portrait) {
 		transform: translateX(-50%);
 		width: auto;
 	}

@@ -7,7 +7,7 @@
 	margin-right: auto;
 	width: 70%;
 
-	@media (max-device-width: 700px) {
+	@media (max-device-width: 767px) {
 		width: 95%;
 	}
 
@@ -45,7 +45,7 @@ arrow {
 		opacity: 0;
 		text-align: center;
 
-		@media (max-device-width: 700px), (max-device-height: 1000px) and (orientation: portrait) {
+		@media (max-device-width: 767px), (max-device-height: 1000px) and (orientation: portrait) {
 			font-size: 2rem;
 		}
 

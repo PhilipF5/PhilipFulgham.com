@@ -7,7 +7,7 @@
 	display: flex;
 	justify-content: space-evenly;
 
-	@media (max-device-width: 700px) {
+	@media (max-device-width: 767px) {
 		padding: 0 10px;
 	}
 }
@@ -24,7 +24,7 @@
 	border-right-width: 2px;
 	width: 20%;
 
-	@media (max-device-width: 700px) {
+	@media (max-device-width: 767px) {
 		border: none;
 		width: 100%;
 	}
@@ -48,7 +48,7 @@
 	vertical-align: middle;
 	width: 70%;
 
-	@media (max-device-width: 700px) {
+	@media (max-device-width: 767px) {
 		margin-left: 0;
 		padding: 0 10px;
 		text-align: justify;
