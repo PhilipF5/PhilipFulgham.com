@@ -35,10 +35,15 @@ export class WorkHistoryComponent implements OnInit {
 	}
 
 	public formatDateRange(job: Job): string {
-		let dateString = moment(job.start).year() + "–";
-		if (job.end) {
-			dateString += moment(job.end).year();
+		let start = moment(job.start).year();
+		let end = job.end ? moment(job.end).year() : null;
+
+		if (start === end) {
+			return start.toString();
+		} else if (!end) {
+			return start + "–";
+		} else {
+			return start + "–" + end;
 		}
-		return dateString;
 	}
 }
