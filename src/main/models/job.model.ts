@@ -5,7 +5,7 @@ export interface Job {
 	image: Observable<string | null>;
 	org: string;
 	projects: string[];
-	responsibilities: string[];
+	roles: { paragraph: string, summary: string }[];
 	start: Date;
 	title: string;
 }

@@ -7,8 +7,8 @@
     [subtitle]="formatDateRange(job)"
   ></history-item>
   <ul>
-    <li *ngFor="let project of job.projects">
-      {{ project }}
+    <li *ngFor="let role of job.roles">
+      {{ role.summary }}
     </li>
   </ul>
 </div>
