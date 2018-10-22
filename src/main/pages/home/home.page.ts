@@ -1,6 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 
-import { AngularFireStorage } from "angularfire2/storage";
+import { AngularFireStorage } from "@angular/fire/storage";
 import { Power1 } from "gsap";
 import { Observable } from "rxjs";
 

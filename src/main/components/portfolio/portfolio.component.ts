@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 
-import { AngularFireStorage } from "angularfire2/storage";
+import { AngularFireStorage } from "@angular/fire/storage";
 import { Observable } from "rxjs";
 
 import { PageSectionComponent } from "main/components/page-section/page-section.component";

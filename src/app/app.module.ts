@@ -2,9 +2,9 @@ import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 
 import { ResponsiveModule } from "ng2-responsive";
-import { AngularFireModule } from "angularfire2";
-import { AngularFireStorageModule } from "angularfire2/storage";
-import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFireModule } from "@angular/fire";
+import { AngularFireStorageModule } from "@angular/fire/storage";
+import { AngularFirestoreModule } from "@angular/fire/firestore";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
