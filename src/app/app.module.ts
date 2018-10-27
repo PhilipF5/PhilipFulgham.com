@@ -5,6 +5,7 @@ import { ResponsiveModule } from "ng2-responsive";
 import { AngularFireModule } from "@angular/fire";
 import { AngularFireStorageModule } from "@angular/fire/storage";
 import { AngularFirestoreModule } from "@angular/fire/firestore";
+import { HttpClientModule } from "@angular/common/http";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -23,6 +24,7 @@ import { environment } from "../environments/environment";
 		AngularFireModule.initializeApp(environment.firebase),
 		AngularFireStorageModule,
 		AngularFirestoreModule,
+		HttpClientModule,
 	],
 	providers: [],
 	bootstrap: [AppComponent]

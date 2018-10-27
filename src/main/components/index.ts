@@ -2,6 +2,7 @@ import { AboutMeComponent } from "./about-me/about-me.component";
 import { ArrowComponent } from "./arrow/arrow.component";
 import { EduHistoryComponent } from "./edu-history/edu-history.component";
 import { FavoritesListComponent } from "./favorites-list/favorites-list.component";
+import { GitHubCardComponent } from "./github-card/github-card.component";
 import { GitHubProfileComponent } from "./github-profile/github-profile.component";
 import { HistoryItemComponent } from "./history-item/history-item.component";
 import { IntroScreenComponent } from "./intro-screen/intro-screen.component";
@@ -18,6 +19,7 @@ export { AboutMeComponent } from "./about-me/about-me.component";
 export { ArrowComponent } from "./arrow/arrow.component";
 export { EduHistoryComponent } from "./edu-history/edu-history.component";
 export { FavoritesListComponent } from "./favorites-list/favorites-list.component";
+export { GitHubCardComponent } from "./github-card/github-card.component";
 export { GitHubProfileComponent } from "./github-profile/github-profile.component";
 export { HistoryItemComponent } from "./history-item/history-item.component";
 export { IntroScreenComponent } from "./intro-screen/intro-screen.component";
@@ -35,6 +37,7 @@ export const COMPONENTS = [
 	ArrowComponent,
 	EduHistoryComponent,
 	FavoritesListComponent,
+	GitHubCardComponent,
 	GitHubProfileComponent,
 	HistoryItemComponent,
 	IntroScreenComponent,
