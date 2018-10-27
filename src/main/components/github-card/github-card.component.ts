@@ -30,8 +30,7 @@ export class GitHubCardComponent {
 	}
 
 	private async getRepos() {
-		this.repos = (await this.get<any[]>(this.userUrl + "/repos")).sort((a, b) => {
-			if (a.updated_at > b.updated_at) {
+			if (a.pushed_at > b.pushed_at) {
 				return -1;
 			} else {
 				return 1;
