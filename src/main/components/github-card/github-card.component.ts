@@ -10,6 +10,7 @@ export class GitHubCardComponent {
 	@Input()
 	username: string;
 
+	public languages: string;
 	public repos: any;
 	public user: any;
 
@@ -26,12 +27,51 @@ export class GitHubCardComponent {
 		this.getRepos();
 	}
 
+	private buildLanguageStats() {
+		let stats = this.repos.map(r => r.languages).reduce((accumulator, currentValue) => {
+			accumulator = accumulator || {};
+			for (let lang in currentValue) {
+				if (accumulator[lang]) {
+					accumulator[lang] += currentValue[lang];
+				} else {
+					accumulator[lang] = currentValue[lang];
+				}
+			}
+
+			return accumulator;
+		});
+
+		let statsArray = [];
+		for (let lang in stats) {
+			let langObj = {};
+			langObj["name"] = lang;
+			langObj["count"] = stats[lang];
+			statsArray.push(langObj);
+		}
+
+		this.languages = statsArray
+			.sort((a, b) => {
+				if (a.count > b.count) {
+					return -1;
+				} else {
+					return 1;
+				}
+			})
+			.slice(0, 3)
+			.map(s => s.name)
+			.join(", ");
+	}
+
 	private async get<T>(url: string) {
 		return this.http.get<T>(url).toPromise();
 	}
 
 	private getIconLink(icon: string) {
 		return `assets/icons/file_type_${icon}.svg`;
+	}
+
+	private getLanguageStats(repo) {
+		return this.get(repo.languages_url);
 	}
 
 	private async getRepos() {
@@ -57,8 +97,12 @@ export class GitHubCardComponent {
 			} else {
 				repo.icon = Icons[repo.language];
 			}
+
+			repo.languages = await this.getLanguageStats(repo);
 			this.repos.push(repo);
 		}
+
+		this.buildLanguageStats();
 	}
 
 	private async getUser() {

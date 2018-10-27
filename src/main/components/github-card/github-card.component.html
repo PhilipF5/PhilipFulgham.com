@@ -4,6 +4,9 @@
 	</div>
 	<div class="repo-count">{{ user.public_repos }} public repos</div>
 </div>
+<div *ngIf="repos" class="languages">
+	Top langs: {{ languages }}
+</div>
 <div class="repos" *ngIf="repos">
 	<a *ngFor="let repo of repos" [href]="repo.html_url">
 		<div class="repo-row">
