@@ -45,6 +45,22 @@
 	}
 }
 
+.languages {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	.lang-icons {
+		display: flex;
+
+		img {
+			height: 24px;
+			width: 24px;
+		}
+	}
+}
+
 .repos {
 	border-top: 2px solid white;
 	width: 100%;

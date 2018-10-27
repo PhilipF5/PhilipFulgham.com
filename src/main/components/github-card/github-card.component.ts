@@ -10,7 +10,7 @@ export class GitHubCardComponent {
 	@Input()
 	username: string;
 
-	public languages: string;
+	public languages: any;
 	public repos: any;
 	public user: any;
 
@@ -58,8 +58,7 @@ export class GitHubCardComponent {
 				}
 			})
 			.slice(0, 3)
-			.map(s => s.name)
-			.join(", ");
+			.map(s => this.getIconLink(Icons[s.name]));
 	}
 
 	private async get<T>(url: string) {
@@ -113,6 +112,7 @@ export class GitHubCardComponent {
 const Icons = {
 	Angular: "angular",
 	"C#": "csharp",
+	HTML: "html",
 	JavaScript: "js_official",
 	React: "reactjs",
 	TypeScript: "typescript_official",
