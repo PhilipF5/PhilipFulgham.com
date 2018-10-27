@@ -25,12 +25,18 @@ export class GitHubCardComponent {
 		this.getRepos();
 	}
 
-	private async get(url: string) {
-		return this.http.get(url).toPromise();
+	private async get<T>(url: string) {
+		return this.http.get<T>(url).toPromise();
 	}
 
 	private async getRepos() {
-		this.repos = await this.get(this.userUrl + "/repos");
+		this.repos = (await this.get<any[]>(this.userUrl + "/repos")).sort((a, b) => {
+			if (a.updated_at > b.updated_at) {
+				return -1;
+			} else {
+				return 1;
+			}
+		}).slice(0, 5);
 	}
 
 	private async getUser() {

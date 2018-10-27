@@ -1,0 +1,17 @@
+<div class="name">{{ user.name }}</div>
+<a [href]="user.html_url">
+	<div class="follow-link">
+		Follow @{{ user.login }}
+	</div>
+</a>
+<div class="repos">
+	<a *ngFor="let repo of repos" [href]="repo.html_url">
+		<div class="repo-row">
+			<div class="name-and-date">
+				<div class="repo-name">{{ repo.name }}</div>
+				<div class="repo-date">Updated: {{ repo.updated_at | momentString: "M/DD/YYYY" }}</div>
+			</div>
+			<div class="language">{{ repo.language }}</div>
+		</div>
+	</a>
+</div>

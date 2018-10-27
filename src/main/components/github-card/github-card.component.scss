@@ -1,0 +1,71 @@
+:host {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.name {
+	font-size: 1.313em;
+	font-weight: 700;
+}
+
+.follow-link {
+	border: 1px solid #d5d5d5;
+	border-radius: 3px;
+	color: white;
+	font-weight: 700;
+	padding: 0 10px;
+	transition: box-shadow 0.5s linear;
+
+	&:hover {
+		box-shadow: 0 0 7px rgba(255, 255, 255, 0.5),
+			0 0 7px rgba(255, 255, 255, 0.5),
+			0 0 7px rgba(255, 255, 255, 0.5),
+			0 0 7px rgba(255, 255, 255, 0.5),
+			0 0 7px rgba(255, 255, 255, 0.5) inset,
+			0 0 7px rgba(255, 255, 255, 0.5) inset,
+			0 0 7px rgba(255, 255, 255, 0.5) inset,
+			0 0 7px rgba(255, 255, 255, 0.5) inset;
+	}
+}
+
+.repos {
+	border-top: 2px solid white;
+	width: 100%;
+}
+
+.repos:hover .repo-row {
+	opacity: 0.25;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.repo-row {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	color: white;
+	justify-content: space-between;
+	padding: 10px 0;
+	transition: opacity 0.5s linear, transform 0.5s linear;
+	width: 100%;
+
+	&:hover {
+		transform: scale(1.1);
+	}
+}
+
+.name-and-date {
+	text-align: left;
+}
+
+.repo-name {
+	color: dodgerblue;
+}
+
+.repo-date {
+	font-size: 0.75em;
+	font-style: italic;
+}
