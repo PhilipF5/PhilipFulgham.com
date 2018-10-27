@@ -11,7 +11,9 @@
 				<div class="repo-name">{{ repo.name }}</div>
 				<div class="repo-date">Updated: {{ repo.pushed_at | momentString: "M/DD/YYYY" }}</div>
 			</div>
-			<div class="language">{{ repo.language }}</div>
+			<div class="icon">
+				<img [src]="getIconLink(repo.icon)" alt="{{repo.icon}}">
+			</div>
 		</div>
 	</a>
 </div>
