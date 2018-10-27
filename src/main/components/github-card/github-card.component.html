@@ -1,10 +1,10 @@
-<div class="name">{{ user.name }}</div>
-<a [href]="user.html_url">
+<div class="name" *ngIf="user">{{ user.name }}</div>
+<a *ngIf="user" [href]="user.html_url">
 	<div class="follow-link">
 		Follow @{{ user.login }}
 	</div>
 </a>
-<div class="repos">
+<div class="repos" *ngIf="repos">
 	<a *ngFor="let repo of repos" [href]="repo.html_url">
 		<div class="repo-row">
 			<div class="name-and-date">
