@@ -91,6 +91,10 @@ export class GitHubCardComponent {
 				.toPromise();
 			if (repo.topics.includes("angular")) {
 				repo.icon = Icons["Angular"];
+			} else if (repo.topics.includes("angularjs")) {
+				repo.icon = Icons["AngularJS"];
+			} else if (repo.topics.includes("nodejs")) {
+				repo.icon = Icons["Node.js"];
 			} else if (repo.topics.includes("react")) {
 				repo.icon = Icons["React"];
 			} else {
@@ -111,10 +115,12 @@ export class GitHubCardComponent {
 
 const Icons = {
 	Angular: "angular",
+	AngularJS: "ng_controller_js",
 	"C#": "csharp",
 	CSS: "css",
 	HTML: "html",
 	JavaScript: "js_official",
+	"Node.js": "node",
 	React: "reactjs",
 	TypeScript: "typescript_official",
 };
