@@ -2,6 +2,10 @@
 	align-items: center;
 	display: flex;
 	justify-content: center;
+
+	@media (max-device-width: 700px) {
+		flex-direction: column;
+	}
 }
 
 img {
@@ -18,8 +22,12 @@ img {
 	flex-direction: column;
 	text-align: left;
 
+	@media (max-device-width: 700px) {
+		text-align: center;
+	}
+
 	.place {
-		font-size: 1.313em;
+		font-size: 1.25em;
 		font-weight: bold;
 	}
 
