@@ -1,31 +1,31 @@
 footer {
-	background-color: #2D3031;
-	bottom: 0;
+	background-color: rgba(42, 36, 80, 0.80);
 	box-shadow: 0 -4px 4px rgba(0,0,0,0.5);
+	box-sizing: border-box;
 	color: white;
-	display: block;
 	font-family: sans-serif;
 	font-size: 0.813em;
-	font-style: italic;
-	padding: 10px;
 	position: relative;
-	text-align: center;
-	transition: background 0.5s linear, color 0.5s linear;
-	width: auto;
+	width: 100%;
+
 	@media (max-device-width: 767px) {
 		font-size: 0.5em;
 	}
-	a, a:visited {
-		color: dodgerblue;
-		text-decoration: none;
-		transition: color 0.5s linear;
-		&:hover {
-			color: lightblue;
-		}
-	}
+}
 
-	.version {
-		float: right;
-		font-style: normal;
-	}
+.contents {
+	align-items: flex-end;
+	background-color: rgba(0, 0, 0, 0.5);
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+}
+
+.main {
+	font-size: larger;
+}
+
+.version {
+	float: right;
+	font-style: normal;
 }
