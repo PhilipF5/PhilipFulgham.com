@@ -1,4 +1,4 @@
-<div class="header">
+<div *ngIf="user" class="header">
 	<div class="username">
 		<a [href]="user.html_url">@{{ user.login }}</a>
 	</div>
