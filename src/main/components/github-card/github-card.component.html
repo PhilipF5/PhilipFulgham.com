@@ -1,6 +1,6 @@
 <div *ngIf="user" class="header">
 	<div class="username">
-		<a [href]="user.html_url">@{{ user.login }}</a>
+		<a [href]="user.html_url" target="_blank">@{{ user.login }}</a>
 	</div>
 	<div class="repo-count">{{ user.public_repos }} public repos</div>
 </div>
@@ -11,7 +11,7 @@
 	</div>
 </div>
 <div class="repos" *ngIf="repos">
-	<a *ngFor="let repo of repos" [href]="repo.html_url">
+	<a *ngFor="let repo of repos" [href]="repo.html_url" target="_blank">
 		<div class="repo-row">
 			<div class="name-and-date">
 				<div class="repo-name">{{ repo.name }}</div>
