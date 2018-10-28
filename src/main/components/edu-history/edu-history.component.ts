@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 import { AngularFireStorage } from "@angular/fire/storage";
 import { AngularFirestore } from "@angular/fire/firestore";
@@ -14,6 +14,8 @@ import { Credential } from "main/models";
 	styleUrls: ["./edu-history.component.scss"],
 })
 export class EduHistoryComponent implements OnInit {
+	@Input() limit: number;
+
 	public creds: Observable<Credential[]>;
 
 	constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
@@ -28,7 +30,7 @@ export class EduHistoryComponent implements OnInit {
 						c.date = c.date.toDate();
 						c.image = this.storage.ref(c.image).getDownloadURL();
 						return c;
-					})
+					}).slice(0, this.limit || creds.length)
 				)
 			);
 	}

@@ -9,6 +9,7 @@ import { IntroScreenComponent } from "./intro-screen/intro-screen.component";
 import { PageSectionComponent } from "./page-section/page-section.component";
 import { PortfolioComponent } from "./portfolio/portfolio.component";
 import { ProjectsComponent } from "./projects/projects.component";
+import { ResumePreviewComponent } from "./resume-preview/resume-preview.component";
 import { SectionTitleComponent } from "./section-title/section-title.component";
 import { SiteFooterComponent } from "./site-footer/site-footer.component";
 import { SiteHeaderComponent } from "./site-header/site-header.component";
@@ -26,6 +27,7 @@ export { IntroScreenComponent } from "./intro-screen/intro-screen.component";
 export { PageSectionComponent } from "./page-section/page-section.component";
 export { PortfolioComponent } from "./portfolio/portfolio.component";
 export { ProjectsComponent } from "./projects/projects.component";
+export { ResumePreviewComponent } from "./resume-preview/resume-preview.component";
 export { SectionTitleComponent } from "./section-title/section-title.component";
 export { SiteFooterComponent } from "./site-footer/site-footer.component";
 export { SiteHeaderComponent } from "./site-header/site-header.component";
@@ -44,6 +46,7 @@ export const COMPONENTS = [
 	PageSectionComponent,
 	PortfolioComponent,
 	ProjectsComponent,
+	ResumePreviewComponent,
 	SectionTitleComponent,
 	SiteFooterComponent,
 	SiteHeaderComponent,

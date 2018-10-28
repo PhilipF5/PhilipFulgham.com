@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component, Input, OnInit } from "@angular/core";
 
 import { AngularFireStorage } from "@angular/fire/storage";
 import { AngularFirestore } from "@angular/fire/firestore";
@@ -14,6 +14,8 @@ import { Job } from "main/models";
 	styleUrls: ["./work-history.component.scss"],
 })
 export class WorkHistoryComponent implements OnInit {
+	@Input() limit: number;
+
 	public jobs: Observable<Job[]>;
 
 	constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
@@ -29,7 +31,7 @@ export class WorkHistoryComponent implements OnInit {
 						j.image = this.storage.ref(j.image).getDownloadURL();
 						j.start = j.start.toDate();
 						return j;
-					})
+					}).slice(0, this.limit || jobs.length)
 				)
 			);
 	}

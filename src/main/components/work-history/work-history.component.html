@@ -1,14 +1,7 @@
-<section-title>Pro</section-title>
 <div class="job" *ngFor="let job of jobs | async">
   <history-item
     [image]="job.image | async"
     [place]="job.org"
     [name]="job.title"
-    [subtitle]="formatDateRange(job)"
   ></history-item>
-  <ul>
-    <li *ngFor="let role of job.roles">
-      {{ role.summary }}
-    </li>
-  </ul>
 </div>

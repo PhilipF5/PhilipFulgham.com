@@ -1,0 +1,26 @@
+:host {
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.resume-link {
+	align-items: center;
+	color: dodgerblue;
+	display: flex;
+	height: 55px;
+	justify-content: center;
+	transition: background-color 0.5s linear,
+		box-shadow 0.5s linear,
+		color 0.5s linear,
+		opacity 0.5s linear,
+		transform 0.5s linear;
+	width: 285px;
+
+	&:hover {
+		background-color: rgba(0, 0, 0, 0.5);
+		box-shadow: 0 0 20px rgba(0, 0, 0, 0.9);
+		color: lightskyblue;
+		transform: scale(1.1);
+	}
+}

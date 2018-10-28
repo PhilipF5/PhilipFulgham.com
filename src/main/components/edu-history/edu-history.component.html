@@ -1,10 +1,8 @@
-<section-title>Edu</section-title>
 <div class="cred">
   <history-item
     *ngFor="let cred of creds | async"
     [image]="cred.image | async"
     [place]="cred.issuer"
     [name]="cred.name"
-    [subtitle]="formatDate(cred.date)"
   ></history-item>
 </div>
