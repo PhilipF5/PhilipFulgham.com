@@ -9,13 +9,13 @@ export class CollapsibleDirective implements OnInit {
 	public hidden: boolean = true;
 
 	private hiddenStyle = {
-		opacity: 0,
+		autoAlpha: 0,
 		ease: Power1.easeInOut,
 		height: 0,
 		scale: 0.8,
 		transformOrigin: "center center",
 	};
-	private shownStyle = { opacity: 1, ease: Power1.easeInOut, scale: 1, transformOrigin: "center center" };
+	private shownStyle = { autoAlpha: 1, ease: Power1.easeInOut, scale: 1, transformOrigin: "center center" };
 
 	private get elem(): HTMLElement {
 		return this._elem.nativeElement;

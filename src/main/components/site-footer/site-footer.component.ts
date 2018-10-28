@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { environment } from "environments/environment";
 
 @Component({
 	selector: "site-footer",
@@ -7,6 +8,7 @@ import { Component, OnInit } from "@angular/core";
 })
 export class SiteFooterComponent implements OnInit {
 	
+	public version = environment.VERSION;
 	public year;
 	
 	constructor() {
