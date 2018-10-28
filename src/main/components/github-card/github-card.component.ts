@@ -112,6 +112,7 @@ export class GitHubCardComponent {
 const Icons = {
 	Angular: "angular",
 	"C#": "csharp",
+	CSS: "css",
 	HTML: "html",
 	JavaScript: "js_official",
 	React: "reactjs",
