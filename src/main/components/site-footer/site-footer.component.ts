@@ -1,23 +1,13 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 import { environment } from "environments/environment";
+import * as moment from "moment";
 
 @Component({
 	selector: "site-footer",
 	templateUrl: "./site-footer.component.html",
-	styleUrls: ["./site-footer.component.scss"]
+	styleUrls: ["./site-footer.component.scss"],
 })
-export class SiteFooterComponent implements OnInit {
-	
+export class SiteFooterComponent {
 	public version = environment.VERSION;
-	public year;
-	
-	constructor() {
-		const date = new Date();
-		this.year = date.getUTCFullYear();
-	}
-	
-	ngOnInit() {
-		
-	}
-	
+	public year = moment().format("YYYY");
 }
