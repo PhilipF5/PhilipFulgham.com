@@ -1,5 +1,7 @@
+@import "variables.scss";
+
 :host {
-	background-color: rgba(20, 17, 38, 0.80);
+	background-color: darken($base-color, 15%);
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;

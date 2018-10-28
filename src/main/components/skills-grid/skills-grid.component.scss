@@ -1,5 +1,7 @@
+@import "variables.scss";
+
 :host {
-	background-color: rgba(30, 26, 57, 0.80);
+	background-color: darken($base-color, 10%);
 
 	.footnote {
 		font-family: sans-serif;

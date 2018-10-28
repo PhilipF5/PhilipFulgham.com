@@ -1,6 +1,8 @@
+@import "variables.scss";
+
 :host {
 	align-items: center;
-	background-color: rgba(42, 36, 80, 0.80);
+	background-color: $base-color;
 	padding: 25px 0 125px 0;
 
 	img {

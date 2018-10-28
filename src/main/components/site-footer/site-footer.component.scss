@@ -1,5 +1,7 @@
+@import "variables.scss";
+
 footer {
-	background-color: rgba(42, 36, 80, 0.80);
+	background-color: $base-color;
 	box-shadow: 0 -4px 4px rgba(0,0,0,0.5);
 	box-sizing: border-box;
 	color: white;
