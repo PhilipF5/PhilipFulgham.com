@@ -7,7 +7,7 @@
 <div *ngIf="repos" class="languages">
 	<div>Top languages:</div>
 	<div class="lang-icons">
-		<img *ngFor="let lang of languages" [src]="lang">
+		<img *ngFor="let lang of languages" [src]="getIconLink(lang)" [alt]="lang">
 	</div>
 </div>
 <div class="repos" *ngIf="repos">
@@ -18,7 +18,7 @@
 				<div class="repo-date">Updated: {{ repo.pushed_at | momentString: "M/DD/YYYY" }}</div>
 			</div>
 			<div class="icon">
-				<img [src]="getIconLink(repo.icon)" alt="{{repo.icon}}">
+				<img [src]="getIconLink(repo.icon)" [alt]="repo.icon">
 			</div>
 		</div>
 	</a>

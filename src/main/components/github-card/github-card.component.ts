@@ -58,7 +58,7 @@ export class GitHubCardComponent {
 				}
 			})
 			.slice(0, 3)
-			.map(s => this.getIconLink(Icons[s.name]));
+			.map(s => Icons[s.name] || s.name);
 	}
 
 	private async get<T>(url: string) {
