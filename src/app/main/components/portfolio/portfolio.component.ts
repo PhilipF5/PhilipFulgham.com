@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { AngularFireStorage } from "@angular/fire/storage";
 import { Observable } from "rxjs";
 
-import { PageSectionComponent } from "main/components/page-section/page-section.component";
+import { PageSectionComponent } from "app/main/components/page-section/page-section.component";
 
 @Component({
 	selector: "portfolio",

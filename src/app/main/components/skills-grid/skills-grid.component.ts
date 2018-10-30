@@ -4,8 +4,8 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { PageSectionComponent } from "main/components/page-section/page-section.component";
-import { Skill } from "main/models";
+import { PageSectionComponent } from "app/main/components/page-section/page-section.component";
+import { Skill } from "app/main/models";
 
 @Component({
 	selector: "skills-grid",

@@ -6,7 +6,7 @@ import * as moment from "moment";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { Credential } from "main/models";
+import { Credential } from "app/main/models";
 
 @Component({
 	selector: "edu-history",

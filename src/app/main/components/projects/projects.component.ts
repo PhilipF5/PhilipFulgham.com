@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 
-import { PageSectionComponent } from "main/components/page-section/page-section.component";
+import { PageSectionComponent } from "app/main/components/page-section/page-section.component";
 
 @Component({
 	selector: "projects",

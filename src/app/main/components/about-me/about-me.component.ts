@@ -5,8 +5,8 @@ import { AngularFireStorage } from "@angular/fire/storage";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { PageSectionComponent } from "main/components/page-section/page-section.component";
-import { CollapsibleDirective } from "main/directives";
+import { PageSectionComponent } from "app/main/components/page-section/page-section.component";
+import { CollapsibleDirective } from "app/main/directives";
 
 @Component({
 	selector: "about-me",

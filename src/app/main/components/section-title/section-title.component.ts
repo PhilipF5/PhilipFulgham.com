@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, ViewChild, Output } from "@angular/core";
 
-import { ArrowComponent } from "main/components/arrow/arrow.component";
+import { ArrowComponent } from "app/main/components/arrow/arrow.component";
 
 @Component({
 	selector: "section-title",

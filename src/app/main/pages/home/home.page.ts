@@ -4,7 +4,7 @@ import { AngularFireStorage } from "@angular/fire/storage";
 import { Power1 } from "gsap";
 import { Observable } from "rxjs";
 
-import { IntroScreenComponent } from "main/components";
+import { IntroScreenComponent } from "app/main/components";
 
 @Component({
 	selector: "home-page",

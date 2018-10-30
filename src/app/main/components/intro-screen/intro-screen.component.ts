@@ -3,7 +3,7 @@ import { Component, ElementRef, ViewChild } from "@angular/core";
 import { Power1, TimelineLite, TweenMax } from "gsap";
 import { ScrollToPlugin } from "gsap/all";
 
-import { ArrowComponent } from "main/components/arrow/arrow.component";
+import { ArrowComponent } from "app/main/components/arrow/arrow.component";
 
 const plugins = [ScrollToPlugin];
 

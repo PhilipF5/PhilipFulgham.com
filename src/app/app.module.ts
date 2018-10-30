@@ -10,7 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 
-import { MainModule } from "main/main.module";
+import { MainModule } from "app/main/main.module";
 
 import { environment } from "../environments/environment";
 

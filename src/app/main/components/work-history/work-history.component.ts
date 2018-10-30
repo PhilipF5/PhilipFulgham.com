@@ -6,7 +6,7 @@ import * as moment from "moment";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { Job } from "main/models";
+import { Job } from "app/main/models";
 
 @Component({
 	selector: "work-history",

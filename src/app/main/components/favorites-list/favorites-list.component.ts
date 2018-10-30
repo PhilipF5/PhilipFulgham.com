@@ -4,7 +4,7 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { Favorite } from "main/models";
+import { Favorite } from "app/main/models";
 
 @Component({
 	selector: "favorites-list",
