@@ -1,8 +1,14 @@
 @import "variables.scss";
+$bg-color: $bg-color-4;
 
 :host {
-	background-color: darken($base-color, 20%);
+	background-color: $bg-color;
 	height: auto;
+	transition: background-color 0.5s linear;
+
+	&:hover {
+		background-color: desaturate(lighten($bg-color, 20%), 20%);
+	}
 }
 
 .favorites {
