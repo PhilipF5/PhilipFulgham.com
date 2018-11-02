@@ -4,7 +4,6 @@ import { AngularFirestore } from "@angular/fire/firestore";
 import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
-import { PageSectionComponent } from "app/main/components/page-section/page-section.component";
 import { Skill } from "app/main/models";
 
 @Component({
@@ -12,12 +11,10 @@ import { Skill } from "app/main/models";
 	templateUrl: "./skills-grid.component.html",
 	styleUrls: ["./skills-grid.component.scss"]
 })
-export class SkillsGridComponent extends PageSectionComponent implements OnInit {
+export class SkillsGridComponent implements OnInit {
 	public skills: Observable<Skill[]>;
 
-	constructor(private afs: AngularFirestore) {
-		super();
-	}
+	constructor(private afs: AngularFirestore) {}
 
 	ngOnInit() {
 		this.skills = this.afs

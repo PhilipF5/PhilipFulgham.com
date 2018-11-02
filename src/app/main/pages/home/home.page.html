@@ -1,8 +1,16 @@
 <site-header></site-header>
 <img [src]="(imageUrl | async) || ''" #background>
 <intro-screen></intro-screen>
-<about-me></about-me>
-<projects></projects>
-<skills-grid></skills-grid>
-<portfolio></portfolio>
+<page-section>
+	<about-me></about-me>
+</page-section>
+<page-section>
+	<projects></projects>
+</page-section>
+<page-section>
+	<skills-grid></skills-grid>
+</page-section>
+<page-section>
+	<portfolio></portfolio>
+</page-section>
 <site-footer></site-footer>

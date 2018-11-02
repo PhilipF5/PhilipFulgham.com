@@ -1,15 +1,5 @@
-@import "variables.scss";
-$bg-color: $bg-color-1;
-
 :host {
-	align-items: center;
-	background-color: $bg-color;
 	padding: 25px 0 125px 0;
-	transition: background-color 0.5s linear;
-
-	&:hover {
-		background-color: desaturate(lighten($bg-color, 20%), 20%);
-	}
 
 	img {
 		border-radius: 5px;

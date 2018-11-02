@@ -1,14 +1,6 @@
-@import "variables.scss";
-$bg-color: $bg-color-3;
-
 :host {
-	background-color: $bg-color;
+	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
 	justify-content: space-evenly;
-	transition: background-color 0.5s linear;
-
-	&:hover {
-		background-color: desaturate(lighten($bg-color, 20%), 20%);
-	}
 }

@@ -1,14 +1,4 @@
-@import "variables.scss";
-$bg-color: $bg-color-2;
-
 :host {
-	background-color: $bg-color;
-	transition: background-color 0.5s linear;
-
-	&:hover {
-		background-color: desaturate(lighten($bg-color, 20%), 20%);
-	}
-
 	.footnote {
 		font-family: sans-serif;
 		font-size: 0.6em;
@@ -52,7 +42,7 @@ $bg-color: $bg-color-2;
 			@media (min-device-width: 701px) and (max-device-width: 1000px) {
 				margin: 15px;
 			}
-			
+
 			&.active {
 				color: rgb(255, 225, 255);
 				text-shadow: 0 0 14px rgb(255, 48, 255),
