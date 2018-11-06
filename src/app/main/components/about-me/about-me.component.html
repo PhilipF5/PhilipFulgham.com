@@ -1,10 +1,10 @@
 <div class="profile">
 	<div class="portrait">
-		<img [src]="(photoUrl | async) || ''">
+		<img *ngIf="photoUrl" [src]="photoUrl">
 	</div>
-	<div class="text">
+	<div class="text" *ngIf="paragraphs">
 		<section-title>About Me</section-title>
-		<p *ngFor="let p of paragraphs | async">{{ p }}</p>
+		<p *ngFor="let p of paragraphs">{{ p }}</p>
 	</div>
 </div>
 <section-title [expandable]="true" (expand)="toggleFavorites()">Favorite Things</section-title>

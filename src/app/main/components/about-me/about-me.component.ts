@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore, DocumentSnapshot } from "@angular/fire/firestore";
 import { AngularFireStorage } from "@angular/fire/storage";
-import { Observable } from "rxjs";
 import { map } from "rxjs/operators";
 
 import { CollapsibleDirective } from "app/main/directives";
@@ -13,22 +12,31 @@ import { CollapsibleDirective } from "app/main/directives";
 	styleUrls: ["./about-me.component.scss"],
 })
 export class AboutMeComponent implements OnInit {
-	public paragraphs: Observable<string[] | null>;
-	public photoUrl: Observable<string | null>;
+	public paragraphs: string[];
+	public photoUrl: string;
 
 	@ViewChild(CollapsibleDirective) private subsection: CollapsibleDirective;
 
 	constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
 
 	ngOnInit() {
-		this.photoUrl = this.storage.ref("portrait.png").getDownloadURL();
-		this.paragraphs = this.afs
-			.doc("text/pJwwIKKFUtJvxDiaWtxJ")
-			.valueChanges()
-			.pipe(map<any, string[]>(text => text.contents));
+		this.loadParagraphs();
+		this.loadPhotoUrl();
 	}
 
 	public toggleFavorites(): void {
 		this.subsection.toggle();
+	}
+
+	private async loadParagraphs() {
+		this.paragraphs = await this.afs
+			.doc("text/pJwwIKKFUtJvxDiaWtxJ")
+			.get()
+			.pipe(map<DocumentSnapshot<any>, string[]>(text => text.get("contents")))
+			.toPromise();
+	}
+
+	private async loadPhotoUrl() {
+		this.photoUrl = await this.storage.ref("portrait.png").getDownloadURL().toPromise();
 	}
 }
