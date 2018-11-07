@@ -1,8 +1,8 @@
-<div class="cred">
-  <history-item
-    *ngFor="let cred of creds | async"
-    [image]="cred.image | async"
-    [place]="cred.issuer"
-    [name]="cred.name"
-  ></history-item>
+<div class="cred" *ngIf="creds">
+	<history-item
+		*ngFor="let cred of creds"
+		[image]="cred.image"
+		[place]="cred.issuer"
+		[name]="cred.name"
+	></history-item>
 </div>

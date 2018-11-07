@@ -1,39 +1,44 @@
 import { Component, Input, OnInit } from "@angular/core";
 
-import { AngularFirestore } from "@angular/fire/firestore";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { AngularFirestore, QuerySnapshot } from "@angular/fire/firestore";
+import { map, take } from "rxjs/operators";
 
 import { Favorite } from "app/main/models";
 
 @Component({
 	selector: "favorites-list",
 	templateUrl: "./favorites-list.component.html",
-	styleUrls: ["./favorites-list.component.scss"]
+	styleUrls: ["./favorites-list.component.scss"],
 })
-export class FavoritesListComponent {
+export class FavoritesListComponent implements OnInit {
 	@Input() public category: string;
-	public items: Observable<Favorite[]>;
+	public items: Favorite[];
 	@Input() public title: string;
 
 	constructor(private afs: AngularFirestore) {}
 
 	ngOnInit() {
-		this.items = this.afs
+		this.loadFavorites();
+	}
+
+	private async loadFavorites() {
+		let favorites = await this.afs
 			.collection<Favorite>("favorites", item => item.where("type", "==", this.category))
-			.valueChanges()
+			.get()
 			.pipe(
-				map(c => {
-					return c.sort((a, b) => {
-						let nameA = a.alphaSort || a.name;
-						let nameB = b.alphaSort || b.name;
-						if (nameA < nameB) {
-							return -1;
-						} else {
-							return 1;
-						}
-					});
-				})
-			);
+				map<QuerySnapshot<Favorite>, Favorite[]>(collection => collection.docs.map(doc => doc.data())),
+				take(1)
+			)
+			.toPromise();
+
+		this.items = favorites.sort((a, b) => {
+			let nameA = a.alphaSort || a.name;
+			let nameB = b.alphaSort || b.name;
+			if (nameA < nameB) {
+				return -1;
+			} else {
+				return 1;
+			}
+		});
 	}
 }

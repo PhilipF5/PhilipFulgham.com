@@ -1,6 +1,6 @@
 <div class="list">
 	<section-title>Skills</section-title>
-	<span class="skill" [ngClass]="{'active': skill.active}" *ngFor="let skill of skills | async">
+	<span class="skill" [ngClass]="{'active': skill.active}" *ngFor="let skill of skills">
 		{{skill.name}}
 	</span>
 	<div class="footnote">

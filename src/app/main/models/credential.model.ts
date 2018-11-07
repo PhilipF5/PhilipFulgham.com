@@ -1,8 +1,6 @@
-import { Observable } from "rxjs";
-
 export interface Credential {
 	date: Date;
-	image: Observable<string | null>;
+	image: string;
 	issuer: string;
 	name: string;
 }

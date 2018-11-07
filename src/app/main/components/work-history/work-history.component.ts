@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from "@angular/core";
 
 import { AngularFireStorage } from "@angular/fire/storage";
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore, QuerySnapshot } from "@angular/fire/firestore";
 import * as moment from "moment";
 import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, take } from "rxjs/operators";
 
 import { Job } from "app/main/models";
 
@@ -16,24 +16,12 @@ import { Job } from "app/main/models";
 export class WorkHistoryComponent implements OnInit {
 	@Input() limit: number;
 
-	public jobs: Observable<Job[]>;
+	public jobs: Job[];
 
 	constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
 
 	ngOnInit() {
-		this.jobs = this.afs
-			.collection("jobs", job => job.orderBy("start", "desc"))
-			.valueChanges()
-			.pipe(
-				map<any[], Job[]>(jobs =>
-					jobs.map(j => {
-						j.end = j.end && j.end.toDate();
-						j.image = this.storage.ref(j.image).getDownloadURL();
-						j.start = j.start.toDate();
-						return j;
-					}).slice(0, this.limit || jobs.length)
-				)
-			);
+		this.loadJobs();
 	}
 
 	public formatDateRange(job: Job): string {
@@ -47,5 +35,28 @@ export class WorkHistoryComponent implements OnInit {
 		} else {
 			return start + "–" + end;
 		}
+	}
+
+	private async loadJobs() {
+		let jobs = await this.afs
+			.collection("jobs", job => job.orderBy("start", "desc"))
+			.get()
+			.pipe(
+				map<QuerySnapshot<Job>, Job[]>(jobs =>
+					jobs.docs.map(j => j.data()).slice(0, this.limit || jobs.docs.length)
+				),
+				take(1)
+			)
+			.toPromise();
+
+		for (let j of jobs) {
+			j.image = await this.storage
+				.ref(j.image)
+				.getDownloadURL()
+				.pipe(take(1))
+				.toPromise();
+		}
+
+		this.jobs = jobs;
 	}
 }

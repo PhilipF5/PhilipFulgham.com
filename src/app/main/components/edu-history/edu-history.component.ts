@@ -1,10 +1,9 @@
 import { Component, Input, OnInit } from "@angular/core";
 
 import { AngularFireStorage } from "@angular/fire/storage";
-import { AngularFirestore } from "@angular/fire/firestore";
+import { AngularFirestore, QuerySnapshot } from "@angular/fire/firestore";
 import * as moment from "moment";
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { map, take } from "rxjs/operators";
 
 import { Credential } from "app/main/models";
 
@@ -16,26 +15,43 @@ import { Credential } from "app/main/models";
 export class EduHistoryComponent implements OnInit {
 	@Input() limit: number;
 
-	public creds: Observable<Credential[]>;
+	public creds: Credential[];
 
 	constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
 
 	ngOnInit() {
-		this.creds = this.afs
-			.collection("credentials", cred => cred.orderBy("date", "desc"))
-			.valueChanges()
-			.pipe(
-				map<any[], Credential[]>(creds =>
-					creds.map(c => {
-						c.date = c.date.toDate();
-						c.image = this.storage.ref(c.image).getDownloadURL();
-						return c;
-					}).slice(0, this.limit || creds.length)
-				)
-			);
+		this.loadCredentials();
 	}
 
 	public formatDate(date: Date): string {
 		return moment(date).format("MMMM YYYY");
+	}
+
+	private async loadCredentials() {
+		let creds = await this.afs
+			.collection("credentials", cred => cred.orderBy("date", "desc"))
+			.get()
+			.pipe(
+				map<QuerySnapshot<Credential>, Credential[]>(creds =>
+					creds.docs
+						.map(c => {
+							let obj = c.data();
+							return obj;
+						})
+						.slice(0, this.limit || creds.docs.length)
+				),
+				take(1)
+			)
+			.toPromise();
+
+		for (let c of creds) {
+			c.image = await this.storage
+				.ref(c.image)
+				.getDownloadURL()
+				.pipe(take(1))
+				.toPromise();
+		}
+
+		this.creds = creds;
 	}
 }

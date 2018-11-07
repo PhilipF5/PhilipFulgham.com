@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 
 import { AngularFirestore, DocumentSnapshot } from "@angular/fire/firestore";
 import { AngularFireStorage } from "@angular/fire/storage";
-import { map } from "rxjs/operators";
+import { map, take } from "rxjs/operators";
 
 import { CollapsibleDirective } from "app/main/directives";
 
@@ -32,11 +32,18 @@ export class AboutMeComponent implements OnInit {
 		this.paragraphs = await this.afs
 			.doc("text/pJwwIKKFUtJvxDiaWtxJ")
 			.get()
-			.pipe(map<DocumentSnapshot<any>, string[]>(text => text.get("contents")))
+			.pipe(
+				map<DocumentSnapshot<any>, string[]>(text => text.get("contents")),
+				take(1)
+			)
 			.toPromise();
 	}
 
 	private async loadPhotoUrl() {
-		this.photoUrl = await this.storage.ref("portrait.png").getDownloadURL().toPromise();
+		this.photoUrl = await this.storage
+			.ref("portrait.png")
+			.getDownloadURL()
+			.pipe(take(1))
+			.toPromise();
 	}
 }
