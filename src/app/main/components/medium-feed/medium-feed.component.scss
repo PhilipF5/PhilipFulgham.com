@@ -4,6 +4,33 @@
 	flex-direction: column;
 }
 
+.header {
+	align-items: flex-end;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	a {
+		color: white;
+		transition: color 0.5s linear;
+
+		&:hover {
+			color: lightblue;
+		}
+	}
+}
+
+.username {
+	font-size: 1.313em;
+	font-weight: 700;
+}
+
+.posts {
+	border-top: 2px solid white;
+	margin-top: 10px;
+	width: 100%;
+}
+
 .posts:hover .post-row {
 	opacity: 0.25;
 
