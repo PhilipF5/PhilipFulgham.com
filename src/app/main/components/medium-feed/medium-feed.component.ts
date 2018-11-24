@@ -17,6 +17,9 @@ export class MediumFeedComponent {
 		this.http
 			.get("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@philipf5")
 			.subscribe((res: MediumApiResponse) => {
+				this.posts = res.items
+					.slice(0, 5)
+					.map(item => Object.assign({}, item, { pubDate: moment(item.pubDate) }));
 			});
 	}
 }
