@@ -33,7 +33,7 @@ export class SkillsGridComponent implements OnInit {
 		this.skills = skills.sort((a, b) => {
 			let nameA = a.alphaSort || a.name;
 			let nameB = b.alphaSort || b.name;
-			if (nameA < nameB) {
+			if (nameA.toLowerCase() < nameB.toLowerCase()) {
 				return -1;
 			} else {
 				return 1;
