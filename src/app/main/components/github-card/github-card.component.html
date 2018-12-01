@@ -11,15 +11,17 @@
 	</div>
 </div>
 <div class="repos" *ngIf="repos">
-	<a *ngFor="let repo of repos" [href]="repo.html_url" target="_blank">
-		<div class="repo-row">
-			<div class="name-and-date">
-				<div class="repo-name">{{ repo.name }}</div>
-				<div class="repo-date">Updated: {{ repo.pushed_at | momentString: "M/DD/YYYY" }}</div>
+	<shadow-button *ngFor="let repo of repos">
+		<a [href]="repo.html_url" target="_blank">
+			<div class="repo-row">
+				<div class="name-and-date">
+					<div class="repo-name">{{ repo.name }}</div>
+					<div class="repo-date">Updated: {{ repo.pushed_at | momentString: "M/DD/YYYY" }}</div>
+				</div>
+				<div class="icon">
+					<img [src]="getIconLink(repo.icon)" [alt]="repo.icon">
+				</div>
 			</div>
-			<div class="icon">
-				<img [src]="getIconLink(repo.icon)" [alt]="repo.icon">
-			</div>
-		</div>
-	</a>
+		</a>
+	</shadow-button>
 </div>

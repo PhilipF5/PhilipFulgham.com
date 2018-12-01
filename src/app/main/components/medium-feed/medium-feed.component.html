@@ -6,10 +6,12 @@
 	<div class="post-count">{{ count }} articles published</div>
 </div>
 <div class="posts" *ngIf="posts">
-	<a *ngFor="let post of posts" [href]="post.link" target="_blank">
-		<div class="post-row">
-			<div class="post-title">{{ post.title }}</div>
-			<div class="post-date">Posted: {{ post.pubDate | momentString: "MM/DD/YYYY" }}</div>
-		</div>
-	</a>
+	<shadow-button *ngFor="let post of posts">
+		<a [href]="post.link" target="_blank">
+			<div class="post-row">
+				<div class="post-title">{{ post.title }}</div>
+				<div class="post-date">Posted: {{ post.pubDate | momentString: "MM/DD/YYYY" }}</div>
+			</div>
+		</a>
+	</shadow-button>
 </div>
