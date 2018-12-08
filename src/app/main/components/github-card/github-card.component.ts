@@ -118,6 +118,7 @@ const Icons = {
 	AngularJS: "ng_controller_js",
 	"C#": "csharp",
 	CSS: "css",
+	Dockerfile: "docker",
 	HTML: "html",
 	JavaScript: "js_official",
 	"Node.js": "node",
