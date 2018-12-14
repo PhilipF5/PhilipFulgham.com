@@ -41,7 +41,7 @@ export class AboutMeComponent implements OnInit {
 
 	private async loadPhotoUrl() {
 		this.photoUrl = await this.storage
-			.ref("portrait.png")
+			.ref("portrait2.png")
 			.getDownloadURL()
 			.pipe(take(1))
 			.toPromise();
