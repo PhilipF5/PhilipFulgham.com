@@ -1,9 +1,9 @@
+<section-title>About Me</section-title>
 <div class="profile">
 	<div class="portrait">
 		<img *ngIf="photoUrl" [src]="photoUrl">
 	</div>
 	<div class="text" *ngIf="paragraphs">
-		<section-title>About Me</section-title>
 		<p *ngFor="let p of paragraphs">{{ p }}</p>
 	</div>
 </div>
