@@ -50,6 +50,7 @@ export class GitHubCardComponent {
 		}
 
 		this.languages = statsArray
+			.filter(s => !["CSS", "HTML"].includes(s.name))
 			.sort((a, b) => {
 				if (a.count > b.count) {
 					return -1;
