@@ -13,6 +13,7 @@
 	&.expandable {
 		.clickable {
 			cursor: pointer;
+			position: relative;
 			transition: text-shadow 0.5s linear;
 
 			&:hover {
@@ -22,7 +23,8 @@
 	}
 
 	arrow {
-		margin-left: 10px;
+		position: absolute;
+		right: -30px;
 		transform: translateY(-0.1em);
 	}
 }
