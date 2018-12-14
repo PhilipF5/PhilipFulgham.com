@@ -81,8 +81,7 @@ export class GitHubCardComponent {
 				} else {
 					return 1;
 				}
-			})
-			.slice(0, 5);
+			});
 
 		this.repos = [];
 		for (let r of repos) {
@@ -106,6 +105,7 @@ export class GitHubCardComponent {
 		}
 
 		this.buildLanguageStats();
+		this.repos = this.repos.slice(0, 5);
 	}
 
 	private async getUser() {
