@@ -17,6 +17,10 @@ export class ArrowComponent {
 		};
 	}
 
+	public get elem(): HTMLElement {
+		return this._elem.nativeElement;
+	}
+
 	public get lineTransform(): any {
 		return {
 			strokeWidth: 1 / this.size
@@ -28,6 +32,8 @@ export class ArrowComponent {
 	private get svg(): HTMLElement {
 		return this._svg.nativeElement;
 	}
+
+	constructor(private _elem: ElementRef) {}
 
 	public flip(): TweenMax {
 		return TweenMax.to(this.svg, 1, { rotationZ: 180, transformOrigin: "center center", ease: Power1.easeInOut });

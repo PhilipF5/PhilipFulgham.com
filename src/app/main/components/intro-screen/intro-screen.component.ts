@@ -15,7 +15,7 @@ const plugins = [ScrollToPlugin];
 export class IntroScreenComponent {
 	@ViewChild("byline") private _byline: ElementRef;
 	@ViewChild("quote") private _quote: ElementRef;
-	@ViewChild(ArrowComponent, { read: ElementRef }) private _scrollArrow: ElementRef;
+	@ViewChild(ArrowComponent) private _scrollArrow: ArrowComponent;
 
 	private get byline(): HTMLElement {
 		return this._byline.nativeElement;
@@ -26,7 +26,7 @@ export class IntroScreenComponent {
 	}
 
 	private get scrollArrow(): HTMLElement {
-		return this._scrollArrow.nativeElement;
+		return this._scrollArrow.elem;
 	}
 
 	public load(): TimelineLite {
