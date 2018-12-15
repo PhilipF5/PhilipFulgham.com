@@ -31,9 +31,9 @@ export class IntroScreenComponent {
 
 	public load(): TimelineLite {
 		return new TimelineLite()
-			.from(this.quote, 2, { x: -50, ease: Power1.easeInOut }, "start")
-			.to(this.quote, 2, { opacity: 1, ease: Power1.easeInOut }, "start")
-			.to(this.byline, 2, { opacity: 1, ease: Power1.easeInOut })
+			.from(this.quote, 4, { x: -50, ease: Power1.easeOut }, "start")
+			.to(this.quote, 4, { opacity: 1, ease: Power1.easeOut }, "start")
+			.to(this.byline, 2, { opacity: 1, ease: Power1.easeInOut }, "-=2")
 			.to(this.scrollArrow, 1, { opacity: 1, ease: Power1.easeInOut })
 			.add(TweenMax.to(this.scrollArrow, 2, { opacity: 0.5, ease: Power1.easeInOut }).repeat(-1).yoyo(true));
 	}
