@@ -106,7 +106,6 @@ export class GitHubCardComponent {
 		}
 
 		this.buildLanguageStats();
-		this.repos = this.repos.slice(0, 5);
 	}
 
 	private async getUser() {
