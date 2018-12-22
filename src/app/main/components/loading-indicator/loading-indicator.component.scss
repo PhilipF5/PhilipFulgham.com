@@ -1,0 +1,22 @@
+:host {
+	height: 25px;
+	position: relative;
+	width: 25px;
+}
+
+.circle {
+	border-radius: 25px;
+	bottom: 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	top: 0;
+
+	&.back {
+		background-color: white;
+	}
+
+	&.front {
+		background-color: black;
+	}
+}
