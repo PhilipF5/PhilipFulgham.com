@@ -12,6 +12,7 @@ import { Skill } from "app/main/models";
 	styleUrls: ["./skills-grid.component.scss"],
 })
 export class SkillsGridComponent implements OnInit {
+	public loaded: boolean;
 	public skills: Skill[];
 
 	constructor(private afs: AngularFirestore) {}
@@ -39,5 +40,7 @@ export class SkillsGridComponent implements OnInit {
 				return 1;
 			}
 		});
+
+		this.loaded = true;
 	}
 }

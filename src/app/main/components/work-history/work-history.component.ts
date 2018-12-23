@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 import { AngularFireStorage } from "@angular/fire/storage";
 import { AngularFirestore, QuerySnapshot } from "@angular/fire/firestore";
@@ -15,6 +15,8 @@ import { Job } from "app/main/models";
 })
 export class WorkHistoryComponent implements OnInit {
 	@Input() limit: number;
+
+	@Output() load = new EventEmitter();
 
 	public jobs: Job[];
 
@@ -58,5 +60,6 @@ export class WorkHistoryComponent implements OnInit {
 		}
 
 		this.jobs = jobs;
+		this.load.emit();
 	}
 }

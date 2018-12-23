@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from "@angular/core";
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 
 import { AngularFireStorage } from "@angular/fire/storage";
 import { AngularFirestore, QuerySnapshot } from "@angular/fire/firestore";
@@ -14,6 +14,8 @@ import { Credential } from "app/main/models";
 })
 export class EduHistoryComponent implements OnInit {
 	@Input() limit: number;
+
+	@Output() load = new EventEmitter();
 
 	public creds: Credential[];
 
@@ -53,5 +55,6 @@ export class EduHistoryComponent implements OnInit {
 		}
 
 		this.creds = creds;
+		this.load.emit();
 	}
 }

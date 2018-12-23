@@ -6,6 +6,7 @@ import { GitHubCardComponent } from "./github-card/github-card.component";
 import { GitHubProfileComponent } from "./github-profile/github-profile.component";
 import { HistoryItemComponent } from "./history-item/history-item.component";
 import { IntroScreenComponent } from "./intro-screen/intro-screen.component";
+import { LoadingIndicatorComponent } from "./loading-indicator/loading-indicator.component";
 import { MediumFeedComponent } from "./medium-feed/medium-feed.component";
 import { PageSectionComponent } from "./page-section/page-section.component";
 import { PortfolioComponent } from "./portfolio/portfolio.component";
@@ -26,6 +27,7 @@ export { GitHubCardComponent } from "./github-card/github-card.component";
 export { GitHubProfileComponent } from "./github-profile/github-profile.component";
 export { HistoryItemComponent } from "./history-item/history-item.component";
 export { IntroScreenComponent } from "./intro-screen/intro-screen.component";
+export { LoadingIndicatorComponent } from "./loading-indicator/loading-indicator.component";
 export { MediumFeedComponent } from "./medium-feed/medium-feed.component";
 export { PageSectionComponent } from "./page-section/page-section.component";
 export { PortfolioComponent } from "./portfolio/portfolio.component";
@@ -47,6 +49,7 @@ export const COMPONENTS = [
 	GitHubProfileComponent,
 	HistoryItemComponent,
 	IntroScreenComponent,
+	LoadingIndicatorComponent,
 	MediumFeedComponent,
 	PageSectionComponent,
 	PortfolioComponent,

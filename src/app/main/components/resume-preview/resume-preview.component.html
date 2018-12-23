@@ -1,4 +1,5 @@
 <section-title>Résumé</section-title>
+<loading-indicator *ngIf="!loaded"></loading-indicator>
 <work-history [limit]="1"></work-history>
 <edu-history [limit]="1"></edu-history>
 <shadow-button class="resume-link">
