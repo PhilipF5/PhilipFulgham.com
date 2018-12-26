@@ -17,8 +17,8 @@
 		color: lightskyblue;
 		transform: scale(1.1);
 	}
+}
 
-	/deep/ a:visited {
-		color: dodgerblue;
-	}
+/deep/ a, a:visited {
+	color: inherit;
 }
