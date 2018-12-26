@@ -1,17 +1,12 @@
-<div *ngIf="user && !hasError" class="header">
+<div class="header">
 	<div class="username">
-		<a [href]="user.html_url" target="_blank">@{{ user.login }}</a>
+		<a href="https://github.com/PhilipF5" target="_blank">@PhilipF5</a>
 	</div>
-	<div class="repo-count">{{ user.public_repos }} public repos</div>
+	<div class="repo-count">{{ publicRepoCount }} public repos</div>
 </div>
-<div *ngIf="repos && !hasError" class="languages">
-	<div>Top languages:</div>
-	<div class="lang-icons">
-		<img *ngFor="let lang of languages" [src]="getIconLink(lang)" [alt]="lang">
-	</div>
-</div>
+<!-- TODO bring back top languages display after stack update -->
 <div class="repos" *ngIf="repos && !hasError">
-	<shadow-button *ngFor="let repo of repos | slice: 0 : 5">
+	<shadow-button *ngFor="let repo of repos | slice: 0 : displayCount">
 		<a [href]="repo.html_url" target="_blank">
 			<div class="repo-row">
 				<div class="name-and-date">

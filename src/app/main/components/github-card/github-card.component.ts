@@ -10,8 +10,10 @@ export class GitHubCardComponent {
 	@Input()
 	username: string;
 
+	public displayCount: number = 5;
 	public hasError: boolean;
 	public languages: any;
+	public publicRepoCount: number | string = "?";
 	public repos: any;
 	public user: any;
 
@@ -24,7 +26,6 @@ export class GitHubCardComponent {
 	constructor(private http: HttpClient) {}
 
 	ngOnInit() {
-		this.getUser();
 		this.getRepos();
 	}
 
@@ -91,8 +92,9 @@ export class GitHubCardComponent {
 			return;
 		}
 
+		this.publicRepoCount = repos.length;
 		this.repos = [];
-		for (let r of repos) {
+		for (let r of repos.slice(0, this.displayCount)) {
 			let repo = await this.http
 				.get<any>(r.url, { headers: { Accept: "application/vnd.github.mercy-preview+json" } })
 				.toPromise();
@@ -112,11 +114,11 @@ export class GitHubCardComponent {
 				repo.icon = Icons[repo.language];
 			}
 
-			repo.languages = await this.getLanguageStats(repo);
+			// TODO getLanguageStats after stack update
 			this.repos.push(repo);
 		}
 
-		this.buildLanguageStats();
+		// TODO buildLanguageStats after stack update
 	}
 
 	private async getUser() {
