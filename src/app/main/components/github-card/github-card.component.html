@@ -1,16 +1,16 @@
-<div *ngIf="user" class="header">
+<div *ngIf="user && !hasError" class="header">
 	<div class="username">
 		<a [href]="user.html_url" target="_blank">@{{ user.login }}</a>
 	</div>
 	<div class="repo-count">{{ user.public_repos }} public repos</div>
 </div>
-<div *ngIf="repos" class="languages">
+<div *ngIf="repos && !hasError" class="languages">
 	<div>Top languages:</div>
 	<div class="lang-icons">
 		<img *ngFor="let lang of languages" [src]="getIconLink(lang)" [alt]="lang">
 	</div>
 </div>
-<div class="repos" *ngIf="repos">
+<div class="repos" *ngIf="repos && !hasError">
 	<shadow-button *ngFor="let repo of repos | slice: 0 : 5">
 		<a [href]="repo.html_url" target="_blank">
 			<div class="repo-row">
@@ -24,4 +24,7 @@
 			</div>
 		</a>
 	</shadow-button>
+</div>
+<div class="error" *ngIf="hasError">
+	Couldn't load content
 </div>

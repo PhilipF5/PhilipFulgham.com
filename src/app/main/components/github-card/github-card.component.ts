@@ -10,6 +10,7 @@ export class GitHubCardComponent {
 	@Input()
 	username: string;
 
+	public hasError: boolean;
 	public languages: any;
 	public repos: any;
 	public user: any;
@@ -63,7 +64,10 @@ export class GitHubCardComponent {
 	}
 
 	private async get<T>(url: string) {
-		return this.http.get<T>(url).toPromise();
+		return this.http.get<T>(url).toPromise().catch(() => {
+			this.setErrorStatus();
+			return [];
+		});
 	}
 
 	private getIconLink(icon: string) {
@@ -83,12 +87,19 @@ export class GitHubCardComponent {
 					return 1;
 				}
 			});
+		if (repos.length === 0) {
+			return;
+		}
 
 		this.repos = [];
 		for (let r of repos) {
 			let repo = await this.http
 				.get<any>(r.url, { headers: { Accept: "application/vnd.github.mercy-preview+json" } })
 				.toPromise();
+			if (repo instanceof Array) {
+				return;
+			}
+
 			if (repo.topics.includes("angular")) {
 				repo.icon = Icons["Angular"];
 			} else if (repo.topics.includes("angularjs")) {
@@ -109,7 +120,11 @@ export class GitHubCardComponent {
 	}
 
 	private async getUser() {
-		this.user = await this.get(this.userUrl);
+		this.user = await this.get<any>(this.userUrl);
+	}
+
+	private setErrorStatus() {
+		this.hasError = true;
 	}
 }
 
