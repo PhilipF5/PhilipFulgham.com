@@ -1,17 +1,22 @@
 <div class="header">
 	<div class="username">
-		<a href="https://github.com/PhilipF5" target="_blank">@PhilipF5</a>
+		<a [href]="profileUrl" target="_blank">{{ username }}</a>
 	</div>
 	<div class="repo-count">{{ publicRepoCount }} public repos</div>
 </div>
-<!-- TODO bring back top languages display after stack update -->
+<div *ngIf="repos && !hasError" class="languages">
+	<div>Top languages:</div>
+	<div class="lang-icons">
+		<img *ngFor="let lang of languages" [src]="getIconLink(lang)" [alt]="lang">
+	</div>
+</div>
 <div class="repos" *ngIf="repos && !hasError">
-	<shadow-button *ngFor="let repo of repos | slice: 0 : displayCount">
-		<a [href]="repo.html_url" target="_blank">
+	<shadow-button *ngFor="let repo of repos">
+		<a [href]="repo.url" target="_blank">
 			<div class="repo-row">
 				<div class="name-and-date">
 					<div class="repo-name">{{ repo.name }}</div>
-					<div class="repo-date">Updated: {{ repo.pushed_at | momentString: "M/DD/YYYY" }}</div>
+					<div class="repo-date">Updated: {{ repo.lastPushed | momentString: "M/DD/YYYY" }}</div>
 				</div>
 				<div class="icon">
 					<img [src]="getIconLink(repo.icon)" [alt]="repo.icon">

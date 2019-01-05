@@ -1,5 +1,7 @@
 import { Component, Input } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+
+import { Repo } from "app/main/models";
+import { RepoService } from "app/main/services";
 
 @Component({
 	selector: "github-card",
@@ -7,26 +9,24 @@ import { HttpClient } from "@angular/common/http";
 	styleUrls: ["./github-card.component.scss"],
 })
 export class GitHubCardComponent {
-	@Input()
-	username: string;
+	@Input() username: string;
 
-	public displayCount: number = 5;
 	public hasError: boolean;
 	public languages: any;
 	public publicRepoCount: number | string = "?";
-	public repos: any;
-	public user: any;
+	public repos: Repo[];
 
-	public get userUrl(): string {
-		return this.baseUrl + "/users/" + this.username;
+	public get profileUrl(): string {
+		return "https://github.com/" + this.username;
 	}
 
-	private baseUrl: string = "https://api.github.com";
-
-	constructor(private http: HttpClient) {}
+	constructor(private repoService: RepoService) {}
 
 	ngOnInit() {
-		this.getRepos();
+		this.repoService.getRepos().subscribe(repos => {
+			this.repos = repos;
+			this.setLanguagesAndIcons();
+		});
 	}
 
 	private buildLanguageStats() {
@@ -64,65 +64,26 @@ export class GitHubCardComponent {
 			.map(s => Icons[s.name] || s.name);
 	}
 
-	private async get<T>(url: string) {
-		return this.http.get<T>(url).toPromise().catch(() => {
-			this.setErrorStatus();
-			return [];
-		});
-	}
-
 	private getIconLink(icon: string) {
 		return `assets/icons/file_type_${icon}.svg`;
 	}
 
-	private getLanguageStats(repo) {
-		return this.get(repo.languages_url);
-	}
-
-	private async getRepos() {
-		let repos = (await this.get<any[]>(this.userUrl + "/repos"))
-			.sort((a, b) => {
-				if (a.pushed_at > b.pushed_at) {
-					return -1;
-				} else {
-					return 1;
-				}
-			});
-		if (repos.length === 0) {
-			return;
-		}
-
-		this.publicRepoCount = repos.length;
-		this.repos = [];
-		for (let r of repos.slice(0, this.displayCount)) {
-			let repo = await this.http
-				.get<any>(r.url, { headers: { Accept: "application/vnd.github.mercy-preview+json" } })
-				.toPromise();
-			if (repo instanceof Array) {
-				return;
-			}
-
-			if (repo.topics.includes("angular")) {
-				repo.icon = Icons["Angular"];
-			} else if (repo.topics.includes("angularjs")) {
-				repo.icon = Icons["AngularJS"];
-			} else if (repo.topics.includes("nodejs")) {
-				repo.icon = Icons["Node.js"];
-			} else if (repo.topics.includes("react")) {
-				repo.icon = Icons["React"];
+	private setLanguagesAndIcons() {
+		for (let r of this.repos) {
+			if (r.topics.includes("angular")) {
+				r.icon = Icons["Angular"];
+			} else if (r.topics.includes("angularjs")) {
+				r.icon = Icons["AngularJS"];
+			} else if (r.topics.includes("nodejs")) {
+				r.icon = Icons["Node.js"];
+			} else if (r.topics.includes("react")) {
+				r.icon = Icons["React"];
 			} else {
-				repo.icon = Icons[repo.language];
+				r.icon = Icons[r.topLanguage];
 			}
-
-			// TODO getLanguageStats after stack update
-			this.repos.push(repo);
 		}
 
-		// TODO buildLanguageStats after stack update
-	}
-
-	private async getUser() {
-		this.user = await this.get<any>(this.userUrl);
+		this.buildLanguageStats();
 	}
 
 	private setErrorStatus() {

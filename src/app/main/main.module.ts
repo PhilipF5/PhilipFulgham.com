@@ -7,11 +7,12 @@ import { COMPONENTS } from "./components";
 import { DIRECTIVES } from "./directives";
 import { PAGES } from "./pages";
 import { PIPES } from "./pipes";
+import { SERVICES } from "./services";
 
 @NgModule({
 	declarations: [COMPONENTS, DIRECTIVES, PAGES, PIPES],
 	imports: [CommonModule, MainRoutingModule],
 	exports: [COMPONENTS, DIRECTIVES, PAGES, PIPES],
-	providers: []
+	providers: [SERVICES],
 })
 export class MainModule {}
