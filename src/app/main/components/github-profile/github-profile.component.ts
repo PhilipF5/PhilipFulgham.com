@@ -1,5 +1,7 @@
 import { Component, Input } from "@angular/core";
 
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
 import { Repo } from "app/main/models";
 import { RepoService } from "app/main/services";
 
@@ -11,6 +13,7 @@ import { RepoService } from "app/main/services";
 export class GitHubProfileComponent {
 	@Input() username: string;
 
+	public githubIcon = faGithub;
 	public hasError: boolean;
 	public languages: any;
 	public repos: Repo[];

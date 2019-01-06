@@ -1,7 +1,7 @@
-<section-title>GitHub</section-title>
+<section-title>Projects</section-title>
 <div class="header">
 	<div class="username">
-		<a [href]="profileUrl" target="_blank">{{ username }}</a>
+		<a [href]="profileUrl" target="_blank"><fa-icon [icon]="githubIcon"></fa-icon>{{ username }}</a>
 	</div>
 	<div class="repo-count" *ngIf="repos">{{ repos.length }} public repos</div>
 </div>

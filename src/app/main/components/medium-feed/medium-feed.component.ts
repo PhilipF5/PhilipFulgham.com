@@ -1,5 +1,7 @@
 import { Component } from "@angular/core";
 
+import { faMedium } from "@fortawesome/free-brands-svg-icons";
+
 import { BlogPost } from "app/main/models";
 import { BlogPostService } from "app/main/services";
 
@@ -10,6 +12,7 @@ import { BlogPostService } from "app/main/services";
 })
 export class MediumFeedComponent {
 	public count: number;
+	public mediumIcon = faMedium;
 	public posts: BlogPost[];
 
 	constructor(private blogPostService: BlogPostService) {}
