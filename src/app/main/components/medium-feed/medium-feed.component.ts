@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
-import * as moment from "moment";
-import { MediumApiResponse, MediumPost } from "app/main/models";
+
+import { BlogPost } from "app/main/models";
+import { BlogPostService } from "app/main/services";
 
 @Component({
 	selector: "medium-feed",
@@ -10,18 +10,13 @@ import { MediumApiResponse, MediumPost } from "app/main/models";
 })
 export class MediumFeedComponent {
 	public count: number;
-	public posts: MediumPost[];
+	public posts: BlogPost[];
 
-	constructor(private http: HttpClient) {}
+	constructor(private blogPostService: BlogPostService) {}
 
 	ngOnInit() {
-		this.http
-			.get("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@philipf5")
-			.subscribe((res: MediumApiResponse) => {
-				this.count = res.items.length;
-				this.posts = res.items
-					.slice(0, 5)
-					.map(item => Object.assign({}, item, { pubDate: moment(item.pubDate) }));
-			});
+		this.blogPostService.getBlogPosts().subscribe(blogPosts => {
+			this.posts = blogPosts;
+		});
 	}
 }

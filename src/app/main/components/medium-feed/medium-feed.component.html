@@ -3,14 +3,14 @@
 	<div class="username">
 		<a href="https://medium.com/@philipf5" target="_blank">@PhilipF5</a>
 	</div>
-	<div class="post-count">{{ count }} articles published</div>
+	<div class="post-count" *ngIf="posts">{{ posts.length }} articles published</div>
 </div>
 <div class="posts" *ngIf="posts">
-	<shadow-button *ngFor="let post of posts">
+	<shadow-button *ngFor="let post of posts | slice: 0:5">
 		<a [href]="post.link" target="_blank">
 			<div class="post-row">
 				<div class="post-title">{{ post.title }}</div>
-				<div class="post-date">Posted: {{ post.pubDate | momentString: "MM/DD/YYYY" }}</div>
+				<div class="post-date">Posted: {{ post.publishDate | momentString: "MM/DD/YYYY" }}</div>
 			</div>
 		</a>
 	</shadow-button>
