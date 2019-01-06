@@ -13,7 +13,6 @@ export class GitHubCardComponent {
 
 	public hasError: boolean;
 	public languages: any;
-	public publicRepoCount: number | string = "?";
 	public repos: Repo[];
 
 	public get profileUrl(): string {

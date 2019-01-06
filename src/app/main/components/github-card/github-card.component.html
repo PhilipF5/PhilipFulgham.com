@@ -2,7 +2,7 @@
 	<div class="username">
 		<a [href]="profileUrl" target="_blank">{{ username }}</a>
 	</div>
-	<div class="repo-count">{{ publicRepoCount }} public repos</div>
+	<div class="repo-count" *ngIf="repos">{{ repos.length }} public repos</div>
 </div>
 <div *ngIf="repos && !hasError" class="languages">
 	<div>Top languages:</div>
@@ -11,7 +11,7 @@
 	</div>
 </div>
 <div class="repos" *ngIf="repos && !hasError">
-	<shadow-button *ngFor="let repo of repos">
+	<shadow-button *ngFor="let repo of repos | slice: 0:5">
 		<a [href]="repo.url" target="_blank">
 			<div class="repo-row">
 				<div class="name-and-date">
