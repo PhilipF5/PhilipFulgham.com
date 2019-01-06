@@ -1,3 +1,90 @@
 :host {
-	text-align: center;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+}
+
+.header {
+	align-items: flex-end;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	a {
+		color: white;
+		transition: color 0.5s linear;
+
+		&:hover {
+			color: lightblue;
+		}
+	}
+}
+
+.username {
+	font-size: 1.313em;
+	font-weight: 700;
+}
+
+.languages {
+	align-items: center;
+	display: flex;
+	justify-content: space-between;
+	width: 100%;
+
+	.lang-icons {
+		display: flex;
+
+		img {
+			height: 24px;
+			width: 24px;
+		}
+	}
+}
+
+.repos {
+	border-top: 2px solid white;
+	margin-top: 10px;
+	width: 100%;
+
+	a {
+		width: 100%;
+	}
+}
+
+.repos:hover .repo-row {
+	opacity: 0.25;
+
+	&:hover {
+		opacity: 1;
+	}
+}
+
+.repo-row {
+	align-items: center;
+	box-sizing: border-box;
+	display: flex;
+	justify-content: space-between;
+	padding: 10px;
+	transition: opacity 0.5s linear;
+	width: 100%;
+}
+
+.name-and-date {
+	margin-right: 50px;
+	text-align: left;
+}
+
+.repo-date {
+	color: white;
+	font-size: 0.75em;
+	font-style: italic;
+}
+
+.repo-icons {
+	display: flex;
+}
+
+.icon {
+	height: 32px;
+	width: 32px;
 }
