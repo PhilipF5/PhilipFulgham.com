@@ -5,8 +5,9 @@
 }
 
 .header {
-	align-items: flex-end;
+	align-items: center;
 	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 	width: 100%;
 
@@ -61,4 +62,8 @@
 .post-date {
 	font-size: 0.75em;
 	font-style: italic;
+}
+
+.post-count {
+	line-height: 1.5em;
 }
