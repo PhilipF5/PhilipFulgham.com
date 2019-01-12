@@ -26,6 +26,11 @@
 		</a>
 	</shadow-button>
 </div>
+<shadow-button class="view-all">
+	<a [href]="profileUrl + '/?tab=repositories'" target="_blank">
+		View all repos
+	</a>
+</shadow-button>
 <div class="error" *ngIf="hasError">
 	Couldn't load content
 </div>
