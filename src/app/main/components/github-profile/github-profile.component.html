@@ -1,5 +1,5 @@
 <section-title>Projects</section-title>
-<div class="header">
+<div *ngIf="!hasError" class="header">
 	<div class="username">
 		<a [href]="profileUrl" target="_blank"><fa-icon [icon]="githubIcon"></fa-icon>{{ username }}</a>
 	</div>
@@ -26,11 +26,14 @@
 		</a>
 	</shadow-button>
 </div>
+<div class="error" *ngIf="hasError">
+	{{ error }}
+</div>
 <shadow-button class="view-all">
-	<a [href]="profileUrl + '/?tab=repositories'" target="_blank">
+	<a *ngIf="repos && !hasError" [href]="profileUrl + '/?tab=repositories'" target="_blank">
 		More...
 	</a>
+	<a *ngIf="hasError" [href]="profileUrl + '/?tab=repositories'" target="_blank">
+		View on <fa-icon [icon]="githubIcon"></fa-icon>GitHub
+	</a>
 </shadow-button>
-<div class="error" *ngIf="hasError">
-	Couldn't load content
-</div>

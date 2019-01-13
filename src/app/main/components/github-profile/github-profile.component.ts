@@ -13,10 +13,14 @@ import { RepoService } from "app/main/services";
 export class GitHubProfileComponent {
 	@Input() username: string;
 
+	public error: string;
 	public githubIcon = faGithub;
-	public hasError: boolean;
 	public languages: any;
 	public repos: Repo[];
+
+	public get hasError(): boolean {
+		return !!this.error;
+	}
 
 	public get profileUrl(): string {
 		return "https://github.com/" + this.username;
@@ -25,10 +29,15 @@ export class GitHubProfileComponent {
 	constructor(private repoService: RepoService) {}
 
 	ngOnInit() {
-		this.repoService.getRepos().subscribe(repos => {
-			this.repos = repos;
-			this.setLanguagesAndIcons();
-		});
+		this.repoService.getRepos().subscribe(
+			repos => {
+				this.repos = repos;
+				this.setLanguagesAndIcons();
+			},
+			error => {
+				this.error = error;
+			},
+		);
 	}
 
 	private buildLanguageStats() {
@@ -86,10 +95,6 @@ export class GitHubProfileComponent {
 		}
 
 		this.buildLanguageStats();
-	}
-
-	private setErrorStatus() {
-		this.hasError = true;
 	}
 }
 
