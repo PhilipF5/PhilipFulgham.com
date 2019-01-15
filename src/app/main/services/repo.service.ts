@@ -13,12 +13,10 @@ export class RepoService {
 	constructor(private http: HttpClient) {}
 
 	public getRepos(): Observable<Repo[]> {
-		return this.http
-			.get<any[]>(environment.API_URL + "Repos")
-			.pipe(
-				catchError(this.handleError),
-				map(res => res.map<Repo>(r => ({ lastPushed: moment(r.lastPushed), ...r }))),
-			);
+		return this.http.get<any[]>(environment.API_URL + "Repos").pipe(
+			catchError(this.handleError),
+			map(res => res.map<Repo>(r => ({ lastPushed: moment(r.lastPushed), ...r })))
+		);
 	}
 
 	private handleError(error: HttpErrorResponse) {
