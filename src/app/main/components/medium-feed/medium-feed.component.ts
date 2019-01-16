@@ -8,7 +8,7 @@ import { BlogPostService } from "app/main/services";
 @Component({
 	selector: "medium-feed",
 	templateUrl: "./medium-feed.component.html",
-	styleUrls: ["./medium-feed.component.scss"]
+	styleUrls: ["./medium-feed.component.scss"],
 })
 export class MediumFeedComponent {
 	public count: number;

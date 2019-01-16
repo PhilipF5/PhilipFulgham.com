@@ -36,23 +36,25 @@ export class GitHubProfileComponent {
 			},
 			error => {
 				this.error = error;
-			},
+			}
 		);
 	}
 
 	private buildLanguageStats() {
-		let stats = this.repos.map(r => r.languages).reduce((accumulator, currentValue) => {
-			accumulator = accumulator || {};
-			for (let lang in currentValue) {
-				if (accumulator[lang]) {
-					accumulator[lang] += currentValue[lang];
-				} else {
-					accumulator[lang] = currentValue[lang];
+		let stats = this.repos
+			.map(r => r.languages)
+			.reduce((accumulator, currentValue) => {
+				accumulator = accumulator || {};
+				for (let lang in currentValue) {
+					if (accumulator[lang]) {
+						accumulator[lang] += currentValue[lang];
+					} else {
+						accumulator[lang] = currentValue[lang];
+					}
 				}
-			}
 
-			return accumulator;
-		});
+				return accumulator;
+			});
 
 		let statsArray = [];
 		for (let lang in stats) {
