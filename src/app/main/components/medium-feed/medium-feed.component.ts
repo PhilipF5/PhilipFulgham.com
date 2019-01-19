@@ -12,14 +12,24 @@ import { BlogPostService } from "app/main/services";
 })
 export class MediumFeedComponent {
 	public count: number;
+	public error: string;
 	public mediumIcon = faMedium;
 	public posts: BlogPost[];
+
+	public get hasError(): boolean {
+		return !!this.error;
+	}
 
 	constructor(private blogPostService: BlogPostService) {}
 
 	ngOnInit() {
-		this.blogPostService.getBlogPosts().subscribe(blogPosts => {
-			this.posts = blogPosts;
-		});
+		this.blogPostService.getBlogPosts().subscribe(
+			blogPosts => {
+				this.posts = blogPosts;
+			},
+			error => {
+				this.error = error;
+			}
+		);
 	}
 }
