@@ -9,15 +9,25 @@ import { SkillService } from "app/main/services";
 	styleUrls: ["./skills-grid.component.scss"],
 })
 export class SkillsGridComponent implements OnInit {
+	public error: string;
 	public loaded: boolean;
 	public skills: Skill[];
+
+	public get hasError(): boolean {
+		return !!this.error;
+	}
 
 	constructor(private skillService: SkillService) {}
 
 	ngOnInit() {
-		this.skillService.getSkills().subscribe(skills => {
-			this.skills = skills;
-			this.loaded = true;
-		});
+		this.skillService.getSkills().subscribe(
+			skills => {
+				this.skills = skills;
+				this.loaded = true;
+			},
+			error => {
+				this.error = error;
+			}
+		);
 	}
 }

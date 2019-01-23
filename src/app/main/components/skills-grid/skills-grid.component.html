@@ -1,5 +1,8 @@
+<section-title>Skills</section-title>
+<div class="error" *ngIf="hasError">
+	{{ error }}
+</div>
 <div class="list">
-	<section-title>Skills</section-title>
 	<loading-indicator *ngIf="!loaded"></loading-indicator>
 	<span class="skill" [ngClass]="{'active': skill.active}" *ngFor="let skill of skills">
 		{{skill.name}}

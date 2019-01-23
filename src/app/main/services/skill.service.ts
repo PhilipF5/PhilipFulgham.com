@@ -1,8 +1,8 @@
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-import { Observable } from "rxjs";
-import { map } from "rxjs/operators";
+import { Observable, throwError } from "rxjs";
+import { catchError, map } from "rxjs/operators";
 
 import { Skill } from "app/main/models";
 import { environment } from "environments/environment";
@@ -13,6 +13,7 @@ export class SkillService {
 
 	public getSkills(): Observable<Skill[]> {
 		return this.http.get<any[]>(environment.API_URL + "Skills").pipe(
+			catchError(this.handleError),
 			map(res =>
 				res.sort((a, b) => {
 					let nameA = a.alphaSort || a.name;
@@ -25,5 +26,9 @@ export class SkillService {
 				})
 			)
 		);
+	}
+
+	private handleError(error: HttpErrorResponse) {
+		return throwError("Couldn't load skills grid");
 	}
 }
