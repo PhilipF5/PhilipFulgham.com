@@ -23,7 +23,6 @@ export class ResumePreviewComponent implements OnInit {
 		this.resumeService.getResumeInfo().subscribe(
 			resumeItems => {
 				this.items = resumeItems;
-				console.log(this.items);
 				this.loaded = true;
 			},
 			error => {
