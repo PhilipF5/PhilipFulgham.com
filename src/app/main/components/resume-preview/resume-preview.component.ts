@@ -1,28 +1,34 @@
-import { AfterViewInit, Component, ViewChild } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 
-import { zip } from "rxjs";
-
-import { EduHistoryComponent } from "../edu-history/edu-history.component";
-import { WorkHistoryComponent } from "../work-history/work-history.component";
+import { ResumeItem } from "app/main/models";
+import { ResumeService } from "app/main/services";
 
 @Component({
 	selector: "resume-preview",
 	templateUrl: "./resume-preview.component.html",
 	styleUrls: ["./resume-preview.component.scss"],
 })
-export class ResumePreviewComponent implements AfterViewInit {
-	@ViewChild(EduHistoryComponent) private eduHistory: EduHistoryComponent;
-	@ViewChild(WorkHistoryComponent) private workHistory: WorkHistoryComponent;
-
+export class ResumePreviewComponent implements OnInit {
+	public error: string;
+	public items: ResumeItem[];
 	public loaded: boolean;
 
-	ngAfterViewInit() {
-		zip(this.eduHistory.load, this.workHistory.load).subscribe(() => {
-			this.markAsLoaded();
-		});
+	public get hasError(): boolean {
+		return !!this.error;
 	}
 
-	public markAsLoaded(): void {
-		this.loaded = true;
+	constructor(private resumeService: ResumeService) {}
+
+	ngOnInit() {
+		this.resumeService.getResumeInfo().subscribe(
+			resumeItems => {
+				this.items = resumeItems;
+				console.log(this.items);
+				this.loaded = true;
+			},
+			error => {
+				this.error = error;
+			}
+		);
 	}
 }

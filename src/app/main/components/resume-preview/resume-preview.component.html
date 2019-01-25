@@ -1,7 +1,9 @@
 <section-title>Résumé</section-title>
-<loading-indicator *ngIf="!loaded"></loading-indicator>
-<work-history [limit]="1"></work-history>
-<edu-history [limit]="1"></edu-history>
+<loading-indicator *ngIf="!loaded && !hasError"></loading-indicator>
+<history-item *ngFor="let item of items" [image]="item.image" [place]="item.org" [name]="item.title"></history-item>
+<div class="error" *ngIf="hasError">
+	{{ error }}
+</div>
 <shadow-button class="resume-link">
 	<a href="https://resume.philipfulgham.com" target="_blank">
 		View full resume
