@@ -1,10 +1,8 @@
 import { Component, OnInit, ViewChild } from "@angular/core";
 
-import { AngularFirestore, DocumentSnapshot } from "@angular/fire/firestore";
-import { AngularFireStorage } from "@angular/fire/storage";
-import { map, take } from "rxjs/operators";
-
 import { CollapsibleDirective } from "app/main/directives";
+import { Favorite } from "app/main/models";
+import { ProfileService } from "app/main/services";
 
 @Component({
 	selector: "about-me",
@@ -12,38 +10,42 @@ import { CollapsibleDirective } from "app/main/directives";
 	styleUrls: ["./about-me.component.scss"],
 })
 export class AboutMeComponent implements OnInit {
-	public paragraphs: string[];
-	public photoUrl: string;
-
 	@ViewChild(CollapsibleDirective) private subsection: CollapsibleDirective;
 
-	constructor(private afs: AngularFirestore, private storage: AngularFireStorage) {}
+	public favorites: { [category: string]: Favorite[] };
+
+	public get favoriteCategories(): string[] {
+		return Object.getOwnPropertyNames(this.favorites).sort();
+	}
+
+	constructor(private profileService: ProfileService) {}
 
 	ngOnInit() {
-		this.loadParagraphs();
-		this.loadPhotoUrl();
+		this.profileService.getFavorites().subscribe(favorites => {
+			favorites = favorites.sort((a, b) => {
+				let nameA = a.alphaSort || a.name;
+				let nameB = b.alphaSort || b.name;
+				if (nameA < nameB) {
+					return -1;
+				} else {
+					return 1;
+				}
+			});
+
+			let lists = {};
+			for (let fav of favorites) {
+				if (lists[fav.type]) {
+					lists[fav.type].push(fav);
+				} else {
+					lists[fav.type] = [fav];
+				}
+			}
+
+			this.favorites = lists;
+		});
 	}
 
 	public toggleFavorites(): void {
 		this.subsection.toggle();
-	}
-
-	private async loadParagraphs() {
-		this.paragraphs = await this.afs
-			.doc("text/pJwwIKKFUtJvxDiaWtxJ")
-			.get()
-			.pipe(
-				map<DocumentSnapshot<any>, string[]>(text => text.get("contents")),
-				take(1)
-			)
-			.toPromise();
-	}
-
-	private async loadPhotoUrl() {
-		this.photoUrl = await this.storage
-			.ref("portrait2.png")
-			.getDownloadURL()
-			.pipe(take(1))
-			.toPromise();
 	}
 }
