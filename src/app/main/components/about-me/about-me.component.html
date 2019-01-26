@@ -3,9 +3,7 @@
 	<div class="portrait">
 		<img src="assets/portrait.png">
 	</div>
-	<div class="text" *ngIf="paragraphs">
-		<p *ngFor="let p of paragraphs">{{ p }}</p>
-	</div>
+	<div class="text" *ngIf="bio" [innerHTML]="bio"></div>
 </div>
 <section-title [expandable]="true" (expand)="toggleFavorites()">Favorite Things</section-title>
 <div class="favorites" *ngIf="favorites" collapsible>

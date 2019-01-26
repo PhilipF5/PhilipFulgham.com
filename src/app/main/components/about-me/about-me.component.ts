@@ -12,6 +12,7 @@ import { ProfileService } from "app/main/services";
 export class AboutMeComponent implements OnInit {
 	@ViewChild(CollapsibleDirective) private subsection: CollapsibleDirective;
 
+	public bio: string;
 	public favorites: { [category: string]: Favorite[] };
 
 	public get favoriteCategories(): string[] {
@@ -21,6 +22,7 @@ export class AboutMeComponent implements OnInit {
 	constructor(private profileService: ProfileService) {}
 
 	ngOnInit() {
+		this.profileService.getBio().subscribe(bio => (this.bio = bio));
 		this.profileService.getFavorites().subscribe(favorites => {
 			favorites = favorites.sort((a, b) => {
 				let nameA = a.alphaSort || a.name;

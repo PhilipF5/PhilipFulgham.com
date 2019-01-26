@@ -6,3 +6,4 @@ export { MediumApiResponse } from "./medium-api-response.model";
 export { Repo } from "./repo.model";
 export { ResumeItem } from "./resume-item.model";
 export { Skill } from "./skill.model";
+export { TextBlock } from "./text-block.model";
