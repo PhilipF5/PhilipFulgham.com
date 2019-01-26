@@ -5,16 +5,13 @@
 	"scripts": {
 		"ng": "ng",
 		"start": "ng serve",
-		"build": "ng build --prod",
-		"deploy:staging": "firebase use staging && firebase deploy",
-		"deploy:production": "firebase use production && firebase deploy"
+		"build": "ng build --prod"
 	},
 	"private": true,
 	"dependencies": {
 		"@angular/common": "^7.0.0",
 		"@angular/compiler": "^7.0.0",
 		"@angular/core": "^7.0.0",
-		"@angular/fire": "^5.1.0",
 		"@angular/forms": "^7.0.0",
 		"@angular/http": "^7.0.0",
 		"@angular/platform-browser": "^7.0.0",
@@ -24,7 +21,6 @@
 		"@fortawesome/fontawesome-svg-core": "^1.2.12",
 		"@fortawesome/free-brands-svg-icons": "^5.6.3",
 		"core-js": "^2.4.1",
-		"firebase": "^5.5.5",
 		"gsap": "^2.0.2",
 		"moment": "^2.22.2",
 		"ng2-responsive": "^0.7.7",
