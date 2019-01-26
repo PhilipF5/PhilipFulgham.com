@@ -1,8 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
 
-import { AngularFireStorage } from "@angular/fire/storage";
 import { Power1 } from "gsap";
-import { take } from "rxjs/operators";
 
 import { IntroScreenComponent } from "app/main/components";
 
@@ -12,8 +10,6 @@ import { IntroScreenComponent } from "app/main/components";
 	styleUrls: ["./home.page.scss"],
 })
 export class HomePage implements OnInit {
-	public imageUrl: string;
-
 	@ViewChild("background") private _background: ElementRef;
 	@ViewChild(IntroScreenComponent) private introScreen: IntroScreenComponent;
 
@@ -21,19 +17,11 @@ export class HomePage implements OnInit {
 		return this._background.nativeElement;
 	}
 
-	constructor(private storage: AngularFireStorage) {}
-
 	ngOnInit() {
-		this.loadBackgroundImage();
+		this.animateBackground();
 	}
 
-	private async loadBackgroundImage() {
-		this.imageUrl = await this.storage
-			.ref("galaxy.jpg")
-			.getDownloadURL()
-			.pipe(take(1))
-			.toPromise();
-
+	private animateBackground() {
 		this.introScreen
 			.load()
 			.to(this.background, 6, { opacity: 1, ease: Power1.easeInOut }, 2)
