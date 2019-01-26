@@ -1,8 +1,6 @@
-import { BrowserModule } from "@angular/platform-browser";
-import { NgModule } from "@angular/core";
-
-import { ResponsiveModule } from "ng2-responsive";
 import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { BrowserModule } from "@angular/platform-browser";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
@@ -14,7 +12,6 @@ import { MainModule } from "app/main/main.module";
 	imports: [
 		BrowserModule,
 		AppRoutingModule,
-		ResponsiveModule,
 		MainModule,
 		HttpClientModule,
 	],
