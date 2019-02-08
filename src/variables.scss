@@ -3,3 +3,8 @@ $bg-color-1: $base-color;
 $bg-color-2: darken($base-color, 10%);
 $bg-color-3: darken($base-color, 15%);
 $bg-color-4: darken($base-color, 20%);
+
+:root {
+	--link-color: #1e90ff;
+	--link-hover-color: #87cefa;
+}

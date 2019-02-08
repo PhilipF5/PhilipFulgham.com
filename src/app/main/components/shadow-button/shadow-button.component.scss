@@ -1,7 +1,7 @@
 :host {
 	align-items: center;
 	border-radius: 5px;
-	color: dodgerblue;
+	color: white;
 	cursor: pointer;
 	display: flex;
 	justify-content: center;
@@ -17,8 +17,4 @@
 		color: lightskyblue;
 		transform: scale(1.1);
 	}
-}
-
-/deep/ a, a:visited {
-	color: inherit;
 }

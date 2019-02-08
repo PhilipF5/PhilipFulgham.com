@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @import url("https://use.typekit.net/oub3voo.css");
+@import "variables";
 
 html, body {
 	height: 100%;
@@ -15,5 +16,11 @@ body {
 }
 
 a {
+	color: var(--link-color);
 	text-decoration: none;
+	transition: color 0.5s linear;
+
+	&:hover {
+		color: var(--link-hover-color);
+	}
 }
