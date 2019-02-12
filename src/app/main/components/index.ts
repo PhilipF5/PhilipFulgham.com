@@ -14,6 +14,7 @@ import { SectionTitleComponent } from "./section-title/section-title.component";
 import { ShadowButtonComponent } from "./shadow-button/shadow-button.component";
 import { SiteFooterComponent } from "./site-footer/site-footer.component";
 import { SiteHeaderComponent } from "./site-header/site-header.component";
+import { SiteNavComponent } from "./site-nav/site-nav.component";
 import { SkillsGridComponent } from "./skills-grid/skills-grid.component";
 
 export { AboutMeComponent } from "./about-me/about-me.component";
@@ -32,6 +33,7 @@ export { SectionTitleComponent } from "./section-title/section-title.component";
 export { ShadowButtonComponent } from "./shadow-button/shadow-button.component";
 export { SiteFooterComponent } from "./site-footer/site-footer.component";
 export { SiteHeaderComponent } from "./site-header/site-header.component";
+export { SiteNavComponent } from "./site-nav/site-nav.component";
 export { SkillsGridComponent } from "./skills-grid/skills-grid.component";
 
 export const COMPONENTS = [
@@ -51,5 +53,6 @@ export const COMPONENTS = [
 	ShadowButtonComponent,
 	SiteFooterComponent,
 	SiteHeaderComponent,
+	SiteNavComponent,
 	SkillsGridComponent,
 ];

@@ -1,0 +1,25 @@
+:host {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+	width: 25px;
+}
+
+.expand-button {
+	align-items: center;
+	cursor: pointer;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	position: relative;
+
+	fa-icon {
+		height: 5px;
+
+		&.top-right {
+			position: absolute;
+			top: 0;
+		}
+	}
+}
