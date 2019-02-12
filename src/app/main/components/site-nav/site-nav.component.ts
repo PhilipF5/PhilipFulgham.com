@@ -9,10 +9,10 @@ import { TimelineLite, TweenMax } from "gsap";
 	styleUrls: ["./site-nav.component.scss"],
 })
 export class SiteNavComponent {
-	@ViewChild("bottomPiece", { read: ElementRef }) _bottomPiece: ElementRef;
-	@ViewChild("middlePiece", { read: ElementRef }) _middlePiece: ElementRef;
-	@ViewChild("topLeftPiece", { read: ElementRef }) _topLeftPiece: ElementRef;
-	@ViewChild("topRightPiece", { read: ElementRef }) _topRightPiece: ElementRef;
+	@ViewChild("bottomPiece", { read: ElementRef }) private _bottomPiece: ElementRef;
+	@ViewChild("middlePiece", { read: ElementRef }) private _middlePiece: ElementRef;
+	@ViewChild("topLeftPiece", { read: ElementRef }) private _topLeftPiece: ElementRef;
+	@ViewChild("topRightPiece", { read: ElementRef }) private _topRightPiece: ElementRef;
 
 	public isOpen: boolean = false;
 	public menuIconPiece = faMinus;
@@ -21,6 +21,10 @@ export class SiteNavComponent {
 
 	public get bottomPiece(): HTMLElement {
 		return this._bottomPiece.nativeElement.querySelector("svg");
+	}
+
+	public get elem(): HTMLElement {
+		return this._elem.nativeElement;
 	}
 
 	public get middlePiece(): HTMLElement {
@@ -35,6 +39,8 @@ export class SiteNavComponent {
 		return this._topRightPiece.nativeElement.querySelector("svg");
 	}
 
+	constructor(private _elem: ElementRef) {}
+
 	public close() {
 		this.openAnimation.reverse();
 	}
@@ -46,7 +52,8 @@ export class SiteNavComponent {
 			this.openAnimation = new TimelineLite()
 				.add(this.animateBottomPiece())
 				.add(this.animateMiddlePiece(), "-=0.15")
-				.add(this.animateTopPieces(), "-=0.15");
+				.add(this.animateTopPieces(), "-=0.15")
+				.add(this.animateItems(), "-=0.15");
 		}
 	}
 
@@ -56,6 +63,10 @@ export class SiteNavComponent {
 
 	private animateBottomPiece(): TweenMax {
 		return TweenMax.to(this.bottomPiece, 0.25, { rotationZ: 90, y: 60, scaleX: 1.5, transformOrigin: "center center" });
+	}
+
+	private animateItems(): TweenMax[] {
+		return TweenMax.staggerTo(this.elem.querySelectorAll(".menu-items .item"), 0.25, { autoAlpha: 1 }, 0.1);
 	}
 
 	private animateMiddlePiece(): TweenMax {
