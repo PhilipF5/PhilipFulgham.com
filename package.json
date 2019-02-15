@@ -26,6 +26,10 @@
 		"moment": "^2.24.0",
 		"rxjs": "^6.3.3",
 		"ts-helpers": "^1.1.1",
+		"typeface-quattrocento-sans": "^0.0.54",
+		"typeface-ubuntu": "^0.0.65",
+		"typeface-ubuntu-condensed": "^0.0.54",
+		"typeface-ubuntu-mono": "^0.0.54",
 		"zone.js": "^0.8.29"
 	},
 	"devDependencies": {

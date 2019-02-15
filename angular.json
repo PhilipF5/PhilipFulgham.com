@@ -16,7 +16,13 @@
 						"main": "src/main.ts",
 						"tsConfig": "src/tsconfig.json",
 						"assets": ["src/assets", "src/favicon.ico"],
-						"styles": ["src/styles.scss"],
+						"styles": [
+							"src/styles.scss",
+							"node_modules/typeface-quattrocento-sans",
+							"node_modules/typeface-ubuntu",
+							"node_modules/typeface-ubuntu-condensed",
+							"node_modules/typeface-ubuntu-mono"
+						],
 						"scripts": []
 					},
 					"configurations": {

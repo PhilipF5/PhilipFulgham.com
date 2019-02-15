@@ -6706,6 +6706,26 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-quattrocento-sans@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-quattrocento-sans/-/typeface-quattrocento-sans-0.0.54.tgz#bdd1f323c48b4f0a181edca93d7f58c4a5578afa"
+  integrity sha512-nVQXLt2/q9//8oLogg7gySNTN7w0K0gJV07iqmRka7EKr2idYcVIlxpV+I0nOTAxUvEkOgzOOAyWVOAUoU5Rzw==
+
+typeface-ubuntu-condensed@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-ubuntu-condensed/-/typeface-ubuntu-condensed-0.0.54.tgz#bc1e84de77d83a8dda2230f41636435f89b80791"
+  integrity sha512-KyAgJX+Ek/rFKNmmWvDKU1SzVAF2dyKqaSqqKHbWOmnpXn2DCVb8McBk43kgnrBFPwy0KrpVbGmwMAN4WJc7LQ==
+
+typeface-ubuntu-mono@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-ubuntu-mono/-/typeface-ubuntu-mono-0.0.54.tgz#773582617ff60dc252acbaaeb22880ba7f559fe6"
+  integrity sha512-hwfEPLzA3f/q8RowZlW6Mmvqe8yffYk7vlwzia+n7xVjY16C2UvWWPCgGMXUbUIgFZIeqA5OvFwUjDMzi95wRw==
+
+typeface-ubuntu@^0.0.65:
+  version "0.0.65"
+  resolved "https://registry.yarnpkg.com/typeface-ubuntu/-/typeface-ubuntu-0.0.65.tgz#d2994cc4b1540ed4830cef7aae2a8c393c197a74"
+  integrity sha512-v+s/216IINmqQoO3Y9+bKDn9OgrasPtRLWaVSmjRBljFDkFndmQjHcsLZrv0r89aSeqzxlBvKwZIigFh8pZO9Q==
+
 typescript@3.2.2:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.2.2.tgz#fe8101c46aa123f8353523ebdcf5730c2ae493e5"
