@@ -12,15 +12,21 @@
 	cursor: pointer;
 	display: flex;
 	flex-direction: column;
+	height: 20px;
 	justify-content: center;
 	position: relative;
 
 	fa-icon {
-		height: 5px;
+		bottom: 0;
+		position: absolute;
+		top: 0;
 
-		&.top-right {
-			position: absolute;
-			top: 0;
+		&.bottom {
+			top: 5px;
+		}
+
+		&.top {
+			top: -5px;
 		}
 	}
 }
@@ -30,11 +36,11 @@
 	display: flex;
 	flex-direction: column;
 	position: absolute;
-	right: 40px;
-	top: 51px;
+	right: 30px;
+	top: 42px;
 
 	.item {
-		line-height: 34px;
+		line-height: 35px;
 		opacity: 0;
 		visibility: hidden;
 	}
