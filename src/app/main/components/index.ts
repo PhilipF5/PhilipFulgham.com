@@ -8,6 +8,9 @@ import { IntroScreenComponent } from "./intro-screen/intro-screen.component";
 import { LoadingIndicatorComponent } from "./loading-indicator/loading-indicator.component";
 import { MediumFeedComponent } from "./medium-feed/medium-feed.component";
 import { PageSectionComponent } from "./page-section/page-section.component";
+import { ProjectInfoComponent } from "./project-info/project-info.component";
+import { ProjectsComponent } from "./projects/projects.component";
+import { ProjectsCarouselComponent } from "./projects-carousel/projects-carousel.component";
 import { ResumePreviewComponent } from "./resume-preview/resume-preview.component";
 import { SectionTitleComponent } from "./section-title/section-title.component";
 import { ShadowButtonComponent } from "./shadow-button/shadow-button.component";
@@ -26,6 +29,9 @@ export { IntroScreenComponent } from "./intro-screen/intro-screen.component";
 export { LoadingIndicatorComponent } from "./loading-indicator/loading-indicator.component";
 export { MediumFeedComponent } from "./medium-feed/medium-feed.component";
 export { PageSectionComponent } from "./page-section/page-section.component";
+export { ProjectInfoComponent } from "./project-info/project-info.component";
+export { ProjectsComponent } from "./projects/projects.component";
+export { ProjectsCarouselComponent } from "./projects-carousel/projects-carousel.component";
 export { ResumePreviewComponent } from "./resume-preview/resume-preview.component";
 export { SectionTitleComponent } from "./section-title/section-title.component";
 export { ShadowButtonComponent } from "./shadow-button/shadow-button.component";
@@ -45,6 +51,9 @@ export const COMPONENTS = [
 	LoadingIndicatorComponent,
 	MediumFeedComponent,
 	PageSectionComponent,
+	ProjectInfoComponent,
+	ProjectsComponent,
+	ProjectsCarouselComponent,
 	ResumePreviewComponent,
 	SectionTitleComponent,
 	ShadowButtonComponent,
