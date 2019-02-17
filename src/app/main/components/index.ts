@@ -7,7 +7,6 @@ import { IntroScreenComponent } from "./intro-screen/intro-screen.component";
 import { LoadingIndicatorComponent } from "./loading-indicator/loading-indicator.component";
 import { MediumFeedComponent } from "./medium-feed/medium-feed.component";
 import { PageSectionComponent } from "./page-section/page-section.component";
-import { PortfolioComponent } from "./portfolio/portfolio.component";
 import { ProjectsComponent } from "./projects/projects.component";
 import { ResumePreviewComponent } from "./resume-preview/resume-preview.component";
 import { SectionTitleComponent } from "./section-title/section-title.component";
@@ -26,7 +25,6 @@ export { IntroScreenComponent } from "./intro-screen/intro-screen.component";
 export { LoadingIndicatorComponent } from "./loading-indicator/loading-indicator.component";
 export { MediumFeedComponent } from "./medium-feed/medium-feed.component";
 export { PageSectionComponent } from "./page-section/page-section.component";
-export { PortfolioComponent } from "./portfolio/portfolio.component";
 export { ProjectsComponent } from "./projects/projects.component";
 export { ResumePreviewComponent } from "./resume-preview/resume-preview.component";
 export { SectionTitleComponent } from "./section-title/section-title.component";
@@ -46,7 +44,6 @@ export const COMPONENTS = [
 	LoadingIndicatorComponent,
 	MediumFeedComponent,
 	PageSectionComponent,
-	PortfolioComponent,
 	ProjectsComponent,
 	ResumePreviewComponent,
 	SectionTitleComponent,
