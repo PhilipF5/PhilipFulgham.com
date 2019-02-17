@@ -4,7 +4,8 @@
 	"angular-cli": {},
 	"scripts": {
 		"ng": "ng",
-		"start": "ng serve",
+		"start": "ng serve --host 0.0.0.0 --publicHost $(scutil --get LocalHostName | tr '[:upper:]' '[:lower:]').local",
+		"start:beta": "yarn start -c beta",
 		"build": "ng build --prod"
 	},
 	"private": true,
