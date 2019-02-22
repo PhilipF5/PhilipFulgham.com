@@ -1,5 +1,14 @@
-shadow-button {
+:host {
+	border-right: 3px groove #222222;
+}
+
+.project {
+	cursor: pointer;
 	height: 52px;
 	justify-content: flex-start;
-	padding-left: 5px;
+	padding: 10px;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.05);
+	}
 }

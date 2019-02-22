@@ -19,4 +19,8 @@ export class ProjectsSelectorComponent implements OnInit {
 	ngOnInit() {
 		this.projects = this.projectService.getProjects();
 	}
+
+	public selectProject(project: Project): void {
+		this.projectSelected.emit(project);
+	}
 }

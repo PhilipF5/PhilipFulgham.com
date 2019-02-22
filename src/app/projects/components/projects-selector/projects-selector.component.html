@@ -1,1 +1,1 @@
-<shadow-button *ngFor="let p of projects | async">{{ p.name }}</shadow-button>
+<div *ngFor="let p of projects | async" class="project" (click)="selectProject(p)">{{ p.name }}</div>
