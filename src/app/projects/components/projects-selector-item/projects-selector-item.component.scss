@@ -1,0 +1,38 @@
+:host {
+	cursor: pointer;
+	display: grid;
+	grid-template-areas:
+		"name platform"
+		"skills platform";
+	grid-template-columns: auto 75px;
+	grid-template-rows: 40% 60%;
+	height: 52px;
+	justify-content: stretch;
+	padding: 10px;
+
+	&:hover {
+		background-color: rgba(255, 255, 255, 0.05);
+	}
+}
+
+.name {
+	grid-area: name;
+}
+
+.skills {
+	grid-area: skills;
+
+	img {
+		max-height: 25px;
+		width: 25px;
+	}
+}
+
+.platform {
+	grid-area: platform;
+	place-self: center;
+
+	img {
+		width: 50px;
+	}
+}

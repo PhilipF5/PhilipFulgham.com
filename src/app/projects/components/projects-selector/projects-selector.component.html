@@ -1,1 +1,5 @@
-<div *ngFor="let p of projects | async" class="project" (click)="selectProject(p)">{{ p.name }}</div>
+<projects-selector-item
+	*ngFor="let p of (projects | async)"
+	[project]="p"
+	(click)="selectProject(p)"
+></projects-selector-item>

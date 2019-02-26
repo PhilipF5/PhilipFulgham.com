@@ -1,0 +1,7 @@
+<div class="name">{{ project.name }}</div>
+<div class="platform">
+	<img [src]="project.platform.icon" [alt]="project.platform.name" [title]="project.platform.name" />
+</div>
+<div class="skills">
+	<img *ngFor="let s of displaySkills" [src]="s.icon" [alt]="s.name" [title]="s.name" />
+</div>
