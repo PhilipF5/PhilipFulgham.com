@@ -1,5 +1,6 @@
-<projects-selector-item
-	*ngFor="let p of (projects | async)"
-	[project]="p"
-	(click)="selectProject(p)"
-></projects-selector-item>
+<shadow-button *ngFor="let p of (projects | async)">
+	<projects-selector-item
+		[project]="p"
+		(click)="selectProject(p)"
+	></projects-selector-item>
+</shadow-button>
