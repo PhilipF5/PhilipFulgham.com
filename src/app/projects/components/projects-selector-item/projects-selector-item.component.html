@@ -1,3 +1,4 @@
+<div class="featured"><fa-icon *ngIf="project.featured" [icon]="faStar" title="Featured"></fa-icon></div>
 <div class="name">{{ project.name }}</div>
 <div class="platform">
 	<img [src]="project.platform.icon" [alt]="project.platform.name" [title]="project.platform.name" />

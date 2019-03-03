@@ -2,9 +2,9 @@
 	cursor: pointer;
 	display: grid;
 	grid-template-areas:
-		"name platform"
-		"skills platform";
-	grid-template-columns: auto 75px;
+		"featured name platform"
+		"featured skills platform";
+	grid-template-columns: 15px auto 75px;
 	grid-template-rows: 40% 60%;
 	height: 52px;
 	justify-content: stretch;
@@ -31,4 +31,12 @@
 	img {
 		width: 50px;
 	}
+}
+
+.featured {
+	color: var(--link-color);
+	display: flex;
+	font-size: 12px;
+	grid-area: featured;
+	place-items: center;
 }
