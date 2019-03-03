@@ -2,9 +2,6 @@
 
 @mixin background($bg-color) {
 	background-color: $bg-color;
-	&:hover {
-		background-color: desaturate(lighten($bg-color, 20%), 20%);
-	}
 }
 
 :host {
