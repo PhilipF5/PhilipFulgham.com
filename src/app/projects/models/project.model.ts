@@ -1,3 +1,5 @@
+import { Moment } from "moment";
+
 import { Repo } from "app/activity/models";
 import { Skill } from "./skill.model";
 
@@ -9,5 +11,6 @@ export interface Project {
 	platform: Skill;
 	repo: Repo;
 	skills: Skill[];
+	startDate: Moment;
 	story: string;
 }
