@@ -1,6 +1,14 @@
-<shadow-button *ngFor="let p of (projects | async)">
-	<projects-selector-item
-		[project]="p"
-		(click)="selectProject(p)"
-	></projects-selector-item>
-</shadow-button>
+<ng-container *ngIf="projects$ | async as projects">
+	<div class="items">
+		<shadow-button *ngFor="let p of (projects | slice: firstProjectIndex : lastProjectIndex)">
+			<projects-selector-item
+				[project]="p"
+				(click)="selectProject(p)"
+			></projects-selector-item>
+		</shadow-button>
+	</div>
+	<div class="controls">
+		<glass-button (click)="onPageDown(projects.length)"><arrow></arrow></glass-button>
+		<glass-button (click)="onPageUp()"><arrow class="up"></arrow></glass-button>
+	</div>
+</ng-container>

@@ -1,7 +1,28 @@
 :host {
 	border-right: 3px groove #222222;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr 35px;
+	height: 100%;
 }
 
 projects-selector-item {
 	width: 100%;
+}
+
+.controls {
+	display: grid;
+	gap: 5px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	width: 100%;
+
+	glass-button {
+		height: 35px;
+		width: 100%;
+
+		.up {
+			transform: rotateZ(180deg);
+		}
+	}
 }
