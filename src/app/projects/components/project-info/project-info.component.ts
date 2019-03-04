@@ -9,4 +9,8 @@ import { Project } from "app/projects/models";
 })
 export class ProjectInfoComponent {
 	@Input() selectedProject: Project;
+
+	public get skills(): string {
+		return this.selectedProject.skills.map(s => s.name).sort().join(", ");
+	}
 }

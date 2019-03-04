@@ -1,1 +1,15 @@
-<div *ngIf="selectedProject" class="description">{{ selectedProject.story }}</div>
+<div *ngIf="selectedProject" class="active">
+	<div class="image">
+		<img class="image" [src]="selectedProject.image" />
+	</div>
+	<div class="date">Project Started<br>{{ selectedProject.startDate | momentString: "M/DD/YYYY" }}</div>
+	<div class="skills">{{ skills }}</div>
+	<div class="repo">
+		<a *ngIf="selectedProject.repo" [href]="selectedProject.repo.url" target="_blank">
+			<div class="link">View on GitHub</div>
+		</a>
+		<div *ngIf="!selectedProject.repo" class="no link">No public repo</div>
+	</div>
+	<div class="story">{{ selectedProject.story }}</div>
+</div>
+<div *ngIf="!selectedProject" class="inactive"></div>

@@ -1,3 +1,72 @@
 :host {
-	padding: 10px;
+	height: 100%;
+	padding: 0 10px;
+}
+
+.active {
+	display: grid;
+	grid-template-areas:
+		"image image image"
+		"date skills repo"
+		"story story story";
+	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-rows: 60% 1fr 3fr;
+	height: 100%;
+
+	.image {
+		grid-area: image;
+		place-self: center;
+
+		img {
+			height: 400px;
+			max-width: 100%;
+		}
+	}
+
+	.date {
+		grid-area: date;
+	}
+
+	.skills {
+		font-style: italic;
+		grid-area: skills;
+		text-align: center;
+	}
+
+	.repo {
+		align-self: start;
+		grid-area: repo;
+		height: 45px;
+		justify-self: center;
+		width: 100%;
+
+		.link {
+			align-items: center;
+			border: 1px solid var(--link-color);
+			border-radius: 5px;
+			color: var(--link-color);
+			display: flex;
+			height: 100%;
+			justify-content: center;
+			transition:
+				border-color 0.5s linear,
+				color 0.5s linear;
+			width: 100;
+
+			&.no {
+				border-color: rgba(255, 255, 255, 0.3);
+				color: rgba(255, 255, 255, 0.3);
+			}
+
+			&:not(.no):hover {
+				border-color: var(--link-hover-color);
+				color: var(--link-hover-color);
+			}
+		}
+	}
+
+	.story {
+		grid-area: story;
+		hyphens: none;
+	}
 }
