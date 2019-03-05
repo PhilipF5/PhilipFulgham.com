@@ -5,11 +5,12 @@
 
 .active {
 	display: grid;
+	gap: 10px;
 	grid-template-areas:
 		"image image image"
 		"date skills repo"
 		"story story story";
-	grid-template-columns: 1fr 2fr 1fr;
+	grid-template-columns: 1fr 3fr 1fr;
 	grid-template-rows: 60% 1fr 3fr;
 	height: 100%;
 
@@ -25,19 +26,20 @@
 
 	.date {
 		grid-area: date;
+		place-self: center start;
 	}
 
 	.skills {
 		font-style: italic;
 		grid-area: skills;
+		place-self: center;
 		text-align: center;
 	}
 
 	.repo {
-		align-self: start;
 		grid-area: repo;
 		height: 45px;
-		justify-self: center;
+		place-self: center;
 		width: 100%;
 
 		.link {
