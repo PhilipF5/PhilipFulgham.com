@@ -1,6 +1,13 @@
 :host {
 	height: 100%;
 	padding: 0 10px;
+	pointer-events: none;
+
+	@media (max-width: 1080px) {
+		padding: 0;
+		position: absolute;
+		width: 100%;
+	}
 }
 
 .active {
@@ -11,22 +18,59 @@
 		"date skills repo"
 		"story story story";
 	grid-template-columns: 1fr 3fr 1fr;
-	grid-template-rows: 60% 1fr 3fr;
+	grid-template-rows: 372px 1fr 3fr;
 	height: 100%;
+	pointer-events: initial;
+	position: relative;
+
+	@media (max-width: 1080px) {
+		background-color: rgba(0, 0, 0, 0.9);
+		box-sizing: border-box;
+		grid-template-areas:
+			"image"
+			"date"
+			"skills"
+			"repo"
+			"story";
+		grid-template-columns: 100%;
+		grid-template-rows: 30% 50px 50px 50px auto;
+		min-height: 100%;
+		padding: 5%;
+		width: 100%;
+	}
+
+	.close {
+		display: none;
+
+		@media (max-width: 1080px) {
+			cursor: pointer;
+			display: block;
+			font-size: 18px;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+		}
+	}
 
 	.image {
 		grid-area: image;
+		height: 100%;
 		place-self: center;
+		width: 100%;
 
 		img {
-			height: 400px;
-			max-width: 100%;
+			object-fit: contain;
 		}
 	}
 
 	.date {
 		grid-area: date;
 		place-self: center start;
+
+		@media (max-width: 1080px) {
+			place-self: center center;
+			text-align: center;
+		}
 	}
 
 	.skills {
@@ -82,5 +126,9 @@
 	.instructions {
 		text-align: center;
 		width: 50%;
+	}
+
+	@media (max-width: 1080px) {
+		display: none;
 	}
 }

@@ -13,4 +13,8 @@ export class ProjectsComponent {
 	public changeSelectedProject(project: Project) {
 		this.selectedProject = project;
 	}
+
+	public clearSelectedProject() {
+		this.selectedProject = undefined;
+	}
 }

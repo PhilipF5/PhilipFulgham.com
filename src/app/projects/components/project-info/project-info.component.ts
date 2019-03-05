@@ -1,5 +1,6 @@
-import { Component, ElementRef, Input, NgZone } from "@angular/core";
+import { Component, ElementRef, EventEmitter, Input, NgZone, Output } from "@angular/core";
 
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import { TimelineLite } from "gsap";
 
 import { Project } from "app/projects/models";
@@ -10,6 +11,8 @@ import { Project } from "app/projects/models";
 	styleUrls: ["./project-info.component.scss"],
 })
 export class ProjectInfoComponent {
+	@Output() closed: EventEmitter<{}> = new EventEmitter();
+	public closeIcon = faTimes;
 	private _selectedProject: Project;
 
 	public get selectedProject(): Project {
@@ -32,4 +35,9 @@ export class ProjectInfoComponent {
 	}
 
 	constructor(private _elem: ElementRef, private ngZone: NgZone) {}
+
+	public closeProject(): void {
+		this.selectedProject = undefined;
+		this.closed.emit();
+	}
 }

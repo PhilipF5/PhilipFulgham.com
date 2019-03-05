@@ -4,6 +4,12 @@
 	grid-template-columns: auto;
 	grid-template-rows: 1fr 35px;
 	height: 100%;
+
+	@media (max-width: 1080px) {
+		border-right: none;
+		max-width: 500px;
+		width: 100%;
+	}
 }
 
 .item {
@@ -12,7 +18,9 @@
 	width: 100%;
 
 	&.selected {
-		border-right: 2px solid white;
+		@media (min-width: 1081px) {
+			border-right: 2px solid white;
+		}
 	}
 }
 

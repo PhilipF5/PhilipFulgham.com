@@ -1,4 +1,5 @@
 <div *ngIf="selectedProject" class="active">
+	<div class="close" (click)="closeProject()"><fa-icon [icon]="closeIcon"></fa-icon></div>
 	<div class="image">
 		<img class="image" [src]="selectedProject.image" />
 	</div>
