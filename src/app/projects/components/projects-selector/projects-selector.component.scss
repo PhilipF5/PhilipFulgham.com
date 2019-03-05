@@ -6,6 +6,16 @@
 	height: 100%;
 }
 
+.item {
+	border-color: transparent;
+	transition: border-color 0.5s linear;
+	width: 100%;
+
+	&.selected {
+		border-right: 2px solid white;
+	}
+}
+
 projects-selector-item {
 	width: 100%;
 }

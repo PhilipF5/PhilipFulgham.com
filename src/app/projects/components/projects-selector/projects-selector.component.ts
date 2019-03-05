@@ -16,6 +16,7 @@ export class ProjectsSelectorComponent implements OnInit {
 	@ViewChild("items") _itemsContainer: ElementRef;
 	public pageIndex: number = 0;
 	public projects$: Observable<Project[]>;
+	public selectedProject: Project;
 	private readonly pageLength: number = 8;
 
 	public get firstProjectIndex(): number {
@@ -49,6 +50,7 @@ export class ProjectsSelectorComponent implements OnInit {
 	}
 
 	public selectProject(project: Project): void {
+		this.selectedProject = project;
 		this.projectSelected.emit(project);
 	}
 
