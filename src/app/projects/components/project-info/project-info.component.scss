@@ -72,3 +72,15 @@
 		hyphens: none;
 	}
 }
+
+.inactive {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+
+	.instructions {
+		text-align: center;
+		width: 50%;
+	}
+}
