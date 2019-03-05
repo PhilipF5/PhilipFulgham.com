@@ -1,6 +1,7 @@
 import { Component, Input } from "@angular/core";
 
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { sortBy } from "lodash";
 
 import { Project, Skill } from "app/projects/models";
 
@@ -14,6 +15,6 @@ export class ProjectsSelectorItemComponent {
 	public faStar = faStar;
 
 	public get displaySkills(): Skill[] {
-		return this.project.skills.filter(s => s.name !== this.project.platform.name);
+		return sortBy(this.project.skills.filter(s => s.name !== this.project.platform.name), [s => s.name]);
 	}
 }
