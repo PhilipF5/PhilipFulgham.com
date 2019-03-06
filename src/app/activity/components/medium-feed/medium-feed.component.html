@@ -10,7 +10,7 @@
 		<a [href]="post.link" target="_blank">
 			<div class="post-row">
 				<div class="post-title">{{ post.title }}</div>
-				<div class="post-date">Posted: {{ post.publishDate | momentString: "MM/DD/YYYY" }}</div>
+				<div class="post-date">Posted: {{ post.publishDate | formatDate: "yyyy-MM-dd" }}</div>
 			</div>
 		</a>
 	</shadow-button>

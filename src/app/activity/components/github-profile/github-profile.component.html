@@ -17,7 +17,7 @@
 			<div class="repo-row">
 				<div class="name-and-date">
 					<div class="repo-name">{{ repo.name }}</div>
-					<div class="repo-date">Updated: {{ repo.lastPushed | momentString: "M/DD/YYYY" }}</div>
+					<div class="repo-date">Updated: {{ repo.lastPushed | formatDate: "yyyy-MM-dd" }}</div>
 				</div>
 				<div class="icon">
 					<img [src]="getIconLink(repo.icon)" [alt]="repo.icon">

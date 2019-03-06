@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 
-import * as moment from "moment";
+import { DateTime } from "luxon";
 import { Observable, throwError } from "rxjs";
 import { catchError, map } from "rxjs/operators";
 
@@ -15,7 +15,7 @@ export class BlogPostService {
 	public getBlogPosts(): Observable<BlogPost[]> {
 		return this.http.get<any[]>(environment.API_URL + "BlogPosts").pipe(
 			catchError(this.handleError),
-			map(res => res.map<BlogPost>(bp => ({ publishDate: moment(bp.publishDate), ...bp })))
+			map(res => res.map<BlogPost>(bp => ({ publishDate: DateTime.fromISO(bp.publishDate), ...bp })))
 		);
 	}
 

@@ -1,7 +1,7 @@
-import { Moment } from "moment";
+import { DateTime } from "luxon";
 
 export interface BlogPost {
-	publishDate: Moment;
+	publishDate: DateTime;
 	title: string;
 	url: string;
 }

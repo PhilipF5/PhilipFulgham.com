@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { environment } from "environments/environment";
-import * as moment from "moment";
+import { DateTime } from "luxon";
 
 @Component({
 	selector: "site-footer",
@@ -9,5 +9,5 @@ import * as moment from "moment";
 })
 export class SiteFooterComponent {
 	public version = environment.VERSION;
-	public year = moment().format("YYYY");
+	public year = DateTime.local().toFormat("yyyy");
 }

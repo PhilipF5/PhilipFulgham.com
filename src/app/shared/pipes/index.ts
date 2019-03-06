@@ -1,5 +1,5 @@
-import { MomentStringPipe } from "./moment-string.pipe";
+import { FormatDatePipe } from "./format-date.pipe";
 
-export { MomentStringPipe } from "./moment-string.pipe";
+export { FormatDatePipe } from "./format-date.pipe";
 
-export const PIPES = [MomentStringPipe];
+export const PIPES = [FormatDatePipe];
