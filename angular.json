@@ -23,7 +23,9 @@
 							"node_modules/typeface-ubuntu-condensed",
 							"node_modules/typeface-ubuntu-mono"
 						],
-						"scripts": []
+						"scripts": [
+							"node_modules/marked/lib/marked.js"
+						]
 					},
 					"configurations": {
 						"production": {

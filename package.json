@@ -26,6 +26,7 @@
 		"gsap": "^2.0.2",
 		"lodash": "^4.17.11",
 		"moment": "^2.24.0",
+		"ngx-markdown": "^7.1.4",
 		"rxjs": "^6.3.3",
 		"ts-helpers": "^1.1.1",
 		"typeface-quattrocento-sans": "^0.0.54",

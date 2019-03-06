@@ -11,7 +11,7 @@
 		</a>
 		<div *ngIf="!selectedProject.repo" class="no link">No public repo</div>
 	</div>
-	<div class="story">{{ selectedProject.story }}</div>
+	<div markdown class="story">{{ selectedProject.story }}</div>
 </div>
 <div *ngIf="!selectedProject" class="inactive">
 	<div class="instructions">Click a project on the left to see details</div>
