@@ -1,6 +1,6 @@
 # PhilipFulgham.com
 
-This repo contains the source code for my personal website. The site is built in Angular, so "view source" isn't really sufficient to see what the website is doing.
+This repo contains the source code for my personal website. The site is built in Angular, so "view source" isn't really sufficient to see what the website is doing. If you want to see the code for the version of the site that's out there right now, make sure you look at the commit for the most recent release. The `master` branch will often include not-yet-released work.
 
 ## Legal
 
