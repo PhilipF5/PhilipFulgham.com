@@ -1,0 +1,46 @@
+:host {
+	border-right: 3px groove #222222;
+	display: grid;
+	grid-template-columns: auto;
+	grid-template-rows: 1fr 35px;
+	height: 100%;
+
+	@media (max-width: 1080px) {
+		border-right: none;
+		max-width: 500px;
+		width: 100%;
+	}
+}
+
+.item {
+	border-color: transparent;
+	transition: border-color 0.5s linear;
+	width: 100%;
+
+	&.selected {
+		@media (min-width: 1081px) {
+			border-right: 2px solid white;
+		}
+	}
+}
+
+projects-selector-item {
+	width: 100%;
+}
+
+.controls {
+	display: grid;
+	gap: 5px;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: auto;
+	width: 100%;
+
+	glass-button {
+		height: 35px;
+		width: 100%;
+
+		.up {
+			transform: rotateZ(180deg);
+		}
+	}
+}

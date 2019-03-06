@@ -1,0 +1,5 @@
+<section-title>Projects</section-title>
+<div class="container">
+	<projects-selector (projectSelected)="changeSelectedProject($event)"></projects-selector>
+	<project-info [selectedProject]="selectedProject" (closed)="clearSelectedProject()"></project-info>
+</div>

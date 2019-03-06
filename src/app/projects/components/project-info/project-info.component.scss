@@ -1,0 +1,145 @@
+:host {
+	height: 100%;
+	padding: 0 10px;
+	pointer-events: none;
+
+	@media (max-width: 1080px) {
+		padding: 0;
+		position: absolute;
+		width: 100%;
+	}
+}
+
+.active {
+	display: grid;
+	gap: 10px;
+	grid-template-areas:
+		"image image image"
+		"date skills repo"
+		"story story story";
+	grid-template-columns: 1fr 3fr 1fr;
+	grid-template-rows: 372px 1fr 3fr;
+	height: 100%;
+	pointer-events: initial;
+	position: relative;
+
+	@media (max-width: 1080px) {
+		background-color: rgba(0, 0, 0, 0.9);
+		box-sizing: border-box;
+		grid-template-areas:
+			"image date"
+			"image skills"
+			"image repo"
+			"image story";
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 50px 50px 50px auto;
+		height: auto;
+		min-height: 100%;
+		padding: 5%;
+		width: 100%;
+	}
+
+	@media (max-width: 767px) {
+		grid-template-areas:
+			"image"
+			"date"
+			"skills"
+			"repo"
+			"story";
+		grid-template-columns: 100%;
+		grid-template-rows: 40vw 50px 50px 50px auto;
+	}
+
+	.close {
+		display: none;
+
+		@media (max-width: 1080px) {
+			cursor: pointer;
+			display: block;
+			font-size: 18px;
+			position: absolute;
+			right: 10px;
+			top: 10px;
+		}
+	}
+
+	.image {
+		grid-area: image;
+		height: 100%;
+		place-self: center;
+		width: 100%;
+
+		img {
+			object-fit: contain;
+		}
+	}
+
+	.date {
+		grid-area: date;
+		place-self: center start;
+
+		@media (max-width: 1080px) {
+			place-self: center center;
+			text-align: center;
+		}
+	}
+
+	.skills {
+		font-style: italic;
+		grid-area: skills;
+		place-self: center;
+		text-align: center;
+	}
+
+	.repo {
+		grid-area: repo;
+		height: 45px;
+		place-self: center;
+		width: 100%;
+
+		.link {
+			align-items: center;
+			border: 1px solid var(--link-color);
+			border-radius: 5px;
+			color: var(--link-color);
+			display: flex;
+			height: 100%;
+			justify-content: center;
+			transition:
+				border-color 0.5s linear,
+				color 0.5s linear;
+			width: 100;
+
+			&.no {
+				border-color: rgba(255, 255, 255, 0.3);
+				color: rgba(255, 255, 255, 0.3);
+			}
+
+			&:not(.no):hover {
+				border-color: var(--link-hover-color);
+				color: var(--link-hover-color);
+			}
+		}
+	}
+
+	.story {
+		grid-area: story;
+		hyphens: none;
+	}
+}
+
+.inactive {
+	align-items: center;
+	display: flex;
+	height: 100%;
+	justify-content: center;
+
+	.instructions {
+		text-align: center;
+		width: 50%;
+	}
+
+	@media (max-width: 1080px) {
+		display: none;
+	}
+}

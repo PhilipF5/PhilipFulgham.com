@@ -1,0 +1,42 @@
+:host {
+	cursor: pointer;
+	display: grid;
+	grid-template-areas:
+		"featured name platform"
+		"featured skills platform";
+	grid-template-columns: 15px auto 75px;
+	grid-template-rows: 40% 60%;
+	height: 52px;
+	justify-content: stretch;
+	padding: 10px;
+}
+
+.name {
+	grid-area: name;
+}
+
+.skills {
+	grid-area: skills;
+
+	img {
+		max-height: 25px;
+		max-width: 25px;
+	}
+}
+
+.platform {
+	grid-area: platform;
+	place-self: center;
+
+	img {
+		width: 50px;
+	}
+}
+
+.featured {
+	color: var(--link-color);
+	display: flex;
+	font-size: 12px;
+	grid-area: featured;
+	place-items: center;
+}
