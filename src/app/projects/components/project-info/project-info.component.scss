@@ -27,16 +27,27 @@
 		background-color: rgba(0, 0, 0, 0.9);
 		box-sizing: border-box;
 		grid-template-areas:
+			"image date"
+			"image skills"
+			"image repo"
+			"image story";
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 50px 50px 50px auto;
+		height: auto;
+		min-height: 100%;
+		padding: 5%;
+		width: 100%;
+	}
+
+	@media (max-width: 767px) {
+		grid-template-areas:
 			"image"
 			"date"
 			"skills"
 			"repo"
 			"story";
 		grid-template-columns: 100%;
-		grid-template-rows: 30% 50px 50px 50px auto;
-		min-height: 100%;
-		padding: 5%;
-		width: 100%;
+		grid-template-rows: 40vw 50px 50px 50px auto;
 	}
 
 	.close {
