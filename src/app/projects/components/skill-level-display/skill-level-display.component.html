@@ -1,0 +1,6 @@
+<fa-icon
+	*ngFor="let l of levels"
+	[icon]="starIcon"
+	[ngClass]="{ active: isInLevel(l.i) }"
+></fa-icon>
+<div class="description">{{ levels[level - 1]?.name || "Derelict" }}</div>
