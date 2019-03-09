@@ -7,26 +7,19 @@ export interface ProjectsState extends EntityState<Project> {
 	projectsLoaded: boolean;
 }
 
-export const adapter: EntityAdapter<Project> = createEntityAdapter<Project>({
+export const projectsAdapter: EntityAdapter<Project> = createEntityAdapter<Project>({
 	selectId: project => project._id,
 });
 
-export const initialProjectsState: ProjectsState = adapter.getInitialState({
+export const initialProjectsState: ProjectsState = projectsAdapter.getInitialState({
 	projectsLoaded: false,
 });
 
 export function projectsReducer(state = initialProjectsState, action: ProjectActions): ProjectsState {
 	switch (action.type) {
 		case ProjectActionTypes.ProjectsLoaded:
-			return adapter.addAll(action.payload.projects, { ...state, projectsLoaded: true });
+			return projectsAdapter.addAll(action.payload.projects, { ...state, projectsLoaded: true });
 		default:
 			return state;
 	}
 }
-
-export const {
-	selectAll,
-	selectEntities,
-	selectIds,
-	selectTotal,
-} = adapter.getSelectors();

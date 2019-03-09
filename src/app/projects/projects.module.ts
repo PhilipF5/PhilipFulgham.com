@@ -9,11 +9,12 @@ import { SharedModule } from "../shared/shared.module";
 
 import { COMPONENTS } from "./components";
 import { EFFECTS } from "./effects";
-import { projectsReducer } from "./reducers";
+import { REDUCERS } from "./reducers";
 import { SERVICES } from "./services";
 
 const MODULES = [
-	StoreModule.forFeature("projects", projectsReducer),
+	StoreModule.forFeature("projects", REDUCERS.projectsReducer),
+	StoreModule.forFeature("skills", REDUCERS.skillsReducer),
 	EffectsModule.forFeature(EFFECTS),
 	MarkdownModule.forChild(),
 	CommonModule,
