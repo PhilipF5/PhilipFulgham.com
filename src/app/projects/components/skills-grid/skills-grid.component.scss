@@ -19,10 +19,12 @@
 	}
 
 	.list {
+		display: flex;
+		flex-wrap: wrap;
 		font-family: "Quattrocento Sans";
 		font-size: 1.375em;
+		justify-content: center;
 		list-style-type: none;
-		text-align: center;
 
 		.skill {
 			border-radius: 20px;

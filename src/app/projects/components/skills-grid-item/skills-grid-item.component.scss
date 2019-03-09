@@ -1,0 +1,36 @@
+:host {
+	column-gap: 10px;
+	display: grid;
+	grid-template-areas:
+		"icon name"
+		"icon level";
+	grid-template-columns: 75px 1fr;
+	grid-template-rows: 1fr 1fr;
+	height: 75px;
+	max-width: 275px;
+	padding: 10px;
+	width: 100%;
+}
+
+.icon {
+	grid-area: icon;
+	height: 80%;
+	place-self: center center;
+	width: 80%;
+
+	img {
+		height: 100%;
+		object-fit: scale-down;
+		width: 100%;
+	}
+}
+
+.name {
+	grid-area: name;
+	place-self: end start;
+}
+
+skill-level-display {
+	grid-area: level;
+	place-self: start start;
+}

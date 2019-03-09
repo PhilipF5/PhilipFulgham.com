@@ -4,10 +4,5 @@
 </div>
 <div class="list">
 	<loading-indicator *ngIf="!loaded"></loading-indicator>
-	<span class="skill" [ngClass]="{'active': skill.active}" *ngFor="let skill of skills">
-		{{skill.name}}
-	</span>
-	<div class="footnote">
-		<span class="glow">Recently used</span>
-	</div>
+	<skills-grid-item *ngFor="let skill of skills" [skill]="skill"></skills-grid-item>
 </div>
