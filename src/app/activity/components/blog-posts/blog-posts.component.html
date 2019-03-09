@@ -1,7 +1,7 @@
 <section-title>Blog</section-title>
 <div *ngIf="!hasError" class="header">
 	<div class="username">
-		<a href="https://medium.com/@philipf5" target="_blank"><fa-icon [icon]="mediumIcon"></fa-icon>PhilipF5</a>
+		<a [href]="blogUrl" target="_blank">Philip's Tech Corner</a>
 	</div>
 	<div class="post-count" *ngIf="posts">{{ posts.length }} articles published</div>
 </div>

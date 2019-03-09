@@ -5,12 +5,15 @@ import { faMedium } from "@fortawesome/free-brands-svg-icons";
 import { BlogPost } from "app/activity/models";
 import { BlogPostService } from "app/activity/services";
 
+import { environment } from "environments/environment";
+
 @Component({
-	selector: "medium-feed",
-	templateUrl: "./medium-feed.component.html",
-	styleUrls: ["./medium-feed.component.scss"],
+	selector: "blog-posts",
+	templateUrl: "./blog-posts.component.html",
+	styleUrls: ["./blog-posts.component.scss"],
 })
-export class MediumFeedComponent {
+export class BlogPostsComponent {
+	public blogUrl: string = environment.BLOG_URL;
 	public count: number;
 	public error: string;
 	public mediumIcon = faMedium;

@@ -15,7 +15,13 @@ export class BlogPostService {
 	public getBlogPosts(): Observable<BlogPost[]> {
 		return this.http.get<any[]>(environment.API_URL + "BlogPosts").pipe(
 			catchError(this.handleError),
-			map(res => res.map<BlogPost>(bp => ({ publishDate: DateTime.fromISO(bp.publishDate), ...bp })))
+			map(res =>
+				res.map<BlogPost>(bp => ({
+					...bp,
+					link: environment.BLOG_URL + bp.slug,
+					publishDate: DateTime.fromISO(bp.publishDate),
+				}))
+			)
 		);
 	}
 
