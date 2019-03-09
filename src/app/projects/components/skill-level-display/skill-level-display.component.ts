@@ -13,9 +13,9 @@ export class SkillLevelDisplayComponent {
 
 	public get levels() {
 		return [
-			{ i: 1, name: "Newbie" },
-			{ i: 2, name: "Learning" },
-			{ i: 3, name: "Familiar" },
+			{ i: 1, name: "Explorer" },
+			{ i: 2, name: "Beginner" },
+			{ i: 3, name: "Intermediate" },
 			{ i: 4, name: "Advanced" },
 			{ i: 5, name: "Pro" },
 		];
