@@ -15,10 +15,10 @@ export class ResumeService {
 		return zip(
 			this.http
 				.get<Job>(environment.API_URL + "Jobs?latest=true")
-				.pipe(map<Job, ResumeItem>(j => ({ title: j.title, org: j.org, image: j.image }))),
+				.pipe(map<Job, ResumeItem>(j => ({ _id: j._id, title: j.title, org: j.org, image: j.image }))),
 			this.http
 				.get<Credential>(environment.API_URL + "Credentials?latest=true")
-				.pipe(map<Credential, ResumeItem>(c => ({ title: c.name, org: c.issuer, image: c.image })))
+				.pipe(map<Credential, ResumeItem>(c => ({ _id: c._id, title: c.name, org: c.issuer, image: c.image })))
 		).pipe(catchError(this.handleError));
 	}
 

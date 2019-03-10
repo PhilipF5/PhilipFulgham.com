@@ -1,9 +1,12 @@
 import { Component, Input } from "@angular/core";
 
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { Store, select } from "@ngrx/store";
+import { filter } from "rxjs/operators";
 
+import { ReposRequested } from "app/activity/activity.actions";
 import { Repo } from "app/activity/models";
-import { RepoService } from "app/activity/services";
+import { getRepos } from "app/activity/activity.selectors";
 
 @Component({
 	selector: "github-profile",
@@ -26,16 +29,14 @@ export class GitHubProfileComponent {
 		return "https://github.com/" + this.username;
 	}
 
-	constructor(private repoService: RepoService) {}
+	constructor(private store: Store<any>) {}
 
 	ngOnInit() {
-		this.repoService.getRepos().subscribe(
+		this.store.dispatch(new ReposRequested());
+		this.store.pipe(select(getRepos), filter(x => !!x.length)).subscribe(
 			repos => {
 				this.repos = repos;
 				this.setLanguagesAndIcons();
-			},
-			error => {
-				this.error = error;
 			}
 		);
 	}

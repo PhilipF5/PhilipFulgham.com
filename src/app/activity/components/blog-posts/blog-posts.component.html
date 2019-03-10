@@ -6,7 +6,7 @@
 	<div class="post-count" *ngIf="posts">{{ posts.length }} articles published</div>
 </div>
 <div class="posts" *ngIf="posts && !hasError">
-	<shadow-button *ngFor="let post of posts | slice: 0:5">
+	<shadow-button *ngFor="let post of (posts | async) | slice: 0:5">
 		<a [href]="post.link" target="_blank">
 			<div class="post-row">
 				<div class="post-title">{{ post.title }}</div>
