@@ -3,10 +3,10 @@
 	<div class="username">
 		<a [href]="blogUrl" target="_blank">Philip's Tech Corner</a>
 	</div>
-	<div class="post-count" *ngIf="posts">{{ (posts | async).length }} articles published</div>
+	<div class="post-count" *ngIf="!hasError">{{ (posts$ | async).length }} articles published</div>
 </div>
-<div class="posts" *ngIf="posts && !hasError">
-	<shadow-button *ngFor="let post of (posts | async) | slice: 0:5">
+<div class="posts" *ngIf="!hasError">
+	<shadow-button *ngFor="let post of (posts$ | async) | slice: 0:5">
 		<a [href]="post.link" target="_blank">
 			<div class="post-row">
 				<div class="post-title">{{ post.title }}</div>

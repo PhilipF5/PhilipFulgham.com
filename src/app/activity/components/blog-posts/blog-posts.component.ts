@@ -18,7 +18,7 @@ export class BlogPostsComponent {
 	public blogUrl: string = environment.BLOG_URL;
 	public count: number;
 	public error: string;
-	public posts: Observable<BlogPost[]> = this.store.pipe(select(getBlogPosts));
+	public posts$: Observable<BlogPost[]> = this.store.pipe(select(getBlogPosts));
 
 	public get hasError(): boolean {
 		return !!this.error;

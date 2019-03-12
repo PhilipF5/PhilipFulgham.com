@@ -16,7 +16,7 @@ import { SkillService } from "app/projects/services";
 export class SkillsGridComponent implements OnInit {
 	public error: string;
 	public loaded: boolean;
-	public skills: Observable<Skill[]> = this.store.pipe(select(getSkills));
+	public skills$: Observable<Skill[]> = this.store.pipe(select(getSkills));
 
 	public get hasError(): boolean {
 		return !!this.error;

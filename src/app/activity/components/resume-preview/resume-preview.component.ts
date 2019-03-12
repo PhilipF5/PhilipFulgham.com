@@ -15,7 +15,7 @@ import { ResumeService } from "app/activity/services";
 })
 export class ResumePreviewComponent implements OnInit {
 	public error: string;
-	public items: Observable<ResumeItem[]> = this.store.pipe(select(getResume));
+	public items$: Observable<ResumeItem[]> = this.store.pipe(select(getResume));
 	public loaded: boolean = true;
 
 	public get hasError(): boolean {

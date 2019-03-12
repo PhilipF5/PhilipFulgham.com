@@ -3,5 +3,5 @@
 	{{ error }}
 </div>
 <div class="list">
-	<skills-grid-item *ngFor="let skill of skills | async" [skill]="skill"></skills-grid-item>
+	<skills-grid-item *ngFor="let skill of (skills$ | async)" [skill]="skill"></skills-grid-item>
 </div>
