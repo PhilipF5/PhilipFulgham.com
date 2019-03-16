@@ -3,6 +3,5 @@
 	{{ error }}
 </div>
 <div class="list">
-	<loading-indicator *ngIf="!loaded"></loading-indicator>
-	<skills-grid-item *ngFor="let skill of skills" [skill]="skill"></skills-grid-item>
+	<skills-grid-item *ngFor="let skill of (skills$ | async)" [skill]="skill"></skills-grid-item>
 </div>

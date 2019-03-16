@@ -1,9 +1,12 @@
 import { Component, EventEmitter, NgZone, OnInit, Output, ViewChild, ElementRef } from "@angular/core";
 
+import { Store, select } from "@ngrx/store";
 import { TimelineLite } from "gsap";
 import { Observable } from "rxjs";
 
+import { ProjectsRequested } from "app/projects/actions";
 import { Project } from "app/projects/models";
+import { getProjects } from "app/projects/selectors";
 import { ProjectService } from "app/projects/services";
 
 @Component({
@@ -15,7 +18,7 @@ export class ProjectsSelectorComponent implements OnInit {
 	@Output() projectSelected: EventEmitter<Project> = new EventEmitter();
 	@ViewChild("items") _itemsContainer: ElementRef;
 	public pageIndex: number = 0;
-	public projects$: Observable<Project[]>;
+	public projects$: Observable<Project[]> = this.store.pipe(select(getProjects));
 	public selectedProject: Project;
 	private readonly pageLength: number = 8;
 
@@ -31,10 +34,10 @@ export class ProjectsSelectorComponent implements OnInit {
 		return this._itemsContainer.nativeElement;
 	}
 
-	constructor(private ngZone: NgZone, private projectService: ProjectService) {}
+	constructor(private ngZone: NgZone, private projectService: ProjectService, private store: Store<any>) {}
 
 	ngOnInit() {
-		this.projects$ = this.projectService.getProjects();
+		this.store.dispatch(new ProjectsRequested());
 	}
 
 	public onPageDown(projectsCount: number) {

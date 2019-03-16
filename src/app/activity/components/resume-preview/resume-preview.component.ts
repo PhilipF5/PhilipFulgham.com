@@ -1,6 +1,11 @@
 import { Component, OnInit } from "@angular/core";
 
+import { Store, select } from "@ngrx/store";
+import { Observable } from "rxjs";
+
+import { ResumeRequested } from "app/activity/activity.actions";
 import { ResumeItem } from "app/activity/models";
+import { getResume } from "app/activity/activity.selectors";
 import { ResumeService } from "app/activity/services";
 
 @Component({
@@ -10,24 +15,16 @@ import { ResumeService } from "app/activity/services";
 })
 export class ResumePreviewComponent implements OnInit {
 	public error: string;
-	public items: ResumeItem[];
-	public loaded: boolean;
+	public items$: Observable<ResumeItem[]> = this.store.pipe(select(getResume));
+	public loaded: boolean = true;
 
 	public get hasError(): boolean {
 		return !!this.error;
 	}
 
-	constructor(private resumeService: ResumeService) {}
+	constructor(private store: Store<any>) {}
 
 	ngOnInit() {
-		this.resumeService.getResumeInfo().subscribe(
-			resumeItems => {
-				this.items = resumeItems;
-				this.loaded = true;
-			},
-			error => {
-				this.error = error;
-			}
-		);
+		this.store.dispatch(new ResumeRequested());
 	}
 }
