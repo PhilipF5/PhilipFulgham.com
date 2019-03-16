@@ -4,10 +4,9 @@ import { Store, select } from "@ngrx/store";
 import { TimelineLite } from "gsap";
 import { Observable } from "rxjs";
 
-import { ProjectsRequested } from "app/projects/actions";
+import { ProjectsRequested } from "app/projects/projects.actions";
 import { Project } from "app/projects/models";
-import { getProjects } from "app/projects/selectors";
-import { ProjectService } from "app/projects/services";
+import { getProjects } from "app/projects/projects.selectors";
 
 @Component({
 	selector: "projects-selector",
@@ -34,7 +33,7 @@ export class ProjectsSelectorComponent implements OnInit {
 		return this._itemsContainer.nativeElement;
 	}
 
-	constructor(private ngZone: NgZone, private projectService: ProjectService, private store: Store<any>) {}
+	constructor(private ngZone: NgZone, private store: Store<any>) {}
 
 	ngOnInit() {
 		this.store.dispatch(new ProjectsRequested());
