@@ -1,6 +1,10 @@
 {
 	"name": "personal-website",
 	"version": "3.2.0",
+	"repository": "github:PhilipF5/PhilipFulgham.com",
+	"author": "Philip Fulgham (https://www.philipfulgham.com)",
+	"license": "UNLICENSED",
+	"private": true,
 	"angular-cli": {},
 	"scripts": {
 		"ng": "ng",
@@ -8,7 +12,11 @@
 		"start:beta": "yarn start -c beta",
 		"build": "ng build --prod"
 	},
-	"private": true,
+	"husky": {
+		"hooks": {
+			"pre-commit": "pretty-quick --staged"
+		}
+	},
 	"dependencies": {
 		"@angular/common": "^7.2.2",
 		"@angular/compiler": "^7.2.2",
@@ -54,26 +62,9 @@
 		"tslint": "~5.12.1",
 		"typescript": "3.2.4"
 	},
-	"description": "This repo contains the source code for my personal website.  The site is built in Angular, so \"view source\" isn't really sufficient to see what the website is doing.",
-	"main": "karma.conf.js",
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/PhilipF5/personal-website.git"
-	},
-	"author": "Philip Fulgham",
-	"license": "UNLICENSED",
-	"bugs": {
-		"url": "https://github.com/PhilipF5/personal-website/issues"
-	},
-	"homepage": "https://github.com/PhilipF5/personal-website#readme",
 	"resolutions": {
 		"**/deep-extend": "^0.5.1",
 		"**/cryptiles": "^4.1.2",
 		"**/lodash": "^4.17.11"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "pretty-quick --staged"
-		}
 	}
 }
