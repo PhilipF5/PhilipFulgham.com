@@ -1,6 +1,6 @@
 import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
 
-import { BioActions, BioActionTypes } from "app/bio/bio.actions";
+import { BioAction, BioActionTypes } from "app/bio/bio.actions";
 import { Favorite } from "app/bio/models";
 
 export interface BioState {
@@ -19,7 +19,7 @@ export const initialBioState: BioState = {
 	favorites: favoritesAdapter.getInitialState(),
 };
 
-export function bioReducer(state = initialBioState, action: BioActions): BioState {
+export function bioReducer(state = initialBioState, action: BioAction): BioState {
 	switch (action.type) {
 		case BioActionTypes.BioLoaded:
 			return { ...state, bio: action.payload.bio };

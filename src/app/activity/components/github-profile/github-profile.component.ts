@@ -4,7 +4,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Store, select } from "@ngrx/store";
 import { filter } from "rxjs/operators";
 
-import { ReposRequested } from "app/activity/activity.actions";
+import { ActivityActions } from "app/activity/activity.actions";
 import { Repo } from "app/activity/models";
 import { getRepos } from "app/activity/activity.selectors";
 
@@ -32,13 +32,16 @@ export class GitHubProfileComponent {
 	constructor(private store: Store<any>) {}
 
 	ngOnInit() {
-		this.store.dispatch(new ReposRequested());
-		this.store.pipe(select(getRepos), filter(x => !!x.length)).subscribe(
-			repos => {
+		this.store.dispatch(new ActivityActions.ReposRequested());
+		this.store
+			.pipe(
+				select(getRepos),
+				filter(x => !!x.length)
+			)
+			.subscribe(repos => {
 				this.repos = repos;
 				this.setLanguagesAndIcons();
-			}
-		);
+			});
 	}
 
 	private buildLanguageStats() {

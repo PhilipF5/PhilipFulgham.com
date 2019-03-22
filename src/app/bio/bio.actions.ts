@@ -1,5 +1,5 @@
 import { Action } from "@ngrx/store";
-import { Favorite, TextBlock } from "app/bio/models";
+import { Favorite } from "app/bio/models";
 
 export enum BioActionTypes {
 	BioRequested = "[Profile API] Bio Requested",
@@ -8,28 +8,30 @@ export enum BioActionTypes {
 	FavoritesLoaded = "[Favorites API] Favorites Loaded",
 }
 
-export class BioRequested implements Action {
-	readonly type = BioActionTypes.BioRequested;
+export namespace BioActions {
+	export class BioRequested implements Action {
+		readonly type = BioActionTypes.BioRequested;
+	}
+
+	export class BioLoaded implements Action {
+		readonly type = BioActionTypes.BioLoaded;
+
+		constructor(public payload: { bio: string }) {}
+	}
+
+	export class FavoritesRequested implements Action {
+		readonly type = BioActionTypes.FavoritesRequested;
+	}
+
+	export class FavoritesLoaded implements Action {
+		readonly type = BioActionTypes.FavoritesLoaded;
+
+		constructor(public payload: { favorites: Favorite[] }) {}
+	}
 }
 
-export class BioLoaded implements Action {
-	readonly type = BioActionTypes.BioLoaded;
-
-	constructor(public payload: { bio: string }) {}
-}
-
-export class FavoritesRequested implements Action {
-	readonly type = BioActionTypes.FavoritesRequested;
-}
-
-export class FavoritesLoaded implements Action {
-	readonly type = BioActionTypes.FavoritesLoaded;
-
-	constructor(public payload: { favorites: Favorite[] }) {}
-}
-
-export type BioActions =
-	| BioRequested
-	| BioLoaded
-	| FavoritesRequested
-	| FavoritesLoaded;
+export type BioAction =
+	| BioActions.BioRequested
+	| BioActions.BioLoaded
+	| BioActions.FavoritesRequested
+	| BioActions.FavoritesLoaded;

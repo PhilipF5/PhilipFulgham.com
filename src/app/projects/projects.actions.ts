@@ -8,24 +8,30 @@ export enum ProjectsActionTypes {
 	SkillsLoaded = "[Skills API] Skills Loaded",
 }
 
-export class ProjectsRequested implements Action {
-	readonly type = ProjectsActionTypes.ProjectsRequested;
+export namespace ProjectsActions {
+	export class ProjectsRequested implements Action {
+		readonly type = ProjectsActionTypes.ProjectsRequested;
+	}
+
+	export class ProjectsLoaded implements Action {
+		readonly type = ProjectsActionTypes.ProjectsLoaded;
+
+		constructor(public payload: { projects: Project[] }) {}
+	}
+
+	export class SkillsRequested implements Action {
+		readonly type = ProjectsActionTypes.SkillsRequested;
+	}
+
+	export class SkillsLoaded implements Action {
+		readonly type = ProjectsActionTypes.SkillsLoaded;
+
+		constructor(public payload: { skills: Skill[] }) {}
+	}
 }
 
-export class ProjectsLoaded implements Action {
-	readonly type = ProjectsActionTypes.ProjectsLoaded;
-
-	constructor(public payload: { projects: Project[] }) {}
-}
-
-export class SkillsRequested implements Action {
-	readonly type = ProjectsActionTypes.SkillsRequested;
-}
-
-export class SkillsLoaded implements Action {
-	readonly type = ProjectsActionTypes.SkillsLoaded;
-
-	constructor(public payload: { skills: Skill[] }) {}
-}
-
-export type ProjectsActions = ProjectsRequested | ProjectsLoaded | SkillsRequested | SkillsLoaded;
+export type ProjectsAction =
+	| ProjectsActions.ProjectsRequested
+	| ProjectsActions.ProjectsLoaded
+	| ProjectsActions.SkillsRequested
+	| ProjectsActions.SkillsLoaded;

@@ -3,7 +3,7 @@ import { Component, OnInit } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 
-import { ResumeRequested } from "app/activity/activity.actions";
+import { ActivityActions } from "app/activity/activity.actions";
 import { ResumeItem } from "app/activity/models";
 import { getResume } from "app/activity/activity.selectors";
 import { ResumeService } from "app/activity/services";
@@ -25,6 +25,6 @@ export class ResumePreviewComponent implements OnInit {
 	constructor(private store: Store<any>) {}
 
 	ngOnInit() {
-		this.store.dispatch(new ResumeRequested());
+		this.store.dispatch(new ActivityActions.ResumeRequested());
 	}
 }

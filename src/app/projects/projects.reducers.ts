@@ -1,6 +1,6 @@
 import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
 
-import { ProjectsActions, ProjectsActionTypes } from "app/projects/projects.actions";
+import { ProjectsAction, ProjectsActionTypes } from "app/projects/projects.actions";
 import { Project, Skill } from "app/projects/models";
 
 export interface ProjectsState extends EntityState<Project> {
@@ -27,7 +27,7 @@ export const initialSkillsState: SkillsState = skillsAdapter.getInitialState({
 	skillsLoaded: false,
 });
 
-export function projectsReducer(state = initialProjectsState, action: ProjectsActions): ProjectsState {
+export function projectsReducer(state = initialProjectsState, action: ProjectsAction): ProjectsState {
 	switch (action.type) {
 		case ProjectsActionTypes.ProjectsLoaded:
 			return projectsAdapter.addAll(action.payload.projects, { ...state, projectsLoaded: true });
@@ -36,7 +36,7 @@ export function projectsReducer(state = initialProjectsState, action: ProjectsAc
 	}
 }
 
-export function skillsReducer(state = initialSkillsState, action: ProjectsActions): SkillsState {
+export function skillsReducer(state = initialSkillsState, action: ProjectsAction): SkillsState {
 	switch (action.type) {
 		case ProjectsActionTypes.SkillsLoaded:
 			return skillsAdapter.addAll(action.payload.skills, { ...state, skillsLoaded: true });

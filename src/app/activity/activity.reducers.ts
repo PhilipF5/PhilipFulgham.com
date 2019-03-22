@@ -1,6 +1,6 @@
 import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
 
-import { ActivityActions, ActivityActionTypes } from "app/activity/activity.actions";
+import { ActivityAction, ActivityActionTypes } from "app/activity/activity.actions";
 import { BlogPost, Repo, ResumeItem } from "app/activity/models";
 
 export interface ActivityState {
@@ -31,7 +31,7 @@ export const initialActivityState: ActivityState = {
 	resume: resumeAdapter.getInitialState(),
 };
 
-export function activityReducer(state = initialActivityState, action: ActivityActions): ActivityState {
+export function activityReducer(state = initialActivityState, action: ActivityAction): ActivityState {
 	switch (action.type) {
 		case ActivityActionTypes.BlogPostsLoaded:
 			return { ...state, blogPosts: blogPostsAdapter.addAll(action.payload.blogPosts, { ...state.blogPosts }) };

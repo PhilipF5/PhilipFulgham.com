@@ -3,7 +3,7 @@ import { Component } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 
-import { BlogPostsRequested } from "app/activity/activity.actions";
+import { ActivityActions } from "app/activity/activity.actions";
 import { BlogPost } from "app/activity/models";
 import { getBlogPosts } from "app/activity/activity.selectors";
 
@@ -27,6 +27,6 @@ export class BlogPostsComponent {
 	constructor(private store: Store<any>) {}
 
 	ngOnInit() {
-		this.store.dispatch(new BlogPostsRequested());
+		this.store.dispatch(new ActivityActions.BlogPostsRequested());
 	}
 }

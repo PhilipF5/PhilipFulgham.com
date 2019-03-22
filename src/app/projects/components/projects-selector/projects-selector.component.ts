@@ -4,7 +4,7 @@ import { Store, select } from "@ngrx/store";
 import { TimelineLite } from "gsap";
 import { Observable } from "rxjs";
 
-import { ProjectsRequested } from "app/projects/projects.actions";
+import { ProjectsActions } from "app/projects/projects.actions";
 import { Project } from "app/projects/models";
 import { getProjects } from "app/projects/projects.selectors";
 
@@ -36,7 +36,7 @@ export class ProjectsSelectorComponent implements OnInit {
 	constructor(private ngZone: NgZone, private store: Store<any>) {}
 
 	ngOnInit() {
-		this.store.dispatch(new ProjectsRequested());
+		this.store.dispatch(new ProjectsActions.ProjectsRequested());
 	}
 
 	public onPageDown(projectsCount: number) {
