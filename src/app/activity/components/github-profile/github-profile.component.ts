@@ -4,9 +4,9 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { Store, select } from "@ngrx/store";
 import { filter } from "rxjs/operators";
 
-import { ActivityActions } from "app/activity/activity.actions";
+import { ActivityActions } from "app/activity/actions";
 import { Repo } from "app/activity/models";
-import { getRepos } from "app/activity/activity.selectors";
+import { getRepos } from "app/activity/selectors";
 
 @Component({
 	selector: "github-profile",

@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { ActivityState, blogPostsAdapter, reposAdapter, resumeAdapter } from "./activity.reducers";
+import { ActivityState, blogPostsAdapter, reposAdapter, resumeAdapter } from "app/activity/reducers";
 
 const fromBlogPosts = blogPostsAdapter.getSelectors();
 const fromRepos = reposAdapter.getSelectors();

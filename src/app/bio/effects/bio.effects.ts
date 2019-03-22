@@ -3,7 +3,7 @@ import { Injectable } from "@angular/core";
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { map, mergeMap } from "rxjs/operators";
 
-import { BioActions, BioActionTypes } from "app/bio/bio.actions";
+import { BioActions, BioActionTypes } from "app/bio/actions";
 import { ProfileService } from "app/bio/services";
 
 @Injectable()

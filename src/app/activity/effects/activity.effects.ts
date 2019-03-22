@@ -4,7 +4,7 @@ import { Actions, Effect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { map, mergeMap } from "rxjs/operators";
 
-import { ActivityActions, ActivityActionTypes } from "app/activity/activity.actions";
+import { ActivityActions, ActivityActionTypes } from "app/activity/actions";
 import { BlogPostService, RepoService, ResumeService } from "app/activity/services";
 
 @Injectable()

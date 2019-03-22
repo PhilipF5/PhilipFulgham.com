@@ -5,8 +5,8 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { SharedModule } from "../shared/shared.module";
 
-import { EFFECTS } from "./bio.effects";
-import { bioReducer } from "./bio.reducers";
+import { EFFECTS } from "./effects";
+import { bioReducer } from "./reducers";
 import { COMPONENTS } from "./components";
 import { SERVICES } from "./services";
 

@@ -8,8 +8,8 @@ import { MarkdownModule } from "ngx-markdown";
 import { SharedModule } from "../shared/shared.module";
 
 import { COMPONENTS } from "./components";
-import { EFFECTS } from "./projects.effects";
-import { projectsReducer, skillsReducer } from "./projects.reducers";
+import { EFFECTS } from "./effects";
+import { projectsReducer, skillsReducer } from "./reducers";
 import { SERVICES } from "./services";
 
 const MODULES = [

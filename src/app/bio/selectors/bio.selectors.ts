@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { groupBy, sortBy } from "lodash";
-import { BioState, favoritesAdapter } from "./bio.reducers";
-import { Favorite } from "./models";
+import { BioState, favoritesAdapter } from "app/bio/reducers";
+import { Favorite } from "app/bio/models";
 
 const fromFavorites = favoritesAdapter.getSelectors();
 
@@ -17,7 +17,7 @@ const selectFavoritesState = createSelector(
 const selectFavorites = createSelector(
 	selectFavoritesState,
 	fromFavorites.selectAll
-)
+);
 
 export const getBio = createSelector(
 	selectBioState,
@@ -28,7 +28,7 @@ export const getBio = createSelector(
 
 export const getFavorites = createSelector(
 	selectFavorites,
-	(favorites) => {
+	favorites => {
 		let sortedFavorites = sortBy(favorites, [f => f.alphaSort || f.name]);
 		return groupBy(sortedFavorites, (f: Favorite) => f.type);
 	}

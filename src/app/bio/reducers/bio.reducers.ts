@@ -1,6 +1,6 @@
 import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
 
-import { BioAction, BioActionTypes } from "app/bio/bio.actions";
+import { BioAction, BioActionTypes } from "app/bio/actions";
 import { Favorite } from "app/bio/models";
 
 export interface BioState {

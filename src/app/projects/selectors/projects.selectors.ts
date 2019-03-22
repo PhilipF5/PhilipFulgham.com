@@ -1,5 +1,5 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { ProjectsState, SkillsState, projectsAdapter, skillsAdapter } from "app/projects/projects.reducers";
+import { ProjectsState, SkillsState, projectsAdapter, skillsAdapter } from "app/projects/reducers";
 
 const fromProjects = projectsAdapter.getSelectors();
 const fromSkills = skillsAdapter.getSelectors();

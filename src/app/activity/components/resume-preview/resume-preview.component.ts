@@ -3,9 +3,9 @@ import { Component, OnInit } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 
-import { ActivityActions } from "app/activity/activity.actions";
+import { ActivityActions } from "app/activity/actions";
 import { ResumeItem } from "app/activity/models";
-import { getResume } from "app/activity/activity.selectors";
+import { getResume } from "app/activity/selectors";
 import { ResumeService } from "app/activity/services";
 
 @Component({

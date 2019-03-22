@@ -1,6 +1,6 @@
 import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
 
-import { ProjectsAction, ProjectsActionTypes } from "app/projects/projects.actions";
+import { ProjectsAction, ProjectsActionTypes } from "app/projects/actions";
 import { Project, Skill } from "app/projects/models";
 
 export interface ProjectsState extends EntityState<Project> {

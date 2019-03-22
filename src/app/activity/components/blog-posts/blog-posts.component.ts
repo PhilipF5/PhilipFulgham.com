@@ -3,9 +3,9 @@ import { Component } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 
-import { ActivityActions } from "app/activity/activity.actions";
+import { ActivityActions } from "app/activity/actions";
 import { BlogPost } from "app/activity/models";
-import { getBlogPosts } from "app/activity/activity.selectors";
+import { getBlogPosts } from "app/activity/selectors";
 
 import { environment } from "environments/environment";
 

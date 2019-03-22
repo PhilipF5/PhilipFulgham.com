@@ -4,9 +4,9 @@ import { Store, select } from "@ngrx/store";
 import { TimelineLite } from "gsap";
 import { Observable } from "rxjs";
 
-import { ProjectsActions } from "app/projects/projects.actions";
+import { ProjectsActions } from "app/projects/actions";
 import { Project } from "app/projects/models";
-import { getProjects } from "app/projects/projects.selectors";
+import { getProjects } from "app/projects/selectors";
 
 @Component({
 	selector: "projects-selector",

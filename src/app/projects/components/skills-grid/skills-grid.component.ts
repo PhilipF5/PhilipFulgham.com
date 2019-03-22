@@ -3,9 +3,9 @@ import { Component, OnInit } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 
-import { ProjectsActions } from "app/projects/projects.actions";
+import { ProjectsActions } from "app/projects/actions";
 import { Skill } from "app/projects/models";
-import { getSkills } from "app/projects/projects.selectors";
+import { getSkills } from "app/projects/selectors";
 
 @Component({
 	selector: "skills-grid",

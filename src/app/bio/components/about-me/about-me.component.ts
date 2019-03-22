@@ -3,9 +3,9 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
 
-import { BioActions } from "app/bio/bio.actions";
+import { BioActions } from "app/bio/actions";
 import { Favorite } from "app/bio/models";
-import { getBio, getFavorites } from "app/bio/bio.selectors";
+import { getBio, getFavorites } from "app/bio/selectors";
 import { ProfileService } from "app/bio/services";
 import { CollapsibleDirective } from "app/shared/directives";
 

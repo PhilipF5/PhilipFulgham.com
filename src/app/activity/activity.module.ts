@@ -5,8 +5,8 @@ import { EffectsModule } from "@ngrx/effects";
 import { StoreModule } from "@ngrx/store";
 import { SharedModule } from "../shared/shared.module";
 
-import { EFFECTS } from "./activity.effects"
-import { activityReducer } from "./activity.reducers";
+import { EFFECTS } from "./effects";
+import { activityReducer } from "./reducers";
 import { COMPONENTS } from "./components";
 import { SERVICES } from "./services";
 

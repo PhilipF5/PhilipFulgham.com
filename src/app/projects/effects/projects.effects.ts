@@ -4,7 +4,7 @@ import { Actions, Effect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
 import { map, mergeMap } from "rxjs/operators";
 
-import { ProjectsActions, ProjectsActionTypes } from "app/projects/projects.actions";
+import { ProjectsActions, ProjectsActionTypes } from "app/projects/actions";
 import { ProjectService, SkillService } from "app/projects/services";
 
 @Injectable()

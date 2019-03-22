@@ -1,6 +1,6 @@
 import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
 
-import { ActivityAction, ActivityActionTypes } from "app/activity/activity.actions";
+import { ActivityAction, ActivityActionTypes } from "app/activity/actions";
 import { BlogPost, Repo, ResumeItem } from "app/activity/models";
 
 export interface ActivityState {
