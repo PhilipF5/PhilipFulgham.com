@@ -1,18 +1,21 @@
 <section-title>Code</section-title>
 <div *ngIf="!hasError" class="header">
 	<div class="username">
-		<a [href]="profileUrl" target="_blank"><fa-icon [icon]="githubIcon"></fa-icon>{{ username }}</a>
+		<a [href]="profileUrl" target="_blank">
+			<fa-icon [icon]="githubIcon"></fa-icon>
+			{{ username }}
+		</a>
 	</div>
-	<div class="repo-count" *ngIf="repos">{{ repos.length }} public repos</div>
+	<div class="repo-count" *ngIf="(repos$ | async) as repos">{{ repos.length }} public repos</div>
 </div>
-<div *ngIf="repos && !hasError" class="languages">
+<div *ngIf="(repos$ | async) && !hasError" class="languages">
 	<div>Top languages:</div>
 	<div class="lang-icons">
-		<img *ngFor="let lang of languages" [src]="getIconLink(lang)" [alt]="lang">
+		<img *ngFor="let lang of (languages$ | async | slice: 0:3)" [src]="lang.skill.icon" [alt]="lang" />
 	</div>
 </div>
-<div class="repos" *ngIf="repos && !hasError">
-	<shadow-button *ngFor="let repo of repos | slice: 0:5">
+<div class="repos" *ngIf="!hasError && (repos$ | async) as repos">
+	<shadow-button *ngFor="let repo of (repos | slice: 0:5)">
 		<a [href]="repo.url" target="_blank">
 			<div class="repo-row">
 				<div class="name-and-date">
@@ -20,7 +23,7 @@
 					<div class="repo-date">Updated: {{ repo.lastPushed | formatDate: "yyyy-MM-dd" }}</div>
 				</div>
 				<div class="icon">
-					<img [src]="getIconLink(repo.icon)" [alt]="repo.icon">
+					<img *ngIf="repo.project" [src]="repo.project.platform.icon" [alt]="repo.project?.platform.name" />
 				</div>
 			</div>
 		</a>
@@ -30,10 +33,12 @@
 	{{ error }}
 </div>
 <shadow-button class="view-all">
-	<a *ngIf="repos && !hasError" [href]="profileUrl + '/?tab=repositories'" target="_blank">
+	<a *ngIf="(repos$ | async) && !hasError" [href]="profileUrl + '/?tab=repositories'" target="_blank">
 		More...
 	</a>
 	<a *ngIf="hasError" [href]="profileUrl + '/?tab=repositories'" target="_blank">
-		View on <fa-icon [icon]="githubIcon"></fa-icon> GitHub
+		View on
+		<fa-icon [icon]="githubIcon"></fa-icon>
+		GitHub
 	</a>
 </shadow-button>
