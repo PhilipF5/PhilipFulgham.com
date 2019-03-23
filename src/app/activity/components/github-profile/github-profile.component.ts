@@ -34,8 +34,4 @@ export class GitHubProfileComponent {
 	}
 
 	constructor(private store: Store<any>) {}
-
-	ngOnInit() {
-		this.store.dispatch(new ActivityActions.ReposRequested());
-	}
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -13,7 +13,7 @@ import { ResumeService } from "app/activity/services";
 	templateUrl: "./resume-preview.component.html",
 	styleUrls: ["./resume-preview.component.scss"],
 })
-export class ResumePreviewComponent implements OnInit {
+export class ResumePreviewComponent {
 	public error: string;
 	public items$: Observable<ResumeItem[]> = this.store.pipe(select(getResume));
 	public loaded: boolean = true;
@@ -23,8 +23,4 @@ export class ResumePreviewComponent implements OnInit {
 	}
 
 	constructor(private store: Store<any>) {}
-
-	ngOnInit() {
-		this.store.dispatch(new ActivityActions.ResumeRequested());
-	}
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit } from "@angular/core";
+import { Component } from "@angular/core";
 
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -12,7 +12,7 @@ import { getSkills } from "app/projects/selectors";
 	templateUrl: "./skills-grid.component.html",
 	styleUrls: ["./skills-grid.component.scss"],
 })
-export class SkillsGridComponent implements OnInit {
+export class SkillsGridComponent {
 	public error: string;
 	public loaded: boolean;
 	public skills$: Observable<Skill[]> = this.store.pipe(select(getSkills));
@@ -22,8 +22,4 @@ export class SkillsGridComponent implements OnInit {
 	}
 
 	constructor(private store: Store<any>) {}
-
-	ngOnInit() {
-		this.store.dispatch(new ProjectsActions.SkillsRequested());
-	}
 }

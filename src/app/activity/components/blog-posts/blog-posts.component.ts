@@ -25,8 +25,4 @@ export class BlogPostsComponent {
 	}
 
 	constructor(private store: Store<any>) {}
-
-	ngOnInit() {
-		this.store.dispatch(new ActivityActions.BlogPostsRequested());
-	}
 }

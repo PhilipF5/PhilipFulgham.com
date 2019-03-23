@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from "@angular/core";
+import { Component, ViewChild } from "@angular/core";
 
 import { Store, select } from "@ngrx/store";
 import { Observable } from "rxjs";
@@ -14,18 +14,13 @@ import { CollapsibleDirective } from "app/shared/directives";
 	templateUrl: "./about-me.component.html",
 	styleUrls: ["./about-me.component.scss"],
 })
-export class AboutMeComponent implements OnInit {
+export class AboutMeComponent {
 	@ViewChild(CollapsibleDirective) private subsection: CollapsibleDirective;
 
 	public bio$: Observable<string> = this.store.pipe(select(getBio));
 	public favorites$ = this.store.pipe(select(getFavorites));
 
 	constructor(private store: Store<any>) {}
-
-	ngOnInit() {
-		this.store.dispatch(new BioActions.BioRequested());
-		this.store.dispatch(new BioActions.FavoritesRequested());
-	}
 
 	public toggleFavorites(): void {
 		this.subsection.toggle();
