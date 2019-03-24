@@ -12,14 +12,11 @@ import { environment } from "environments/environment";
 export class SkillService {
 	constructor(private http: HttpClient) {}
 
-	public getSkills(): Observable<Skill[]> {
-		return this.http.get<any[]>(environment.API_URL + "Skills").pipe(
+	public getSkills = () =>
+		this.http.get<any[]>(environment.API_URL + "Skills").pipe(
 			catchError(this.handleError),
 			map(res => sortBy(res, [s => s.name.replace(/\W/g, "").toLowerCase()]))
 		);
-	}
 
-	private handleError(error: HttpErrorResponse) {
-		return throwError("Couldn't load skills grid");
-	}
+	private handleError = (error: HttpErrorResponse) => throwError("Couldn't load skills grid");
 }

@@ -5,7 +5,7 @@ import { Power1, TweenMax } from "gsap";
 @Component({
 	selector: "arrow",
 	templateUrl: "./arrow.component.html",
-	styleUrls: ["./arrow.component.scss"]
+	styleUrls: ["./arrow.component.scss"],
 })
 export class ArrowComponent {
 	@Input() public size: number = 1;
@@ -13,7 +13,7 @@ export class ArrowComponent {
 
 	public get containerTransform(): any {
 		return {
-			transform: `scaleX(${this.width}) scale(${this.size})`
+			transform: `scaleX(${this.width}) scale(${this.size})`,
 		};
 	}
 
@@ -23,7 +23,7 @@ export class ArrowComponent {
 
 	public get lineTransform(): any {
 		return {
-			strokeWidth: 1 / this.size
+			strokeWidth: 1 / this.size,
 		};
 	}
 
@@ -35,11 +35,9 @@ export class ArrowComponent {
 
 	constructor(private _elem: ElementRef) {}
 
-	public flip(): TweenMax {
-		return TweenMax.to(this.svg, 1, { rotationZ: 180, transformOrigin: "center center", ease: Power1.easeInOut });
-	}
+	public flip = () =>
+		TweenMax.to(this.svg, 1, { rotationZ: 180, transformOrigin: "center center", ease: Power1.easeInOut });
 
-	public flipBack(): TweenMax {
-		return TweenMax.to(this.svg, 1, { rotationZ: 0, transformOrigin: "center center", ease: Power1.easeInOut });
-	}
+	public flipBack = () =>
+		TweenMax.to(this.svg, 1, { rotationZ: 0, transformOrigin: "center center", ease: Power1.easeInOut });
 }

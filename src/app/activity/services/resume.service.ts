@@ -11,8 +11,8 @@ import { environment } from "environments/environment";
 export class ResumeService {
 	constructor(private http: HttpClient) {}
 
-	public getResumeInfo(): Observable<ResumeItem[]> {
-		return zip(
+	public getResumeInfo = () =>
+		zip(
 			this.http
 				.get<Job>(environment.API_URL + "Jobs?latest=true")
 				.pipe(map<Job, ResumeItem>(j => ({ _id: j._id, title: j.title, org: j.org, image: j.image }))),
@@ -20,9 +20,6 @@ export class ResumeService {
 				.get<Credential>(environment.API_URL + "Credentials?latest=true")
 				.pipe(map<Credential, ResumeItem>(c => ({ _id: c._id, title: c.name, org: c.issuer, image: c.image })))
 		).pipe(catchError(this.handleError));
-	}
 
-	private handleError(error: HttpErrorResponse) {
-		return throwError("Couldn't load resume preview");
-	}
+	private handleError = (error: HttpErrorResponse) => throwError("Couldn't load resume preview");
 }

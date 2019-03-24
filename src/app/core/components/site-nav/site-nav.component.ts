@@ -61,21 +61,17 @@ export class SiteNavComponent {
 		(this.isOpen = !this.isOpen) ? this.open() : this.close();
 	}
 
-	private animateBottomPiece(): TweenMax {
-		return TweenMax.to(this.bottomPiece, 0.25, { rotationZ: 90, y: 60, scaleX: 1.5, transformOrigin: "center center" });
-	}
+	private animateBottomPiece = () =>
+		TweenMax.to(this.bottomPiece, 0.25, { rotationZ: 90, y: 60, scaleX: 1.5, transformOrigin: "center center" });
 
-	private animateItems(): TweenMax[] {
-		return TweenMax.staggerTo(this.elem.querySelectorAll(".menu-items .item"), 0.25, { autoAlpha: 1 }, 0.1);
-	}
+	private animateItems = () =>
+		TweenMax.staggerTo(this.elem.querySelectorAll(".menu-items .item"), 0.25, { autoAlpha: 1 }, 0.1);
 
-	private animateMiddlePiece(): TweenMax {
-		return TweenMax.to(this.middlePiece, 0.25, { rotationZ: 90, y: 30, scaleX: 1.5, transformOrigin: "center center" });
-	}
+	private animateMiddlePiece = () =>
+		TweenMax.to(this.middlePiece, 0.25, { rotationZ: 90, y: 30, scaleX: 1.5, transformOrigin: "center center" });
 
-	private animateTopPieces(): TimelineLite {
-		return new TimelineLite()
+	private animateTopPieces = () =>
+		new TimelineLite()
 			.to(this.topLeftPiece, 0.25, { rotationZ: 45, x: 2, transformOrigin: "left center" }, 0)
 			.to(this.topRightPiece, 0.25, { rotationZ: -45, x: -2, transformOrigin: "right center" }, 0);
-	}
 }

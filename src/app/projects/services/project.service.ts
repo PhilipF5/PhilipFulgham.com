@@ -11,11 +11,8 @@ import { environment } from "environments/environment";
 export class ProjectService {
 	constructor(private http: HttpClient) {}
 
-	public getProjects(): Observable<Project[]> {
-		return this.http.get<any[]>(environment.API_URL + "Projects").pipe(catchError(this.handleError));
-	}
+	public getProjects = () =>
+		this.http.get<any[]>(environment.API_URL + "Projects").pipe(catchError(this.handleError));
 
-	private handleError(error: HttpErrorResponse) {
-		return throwError("Couldn't load projects");
-	}
+	private handleError = (error: HttpErrorResponse) => throwError("Couldn't load projects");
 }

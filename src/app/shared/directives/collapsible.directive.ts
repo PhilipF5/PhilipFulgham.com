@@ -29,9 +29,7 @@ export class CollapsibleDirective implements OnInit {
 
 	public hide(): TimelineLite {
 		this.hidden = true;
-		return new TimelineLite()
-			.to(this.elem, 2, this.hiddenStyle)
-			.timeScale(2) as TimelineLite;
+		return new TimelineLite().to(this.elem, 2, this.hiddenStyle).timeScale(2) as TimelineLite;
 	}
 
 	public hideInstantly(): TimelineLite {
@@ -53,7 +51,5 @@ export class CollapsibleDirective implements OnInit {
 		return this.show().progress(1) as TimelineLite;
 	}
 
-	public toggle(): TimelineLite {
-		return this.hidden ? this.show() : this.hide();
-	}
+	public toggle = () => (this.hidden ? this.show() : this.hide());
 }

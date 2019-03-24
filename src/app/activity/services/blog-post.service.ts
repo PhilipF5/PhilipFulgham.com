@@ -12,8 +12,8 @@ import { environment } from "environments/environment";
 export class BlogPostService {
 	constructor(private http: HttpClient) {}
 
-	public getBlogPosts(): Observable<BlogPost[]> {
-		return this.http.get<any[]>(environment.API_URL + "BlogPosts").pipe(
+	public getBlogPosts = () =>
+		this.http.get<any[]>(environment.API_URL + "BlogPosts").pipe(
 			catchError(this.handleError),
 			map(res =>
 				res.map<BlogPost>(bp => ({
@@ -23,9 +23,6 @@ export class BlogPostService {
 				}))
 			)
 		);
-	}
 
-	private handleError(error: HttpErrorResponse) {
-		return throwError("Couldn't load latest articles");
-	}
+	private handleError = (error: HttpErrorResponse) => throwError("Couldn't load latest articles");
 }

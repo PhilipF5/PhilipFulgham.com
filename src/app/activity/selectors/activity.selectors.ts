@@ -11,23 +11,17 @@ export const selectActivityState = createFeatureSelector<ActivityState>("activit
 
 const selectBlogPostsState = createSelector(
 	selectActivityState,
-	activityState => {
-		return activityState.blogPosts;
-	}
+	activityState => activityState.blogPosts
 );
 
 const selectReposState = createSelector(
 	selectActivityState,
-	activityState => {
-		return activityState.repos;
-	}
+	activityState => activityState.repos
 );
 
 const selectResumeState = createSelector(
 	selectActivityState,
-	activityState => {
-		return activityState.resume;
-	}
+	activityState => activityState.resume
 );
 
 export const getBlogPosts = createSelector(

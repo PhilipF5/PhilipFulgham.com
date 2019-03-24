@@ -9,9 +9,7 @@ export const selectBioState = createFeatureSelector<BioState>("bio");
 
 const selectFavoritesState = createSelector(
 	selectBioState,
-	bioState => {
-		return bioState.favorites;
-	}
+	bioState => bioState.favorites
 );
 
 const selectFavorites = createSelector(
@@ -21,9 +19,7 @@ const selectFavorites = createSelector(
 
 export const getBio = createSelector(
 	selectBioState,
-	bioState => {
-		return bioState.bio;
-	}
+	bioState => bioState.bio
 );
 
 export const getFavorites = createSelector(

@@ -3,7 +3,5 @@ import { DateTime } from "luxon";
 
 @Pipe({ name: "formatDate" })
 export class FormatDatePipe implements PipeTransform {
-	transform(input: string, format: string) {
-		return DateTime.fromISO(input).toFormat(format);
-	}
+	transform = (input: string, format: string) => DateTime.fromISO(input).toFormat(format);
 }

@@ -52,21 +52,19 @@ export class ProjectsSelectorComponent {
 		this.projectSelected.emit(project);
 	}
 
-	private animatePageDown(): TimelineLite {
-		return new TimelineLite()
+	private animatePageDown = () =>
+		new TimelineLite()
 			.to(this.itemsContainer, 0.25, { y: -20, opacity: 0, force3D: true })
 			.add(() => this.ngZone.run(() => this.pageDown()))
 			.set(this.itemsContainer, { y: 20 })
 			.to(this.itemsContainer, 0.25, { y: 0, opacity: 1, force3D: true });
-	}
 
-	private animatePageUp(): TimelineLite {
-		return new TimelineLite()
+	private animatePageUp = () =>
+		new TimelineLite()
 			.to(this.itemsContainer, 0.25, { y: 20, opacity: 0, force3D: true })
 			.add(() => this.ngZone.run(() => this.pageUp()))
 			.set(this.itemsContainer, { y: -20 })
 			.to(this.itemsContainer, 0.25, { y: 0, opacity: 1, force3D: true });
-	}
 
 	private pageDown(): number {
 		return this.pageIndex++;

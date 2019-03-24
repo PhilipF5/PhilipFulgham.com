@@ -12,14 +12,11 @@ import { environment } from "environments/environment";
 export class RepoService {
 	constructor(private http: HttpClient) {}
 
-	public getRepos(): Observable<Repo[]> {
-		return this.http.get<any[]>(environment.API_URL + "Repos").pipe(
+	public getRepos = () =>
+		this.http.get<any[]>(environment.API_URL + "Repos").pipe(
 			catchError(this.handleError),
 			map(res => res.map<Repo>(r => ({ lastPushed: DateTime.fromISO(r.lastPushed), ...r })))
 		);
-	}
 
-	private handleError(error: HttpErrorResponse) {
-		return throwError("Couldn't load latest repositories");
-	}
+	private handleError = (error: HttpErrorResponse) => throwError("Couldn't load latest repositories");
 }

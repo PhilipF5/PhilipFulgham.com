@@ -45,7 +45,5 @@ export class SkillLevelDisplayComponent {
 		return this.level === 5;
 	}
 
-	public isInLevel(star: number): boolean {
-		return star <= this.level;
-	}
+	public isInLevel = (star: number) => star <= this.level;
 }
