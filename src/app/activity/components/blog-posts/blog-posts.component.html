@@ -6,11 +6,11 @@
 	<div class="post-count" *ngIf="!hasError">{{ (posts$ | async).length }} articles published</div>
 </div>
 <div class="posts" *ngIf="!hasError">
-	<shadow-button *ngFor="let post of (posts$ | async) | slice: 0:5">
+	<shadow-button *ngFor="let post of (posts$ | async | slice: 0:5)">
 		<a [href]="post.link" target="_blank">
 			<div class="post-row">
 				<div class="post-title">{{ post.title }}</div>
-				<div class="post-date">Posted: {{ post.publishDate | formatDate: "yyyy-MM-dd" }}</div>
+				<div class="post-date">Posted on {{ post.publishDate | formatDate: "MMMM d" }}</div>
 			</div>
 		</a>
 	</shadow-button>

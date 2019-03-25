@@ -20,7 +20,7 @@
 			<div class="repo-row">
 				<div class="name-and-date">
 					<div class="repo-name">{{ repo.name }}</div>
-					<div class="repo-date">Updated: {{ repo.lastPushed | formatDate: "yyyy-MM-dd" }}</div>
+					<div class="repo-date">Updated on {{ repo.lastPushed | formatDate: "MMMM d" }}</div>
 				</div>
 				<div class="icon">
 					<img *ngIf="repo.project" [src]="repo.project.platform.icon" [alt]="repo.project?.platform.name" />

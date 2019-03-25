@@ -3,7 +3,11 @@
 	<div class="image">
 		<img class="image" [src]="selectedProject.image" />
 	</div>
-	<div class="date">Project Started<br>{{ selectedProject.startDate | formatDate: "yyyy-MM-dd" }}</div>
+	<div class="date">
+		Project Started
+		<br />
+		{{ selectedProject.startDate | formatDate: "MMMM yyyy" }}
+	</div>
 	<div class="skills">{{ skills }}</div>
 	<div class="repo">
 		<a *ngIf="selectedProject.repo" [href]="selectedProject.repo.url" target="_blank">
