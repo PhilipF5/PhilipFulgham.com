@@ -5,6 +5,7 @@ import { Favorite } from "app/bio/models";
 
 export interface BioState {
 	bio: string;
+	error: boolean;
 	favorites: FavoritesState;
 }
 
@@ -16,11 +17,15 @@ export const favoritesAdapter: EntityAdapter<Favorite> = createEntityAdapter<Fav
 
 export const initialBioState: BioState = {
 	bio: null,
+	error: false,
 	favorites: favoritesAdapter.getInitialState(),
 };
 
 export function bioReducer(state = initialBioState, action: BioAction): BioState {
 	switch (action.type) {
+		case BioActionTypes.BioError:
+		case BioActionTypes.FavoritesError:
+			return { ...state, error: true };
 		case BioActionTypes.BioLoaded:
 			return { ...state, bio: action.payload.bio };
 		case BioActionTypes.FavoritesLoaded:

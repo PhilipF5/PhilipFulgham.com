@@ -22,6 +22,11 @@ export const getBio = createSelector(
 	bioState => bioState.bio
 );
 
+export const getError = createSelector(
+	selectBioState,
+	bioState => bioState.error
+);
+
 export const getFavorites = createSelector(
 	selectFavorites,
 	favorites => {

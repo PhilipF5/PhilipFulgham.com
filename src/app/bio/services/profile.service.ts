@@ -12,10 +12,7 @@ export class ProfileService {
 	constructor(private http: HttpClient) {}
 
 	public getBio = () =>
-		this.http.get<TextBlock>(environment.API_URL + "Profile").pipe(
-			catchError(() => throwError("Couldn't load bio")),
-			map<TextBlock, string>(res => res.text)
-		);
+		this.http.get<TextBlock>(environment.API_URL + "Profile").pipe(map<TextBlock, string>(res => res.text));
 
 	public getFavorites = () =>
 		this.http
