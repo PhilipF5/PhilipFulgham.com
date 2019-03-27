@@ -28,11 +28,15 @@
 		border: 2px solid white;
 		border-radius: 75px;
 		display: block;
-		filter: drop-shadow(5px 5px 5px rgba(0,0,0,0.5));
+		filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.5));
 		margin: auto auto auto auto;
 		position: relative;
 		width: 150px;
 	}
+}
+
+error {
+	margin-left: 5%;
 }
 
 .text {
@@ -52,14 +56,15 @@
 		width: 100%;
 	}
 
-	a, a:visited {
+	a,
+	a:visited {
 		color: dodgerblue;
 		cursor: pointer;
 		position: relative;
 		transition: color 0.5s linear;
 
 		div {
-			background-color: rgba(0,0,0,0.8);
+			background-color: rgba(0, 0, 0, 0.8);
 			border-radius: 10px;
 			color: white;
 			left: 50%;
