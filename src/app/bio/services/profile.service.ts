@@ -14,8 +14,5 @@ export class ProfileService {
 	public getBio = () =>
 		this.http.get<TextBlock>(environment.API_URL + "Profile").pipe(map<TextBlock, string>(res => res.text));
 
-	public getFavorites = () =>
-		this.http
-			.get<Favorite[]>(environment.API_URL + "Favorites")
-			.pipe(catchError(() => throwError("Couldn't load favorites")));
+	public getFavorites = () => this.http.get<Favorite[]>(environment.API_URL + "Favorites");
 }
