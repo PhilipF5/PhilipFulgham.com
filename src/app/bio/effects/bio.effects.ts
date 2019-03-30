@@ -26,7 +26,7 @@ export class BioEffects {
 		switchMap(() =>
 			this.profileService.getFavorites().pipe(
 				map(favorites => new BioActions.FavoritesLoaded({ favorites })),
-				catchError(() => of(new BioActions.FavoritesError()))
+				catchError(() => of(new BioActions.BioError()))
 			)
 		)
 	);

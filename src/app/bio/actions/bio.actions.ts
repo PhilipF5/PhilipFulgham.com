@@ -5,7 +5,6 @@ export enum BioActionTypes {
 	BioError = "[Profile API] Bio Error",
 	BioRequested = "[Profile API] Bio Requested",
 	BioLoaded = "[Profile API] Bio Loaded",
-	FavoritesError = "[Favorites API] Favorites Error",
 	FavoritesRequested = "[Favorites API] Favorites Requested",
 	FavoritesLoaded = "[Favorites API] Favorites Loaded",
 }
@@ -25,10 +24,6 @@ export namespace BioActions {
 		constructor(public payload: { bio: string }) {}
 	}
 
-	export class FavoritesError implements Action {
-		readonly type = BioActionTypes.FavoritesError;
-	}
-
 	export class FavoritesRequested implements Action {
 		readonly type = BioActionTypes.FavoritesRequested;
 	}
@@ -44,6 +39,5 @@ export type BioAction =
 	| BioActions.BioError
 	| BioActions.BioRequested
 	| BioActions.BioLoaded
-	| BioActions.FavoritesError
 	| BioActions.FavoritesRequested
 	| BioActions.FavoritesLoaded;

@@ -22,7 +22,7 @@ export const getBio = createSelector(
 	bioState => bioState.bio
 );
 
-export const getError = createSelector(
+export const getBioError = createSelector(
 	selectBioState,
 	bioState => bioState.error
 );

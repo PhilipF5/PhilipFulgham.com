@@ -24,7 +24,6 @@ export const initialBioState: BioState = {
 export function bioReducer(state = initialBioState, action: BioAction): BioState {
 	switch (action.type) {
 		case BioActionTypes.BioError:
-		case BioActionTypes.FavoritesError:
 			return { ...state, error: true };
 		case BioActionTypes.BioLoaded:
 			return { ...state, bio: action.payload.bio };
