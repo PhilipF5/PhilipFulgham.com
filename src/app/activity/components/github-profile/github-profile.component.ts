@@ -7,7 +7,7 @@ import { filter } from "rxjs/operators";
 
 import { ActivityActions } from "app/activity/actions";
 import { Repo } from "app/activity/models";
-import { getLanguages, getReposWithProjects } from "app/activity/selectors";
+import { getActivityError, getLanguages, getReposWithProjects } from "app/activity/selectors";
 
 @Component({
 	selector: "github-profile",
@@ -17,17 +17,13 @@ import { getLanguages, getReposWithProjects } from "app/activity/selectors";
 export class GitHubProfileComponent {
 	@Input() username: string;
 
-	public error: string;
+	public error$: Observable<boolean> = this.store.pipe(select(getActivityError));
 	public githubIcon = faGithub;
 	public languages$ = this.store.pipe(
 		select(getLanguages),
 		filter(l => !!l)
 	);
 	public repos$: Observable<Repo[]> = this.store.pipe(select(getReposWithProjects));
-
-	public get hasError(): boolean {
-		return !!this.error;
-	}
 
 	public get profileUrl(): string {
 		return "https://github.com/" + this.username;

@@ -24,6 +24,11 @@ const selectResumeState = createSelector(
 	activityState => activityState.resume
 );
 
+export const getActivityError = createSelector(
+	selectActivityState,
+	activityState => activityState.error
+);
+
 export const getBlogPosts = createSelector(
 	selectBlogPostsState,
 	fromBlogPosts.selectAll

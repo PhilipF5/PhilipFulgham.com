@@ -2,6 +2,7 @@ import { Action } from "@ngrx/store";
 import { BlogPost, Repo, ResumeItem } from "app/activity/models";
 
 export enum ActivityActionTypes {
+	ActivityError = "[Activity APIs] Error Loading",
 	BlogPostsRequested = "[BlogPosts API] BlogPosts Requested",
 	BlogPostsLoaded = "[BlogPosts API] BlogPosts Loaded",
 	ReposRequested = "[Repos API] Repos Requested",
@@ -11,6 +12,10 @@ export enum ActivityActionTypes {
 }
 
 export namespace ActivityActions {
+	export class ActivityError implements Action {
+		readonly type = ActivityActionTypes.ActivityError;
+	}
+
 	export class BlogPostsRequested implements Action {
 		readonly type = ActivityActionTypes.BlogPostsRequested;
 	}
@@ -43,6 +48,7 @@ export namespace ActivityActions {
 }
 
 export type ActivityAction =
+	| ActivityActions.ActivityError
 	| ActivityActions.BlogPostsRequested
 	| ActivityActions.BlogPostsLoaded
 	| ActivityActions.ReposRequested

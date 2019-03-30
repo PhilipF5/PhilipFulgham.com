@@ -5,6 +5,7 @@ import { BlogPost, Repo, ResumeItem } from "app/activity/models";
 
 export interface ActivityState {
 	blogPosts: BlogPostsState;
+	error: boolean;
 	repos: ReposState;
 	resume: ResumeState;
 }
@@ -27,12 +28,15 @@ export const resumeAdapter: EntityAdapter<ResumeItem> = createEntityAdapter<Resu
 
 export const initialActivityState: ActivityState = {
 	blogPosts: blogPostsAdapter.getInitialState(),
+	error: false,
 	repos: reposAdapter.getInitialState(),
 	resume: resumeAdapter.getInitialState(),
 };
 
 export function activityReducer(state = initialActivityState, action: ActivityAction): ActivityState {
 	switch (action.type) {
+		case ActivityActionTypes.ActivityError:
+			return { ...state, error: true };
 		case ActivityActionTypes.BlogPostsLoaded:
 			return { ...state, blogPosts: blogPostsAdapter.addAll(action.payload.blogPosts, { ...state.blogPosts }) };
 		case ActivityActionTypes.ReposLoaded:

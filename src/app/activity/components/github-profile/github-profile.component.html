@@ -1,5 +1,5 @@
 <section-title>Code</section-title>
-<div *ngIf="!hasError" class="header">
+<div *ngIf="!(error$ | async)" class="header">
 	<div class="username">
 		<a [href]="profileUrl" target="_blank">
 			<fa-icon [icon]="githubIcon"></fa-icon>
@@ -8,13 +8,13 @@
 	</div>
 	<div class="repo-count" *ngIf="(repos$ | async) as repos">{{ repos.length }} public repos</div>
 </div>
-<div *ngIf="(repos$ | async) && !hasError" class="languages">
+<div *ngIf="(languages$ | async) as languages" class="languages">
 	<div>Top languages:</div>
 	<div class="lang-icons">
-		<img *ngFor="let lang of (languages$ | async | slice: 0:3)" [src]="lang.skill.icon" [alt]="lang" />
+		<img *ngFor="let lang of (languages | slice: 0:3)" [src]="lang.skill.icon" [alt]="lang" />
 	</div>
 </div>
-<div class="repos" *ngIf="!hasError && (repos$ | async) as repos">
+<div class="repos" *ngIf="(repos$ | async) as repos">
 	<shadow-button *ngFor="let repo of (repos | slice: 0:5)">
 		<a [href]="repo.url" target="_blank">
 			<div class="repo-row">
@@ -29,14 +29,12 @@
 		</a>
 	</shadow-button>
 </div>
-<div class="error" *ngIf="hasError">
-	{{ error }}
-</div>
+<error *ngIf="(error$ | async)">Unable to load repos</error>
 <shadow-button class="view-all">
-	<a *ngIf="(repos$ | async) && !hasError" [href]="profileUrl + '/?tab=repositories'" target="_blank">
+	<a *ngIf="!(error$ | async)" [href]="profileUrl + '/?tab=repositories'" target="_blank">
 		More...
 	</a>
-	<a *ngIf="hasError" [href]="profileUrl + '/?tab=repositories'" target="_blank">
+	<a *ngIf="(error$ | async)" [href]="profileUrl + '/?tab=repositories'" target="_blank">
 		View on
 		<fa-icon [icon]="githubIcon"></fa-icon>
 		GitHub

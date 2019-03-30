@@ -1,12 +1,12 @@
 <section-title>Blog</section-title>
-<div *ngIf="!hasError" class="header">
+<div *ngIf="!(error$ | async)" class="header">
 	<div class="username">
 		<a [href]="blogUrl" target="_blank">Philip's Tech Corner</a>
 	</div>
-	<div class="post-count" *ngIf="!hasError">{{ (posts$ | async).length }} articles published</div>
+	<div class="post-count" *ngIf="(posts$ | async) as posts">{{ posts.length }} articles published</div>
 </div>
-<div class="posts" *ngIf="!hasError">
-	<shadow-button *ngFor="let post of (posts$ | async | slice: 0:5)">
+<div class="posts" *ngIf="(posts$ | async) as posts">
+	<shadow-button *ngFor="let post of (posts | slice: 0:5)">
 		<a [href]="post.link" target="_blank">
 			<div class="post-row">
 				<div class="post-title">{{ post.title }}</div>
@@ -15,14 +15,12 @@
 		</a>
 	</shadow-button>
 </div>
-<div class="error" *ngIf="hasError">
-	{{ error }}
-</div>
+<error *ngIf="(error$ | async)">Unable to load posts</error>
 <shadow-button class="view-all">
-	<a *ngIf="!hasError" [href]="blogUrl" target="_blank">
+	<a *ngIf="!(error$ | async)" [href]="blogUrl" target="_blank">
 		More...
 	</a>
-	<a *ngIf="hasError" [href]="blogUrl" target="_blank">
+	<a *ngIf="(error$ | async)" [href]="blogUrl" target="_blank">
 		View on Blog Site
 	</a>
 </shadow-button>

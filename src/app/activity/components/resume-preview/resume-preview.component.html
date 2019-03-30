@@ -1,9 +1,11 @@
 <section-title>Résumé</section-title>
-<loading-indicator *ngIf="!loaded && !hasError"></loading-indicator>
-<history-item *ngFor="let item of (items$ | async)" [image]="item.image" [place]="item.org" [name]="item.title"></history-item>
-<div class="error" *ngIf="hasError">
-	{{ error }}
-</div>
+<history-item
+	*ngFor="let item of (items$ | async)"
+	[image]="item.image"
+	[place]="item.org"
+	[name]="item.title"
+></history-item>
+<error *ngIf="(error$ | async)">Unable to load preview</error>
 <shadow-button class="resume-link">
 	<a href="https://resume.philipfulgham.com" target="_blank">
 		View full resume

@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 
 import { ActivityActions } from "app/activity/actions";
 import { BlogPost } from "app/activity/models";
-import { getBlogPosts } from "app/activity/selectors";
+import { getActivityError, getBlogPosts } from "app/activity/selectors";
 
 import { environment } from "environments/environment";
 
@@ -17,12 +17,8 @@ import { environment } from "environments/environment";
 export class BlogPostsComponent {
 	public blogUrl: string = environment.BLOG_URL;
 	public count: number;
-	public error: string;
+	public error$: Observable<boolean> = this.store.pipe(select(getActivityError));
 	public posts$: Observable<BlogPost[]> = this.store.pipe(select(getBlogPosts));
-
-	public get hasError(): boolean {
-		return !!this.error;
-	}
 
 	constructor(private store: Store<any>) {}
 }

@@ -2,7 +2,8 @@ import { Injectable } from "@angular/core";
 
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
-import { map, mergeMap } from "rxjs/operators";
+import { of } from "rxjs";
+import { catchError, map, mergeMap, switchMap } from "rxjs/operators";
 
 import { ActivityActions, ActivityActionTypes } from "app/activity/actions";
 import { BlogPostService, RepoService, ResumeService } from "app/activity/services";
@@ -12,22 +13,34 @@ export class ActivityEffects {
 	@Effect()
 	loadBlogPosts$ = this.actions$.pipe(
 		ofType<ActivityActions.BlogPostsRequested>(ActivityActionTypes.BlogPostsRequested),
-		mergeMap(() => this.blogPostService.getBlogPosts()),
-		map(blogPosts => new ActivityActions.BlogPostsLoaded({ blogPosts }))
+		switchMap(() =>
+			this.blogPostService.getBlogPosts().pipe(
+				map(blogPosts => new ActivityActions.BlogPostsLoaded({ blogPosts })),
+				catchError(() => of(new ActivityActions.ActivityError()))
+			)
+		)
 	);
 
 	@Effect()
 	loadRepos$ = this.actions$.pipe(
 		ofType<ActivityActions.ReposRequested>(ActivityActionTypes.ReposRequested),
-		mergeMap(() => this.repoService.getRepos()),
-		map(repos => new ActivityActions.ReposLoaded({ repos }))
+		switchMap(() =>
+			this.repoService.getRepos().pipe(
+				map(repos => new ActivityActions.ReposLoaded({ repos })),
+				catchError(() => of(new ActivityActions.ActivityError()))
+			)
+		)
 	);
 
 	@Effect()
 	loadResume$ = this.actions$.pipe(
 		ofType<ActivityActions.ResumeRequested>(ActivityActionTypes.ResumeRequested),
-		mergeMap(() => this.resumeService.getResumeInfo()),
-		map(resumeItems => new ActivityActions.ResumeLoaded({ resumeItems }))
+		switchMap(() =>
+			this.resumeService.getResumeInfo().pipe(
+				map(resumeItems => new ActivityActions.ResumeLoaded({ resumeItems })),
+				catchError(() => of(new ActivityActions.ActivityError()))
+			)
+		)
 	);
 
 	constructor(
