@@ -2,6 +2,7 @@ import { Action } from "@ngrx/store";
 import { Project, Skill } from "app/projects/models";
 
 export enum ProjectsActionTypes {
+	ProjectsError = "[Projects API] Projects Error",
 	ProjectsRequested = "[Projects API] Projects Requested",
 	ProjectsLoaded = "[Projects API] Projects Loaded",
 	SkillsRequested = "[Skills API] Skills Requested",
@@ -9,6 +10,10 @@ export enum ProjectsActionTypes {
 }
 
 export namespace ProjectsActions {
+	export class ProjectsError implements Action {
+		readonly type = ProjectsActionTypes.ProjectsError;
+	}
+
 	export class ProjectsRequested implements Action {
 		readonly type = ProjectsActionTypes.ProjectsRequested;
 	}
@@ -31,6 +36,7 @@ export namespace ProjectsActions {
 }
 
 export type ProjectsAction =
+	| ProjectsActions.ProjectsError
 	| ProjectsActions.ProjectsRequested
 	| ProjectsActions.ProjectsLoaded
 	| ProjectsActions.SkillsRequested

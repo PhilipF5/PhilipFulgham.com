@@ -12,6 +12,12 @@ export const getProjects = createSelector(
 	fromProjects.selectAll
 );
 
+export const getProjectsError = createSelector(
+	selectProjectsState,
+	selectSkillsState,
+	(projectsState, skillsState) => projectsState.error || skillsState.error
+);
+
 export const getSkills = createSelector(
 	selectSkillsState,
 	fromSkills.selectAll

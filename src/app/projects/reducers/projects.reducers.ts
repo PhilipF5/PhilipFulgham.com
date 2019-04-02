@@ -4,11 +4,11 @@ import { ProjectsAction, ProjectsActionTypes } from "app/projects/actions";
 import { Project, Skill } from "app/projects/models";
 
 export interface ProjectsState extends EntityState<Project> {
-	projectsLoaded: boolean;
+	error: boolean;
 }
 
 export interface SkillsState extends EntityState<Skill> {
-	skillsLoaded: boolean;
+	error: boolean;
 }
 
 export const projectsAdapter: EntityAdapter<Project> = createEntityAdapter<Project>({
@@ -20,15 +20,17 @@ export const skillsAdapter: EntityAdapter<Skill> = createEntityAdapter<Skill>({
 });
 
 export const initialProjectsState: ProjectsState = projectsAdapter.getInitialState({
-	projectsLoaded: false,
+	error: false,
 });
 
 export const initialSkillsState: SkillsState = skillsAdapter.getInitialState({
-	skillsLoaded: false,
+	error: false,
 });
 
 export function projectsReducer(state = initialProjectsState, action: ProjectsAction): ProjectsState {
 	switch (action.type) {
+		case ProjectsActionTypes.ProjectsError:
+			return { ...state, error: true };
 		case ProjectsActionTypes.ProjectsLoaded:
 			return projectsAdapter.addAll(action.payload.projects, { ...state, projectsLoaded: true });
 		default:
@@ -38,6 +40,8 @@ export function projectsReducer(state = initialProjectsState, action: ProjectsAc
 
 export function skillsReducer(state = initialSkillsState, action: ProjectsAction): SkillsState {
 	switch (action.type) {
+		case ProjectsActionTypes.ProjectsError:
+			return { ...state, error: true };
 		case ProjectsActionTypes.SkillsLoaded:
 			return skillsAdapter.addAll(action.payload.skills, { ...state, skillsLoaded: true });
 		default:
