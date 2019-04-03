@@ -1,5 +1,8 @@
 <section-title>Projects</section-title>
-<div class="container">
+<div *ngIf="!(error$ | async)" class="container">
 	<projects-selector (projectSelected)="changeSelectedProject($event)"></projects-selector>
 	<project-info [selectedProject]="selectedProject" (closed)="clearSelectedProject()"></project-info>
+</div>
+<div *ngIf="(error$ | async)" class="error">
+	<error>Unable to load projects</error>
 </div>
