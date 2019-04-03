@@ -13,8 +13,7 @@
 
 		.glow {
 			color: rgb(255, 225, 255);
-			text-shadow: 0 0 7px rgb(255, 48, 255),
-			0 0 7px rgb(255, 48, 255);
+			text-shadow: 0 0 7px rgb(255, 48, 255), 0 0 7px rgb(255, 48, 255);
 		}
 	}
 
@@ -47,13 +46,14 @@
 
 			&.active {
 				color: rgb(255, 225, 255);
-				text-shadow: 0 0 14px rgb(255, 48, 255),
-				0 0 14px rgb(255, 48, 255);
+				text-shadow: 0 0 14px rgb(255, 48, 255), 0 0 14px rgb(255, 48, 255);
 			}
 		}
 	}
 }
 
 .error {
-	text-align: center;
+	display: flex;
+	justify-content: center;
+	width: 100%;
 }

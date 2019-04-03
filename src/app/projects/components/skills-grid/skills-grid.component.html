@@ -1,7 +1,7 @@
 <section-title>Skills</section-title>
-<div class="error" *ngIf="hasError">
-	{{ error }}
+<div *ngIf="(error$ | async)" class="error">
+	<error>Unable to load skills</error>
 </div>
-<div class="list">
+<div *ngIf="!(error$ | async)" class="list">
 	<skills-grid-item *ngFor="let skill of (skills$ | async)" [skill]="skill"></skills-grid-item>
 </div>

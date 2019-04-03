@@ -5,7 +5,7 @@ import { Observable } from "rxjs";
 
 import { ProjectsActions } from "app/projects/actions";
 import { Skill } from "app/projects/models";
-import { getSkills } from "app/projects/selectors";
+import { getProjectsError, getSkills } from "app/projects/selectors";
 
 @Component({
 	selector: "skills-grid",
@@ -13,13 +13,9 @@ import { getSkills } from "app/projects/selectors";
 	styleUrls: ["./skills-grid.component.scss"],
 })
 export class SkillsGridComponent {
-	public error: string;
+	public error$: Observable<boolean> = this.store.pipe(select(getProjectsError));
 	public loaded: boolean;
 	public skills$: Observable<Skill[]> = this.store.pipe(select(getSkills));
-
-	public get hasError(): boolean {
-		return !!this.error;
-	}
 
 	constructor(private store: Store<any>) {}
 }
