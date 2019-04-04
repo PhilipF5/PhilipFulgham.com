@@ -13,6 +13,7 @@ import { Project } from "app/projects/models";
 export class ProjectInfoComponent {
 	@Output() closed: EventEmitter<{}> = new EventEmitter();
 	public closeIcon = faTimes;
+	private animation: TimelineLite;
 	private _selectedProject: Project;
 
 	public get selectedProject(): Project {
@@ -20,14 +21,20 @@ export class ProjectInfoComponent {
 	}
 
 	@Input() public set selectedProject(value: Project) {
-		new TimelineLite()
+		if (this.animation) {
+			this.animation.kill();
+		}
+		this.animation = new TimelineLite()
 			.to(this.elem, 0.5, { opacity: 0 })
 			.add(() => this.ngZone.run(() => (this._selectedProject = value)))
 			.to(this.elem, 0.5, { opacity: 1 }, "+=0.25");
 	}
 
 	public get skills(): string {
-		return this.selectedProject.skills.map(s => s.name).sort().join(", ");
+		return this.selectedProject.skills
+			.map(s => s.name)
+			.sort()
+			.join(", ");
 	}
 
 	private get elem(): HTMLElement {

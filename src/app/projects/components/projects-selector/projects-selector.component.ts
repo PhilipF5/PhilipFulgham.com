@@ -1,8 +1,10 @@
 import { Component, EventEmitter, NgZone, Output, ViewChild, ElementRef } from "@angular/core";
+import { ActivatedRoute } from "@angular/router";
 
 import { Store, select } from "@ngrx/store";
 import { TimelineLite } from "gsap";
 import { Observable } from "rxjs";
+import { filter, take, tap } from "rxjs/operators";
 
 import { ProjectsActions } from "app/projects/actions";
 import { Project } from "app/projects/models";
@@ -17,7 +19,11 @@ export class ProjectsSelectorComponent {
 	@Output() projectSelected: EventEmitter<Project> = new EventEmitter();
 	@ViewChild("items") _itemsContainer: ElementRef;
 	public pageIndex: number = 0;
-	public projects$: Observable<Project[]> = this.store.pipe(select(getProjects));
+	public projects$: Observable<Project[]> = this.store.pipe(
+		select(getProjects),
+		filter(p => !!p.length),
+		tap(p => this.selectProjectFromRoute(p))
+	);
 	public selectedProject: Project;
 	private readonly pageLength: number = 8;
 
@@ -33,7 +39,7 @@ export class ProjectsSelectorComponent {
 		return this._itemsContainer.nativeElement;
 	}
 
-	constructor(private ngZone: NgZone, private store: Store<any>) {}
+	constructor(private ngZone: NgZone, private route: ActivatedRoute, private store: Store<any>) {}
 
 	public onPageDown(projectsCount: number) {
 		if (this.lastProjectIndex < projectsCount - 1) {
@@ -50,6 +56,14 @@ export class ProjectsSelectorComponent {
 	public selectProject(project: Project): void {
 		this.selectedProject = project;
 		this.projectSelected.emit(project);
+	}
+
+	public async selectProjectFromRoute(projects: Project[]): Promise<void> {
+		let paramMap = await this.route.queryParamMap.pipe(take(1)).toPromise();
+		let projectId: string;
+		if ((projectId = paramMap.get("showProject"))) {
+			this.selectProject(projects.find(p => p._id === projectId));
+		}
 	}
 
 	private animatePageDown = () =>
