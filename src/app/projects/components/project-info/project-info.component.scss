@@ -74,6 +74,20 @@
 		}
 	}
 
+	.no-image {
+		align-items: center;
+		display: flex;
+		flex-direction: column;
+		grid-area: image;
+		justify-content: center;
+		opacity: 0.25;
+
+		fa-icon {
+			display: block;
+			font-size: 72pt;
+		}
+	}
+
 	.date {
 		grid-area: date;
 		place-self: center start;
@@ -105,9 +119,7 @@
 			display: flex;
 			height: 100%;
 			justify-content: center;
-			transition:
-				border-color 0.5s linear,
-				color 0.5s linear;
+			transition: border-color 0.5s linear, color 0.5s linear;
 			width: 100;
 
 			&.no {

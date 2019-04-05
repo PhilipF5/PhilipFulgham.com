@@ -1,6 +1,6 @@
 import { Component, ElementRef, EventEmitter, Input, NgZone, Output } from "@angular/core";
 
-import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import { faImage, faTimes } from "@fortawesome/free-solid-svg-icons";
 import { TimelineLite } from "gsap";
 
 import { Project } from "app/projects/models";
@@ -13,6 +13,8 @@ import { Project } from "app/projects/models";
 export class ProjectInfoComponent {
 	@Output() closed: EventEmitter<{}> = new EventEmitter();
 	public closeIcon = faTimes;
+	public hasImage: boolean = true;
+	public imageIcon = faImage;
 	private animation: TimelineLite;
 	private _selectedProject: Project;
 
@@ -26,7 +28,12 @@ export class ProjectInfoComponent {
 		}
 		this.animation = new TimelineLite()
 			.to(this.elem, 0.5, { opacity: 0 })
-			.add(() => this.ngZone.run(() => (this._selectedProject = value)))
+			.add(() =>
+				this.ngZone.run(() => {
+					this._selectedProject = value;
+					this.hasImage = true;
+				})
+			)
 			.to(this.elem, 0.5, { opacity: 1 }, "+=0.25");
 	}
 
