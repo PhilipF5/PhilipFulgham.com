@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
+import { flatten } from "lodash";
 import { of } from "rxjs";
 import { catchError, map, mergeMap, switchMap } from "rxjs/operators";
 
@@ -37,7 +38,7 @@ export class ActivityEffects {
 		ofType<ActivityActions.ResumeRequested>(ActivityActionTypes.ResumeRequested),
 		switchMap(() =>
 			this.resumeService.getResumeInfo().pipe(
-				map(resumeItems => new ActivityActions.ResumeLoaded({ resumeItems })),
+				map(resumeItems => new ActivityActions.ResumeLoaded({ resumeItems: flatten(resumeItems) })),
 				catchError(() => of(new ActivityActions.ActivityError()))
 			)
 		)
