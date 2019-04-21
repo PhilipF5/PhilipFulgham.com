@@ -10,7 +10,8 @@
 		"ng": "ng",
 		"start": "ng serve --host 0.0.0.0 --publicHost $(scutil --get LocalHostName | tr '[:upper:]' '[:lower:]').local",
 		"start:beta": "npm start -c beta",
-		"build": "ng build --prod"
+		"build": "ng build --prod",
+		"upgrade-interactive": "npm-check --update"
 	},
 	"husky": {
 		"hooks": {
@@ -41,10 +42,10 @@
 		"ngx-markdown": "^7.1.4",
 		"rxjs": "^6.3.3",
 		"ts-helpers": "^1.1.1",
-		"typeface-quattrocento-sans": "^0.0.54",
+		"typeface-quattrocento-sans": "0.0.72",
 		"typeface-ubuntu": "^0.0.65",
-		"typeface-ubuntu-condensed": "^0.0.54",
-		"typeface-ubuntu-mono": "^0.0.54",
+		"typeface-ubuntu-condensed": "0.0.72",
+		"typeface-ubuntu-mono": "0.0.72",
 		"zone.js": "^0.8.29"
 	},
 	"devDependencies": {
@@ -56,6 +57,7 @@
 		"@types/luxon": "^1.11.1",
 		"@types/node": "~10.12.18",
 		"husky": "^1.3.1",
+		"npm-check": "^5.9.0",
 		"prettier": "1.16.4",
 		"pretty-quick": "^1.10.0",
 		"ts-node": "~8.0.2",
