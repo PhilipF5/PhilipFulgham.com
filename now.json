@@ -1,0 +1,17 @@
+{
+	"version": 2,
+	"name": "PhilipFulgham.com",
+	"builds": [{ "src": "package.json", "use": "@now/static-build", "config": { "distDir": "dist" } }],
+	"routes": [
+		{ "src": "/assets/(.*)", "headers": { "cache-control": "s-maxage=31536000,immutable" }, "dest": "/assets/$1" },
+		{ "src": "/favicon.ico", "dest": "/favicon.ico" },
+		{ "src": "/3rdpartylicenses.txt", "dest": "/3rdpartylicenses.txt" },
+		{ "src": "/main.(.*)", "dest": "/main.$1" },
+		{ "src": "/runtime.(.*)", "dest": "/runtime.$1" },
+		{ "src": "/scripts.(.*)", "dest": "/scripts.$1" },
+		{ "src": "/styles.(.*)", "dest": "/styles.$1" },
+		{ "src": "/(.*).woff", "dest": "/$1.woff" },
+		{ "src": "/(.*).woff2", "dest": "/$1.woff2" },
+		{ "src": "/(.*)", "headers": { "cache-control": "s-maxage=0" }, "dest": "/index.html" }
+	]
+}

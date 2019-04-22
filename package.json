@@ -11,7 +11,8 @@
 		"start": "ng serve --host 0.0.0.0 --publicHost $(scutil --get LocalHostName | tr '[:upper:]' '[:lower:]').local",
 		"start:beta": "npm start -c beta",
 		"build": "ng build --prod",
-		"upgrade-interactive": "npm-check --update"
+		"upgrade-interactive": "npm-check --update",
+		"now-build": "npm run build"
 	},
 	"husky": {
 		"hooks": {
