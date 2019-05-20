@@ -1,4 +1,6 @@
-<img *ngIf="!!image" [src]="'assets/orgs/' + image" />
+<div class="img-container" *ngIf="!!image">
+	<img [src]="image" />
+</div>
 <div *ngIf="!image" class="no-image"></div>
 <div class="details">
 	<div class="name">{{ name }}</div>
