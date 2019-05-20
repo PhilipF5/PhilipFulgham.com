@@ -19,7 +19,7 @@ export class ResumeService {
 						_id: j._id,
 						title: j.title,
 						org: j.org,
-						image: j.image,
+						image: j.logo,
 						start: DateTime.fromISO(j.start),
 						end: j.end ? DateTime.fromISO(j.end) : undefined,
 					}))
@@ -35,7 +35,7 @@ export class ResumeService {
 				.get<Credential[]>(environment.API_URL + "Credentials")
 				.pipe(
 					map<Credential[], ResumeItem[]>(creds =>
-						creds.map(c => ({ _id: c._id, title: c.name, org: c.issuer, image: c.image }))
+						creds.map(c => ({ _id: c._id, title: c.name, org: c.issuer, image: c.logo }))
 					)
 				)
 		).pipe(catchError(this.handleError));
