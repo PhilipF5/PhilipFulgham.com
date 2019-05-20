@@ -4,5 +4,7 @@
 	<div class="name">{{ name }}</div>
 	<div class="place">{{ place }}</div>
 	<div class="subtitle">{{ subtitle }}</div>
-	<div *ngIf="hasDates" class="dates">{{ start | formatDate: "MMM yyyy" }} – {{ end | formatDate: "MMM yyyy" }}</div>
+	<div *ngIf="hasDates" class="dates">
+		{{ start | formatDate: "MMM yyyy" }} – {{ (end | formatDate: "MMM yyyy") || "Current" }}
+	</div>
 </div>
