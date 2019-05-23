@@ -55,4 +55,12 @@
 	.subtitle {
 		font-size: 1em;
 	}
+
+	.place {
+		transition: color 0.5s linear;
+	}
+}
+
+.org-link:hover ~ .details .place {
+	color: lightblue;
 }

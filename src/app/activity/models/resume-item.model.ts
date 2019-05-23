@@ -5,6 +5,7 @@ export interface ResumeItem {
 	end?: DateTime;
 	image: string;
 	org: string;
+	orgUrl?: string;
 	start?: DateTime;
 	title: string;
 }

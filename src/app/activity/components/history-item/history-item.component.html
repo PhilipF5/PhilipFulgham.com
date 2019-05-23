@@ -1,6 +1,13 @@
-<div class="img-container" *ngIf="!!image">
-	<img [src]="image" />
-</div>
+<ng-container *ngIf="!!image">
+	<div class="img-container" *ngIf="!link">
+		<img [src]="image" />
+	</div>
+	<a *ngIf="link" [href]="link" class="org-link">
+		<div class="img-container">
+			<img [src]="image" />
+		</div>
+	</a>
+</ng-container>
 <div *ngIf="!image" class="no-image"></div>
 <div class="details">
 	<div class="name">{{ name }}</div>
