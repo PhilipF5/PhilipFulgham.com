@@ -2,10 +2,9 @@ import { HttpClient, HttpErrorResponse } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Credential, Job, ResumeItem } from "app/activity/models";
 import { environment } from "environments/environment";
-import { difference, uniqBy } from "lodash";
 import { DateTime } from "luxon";
 import { throwError, zip } from "rxjs";
-import { catchError, map, tap } from "rxjs/operators";
+import { catchError, map } from "rxjs/operators";
 
 @Injectable()
 export class ResumeService {
@@ -24,12 +23,6 @@ export class ResumeService {
 						end: j.end ? DateTime.fromISO(j.end) : undefined,
 						orgUrl: j.link,
 					}))
-				),
-				tap(items =>
-					difference(items, uniqBy(items, i => i.org)).forEach(i => {
-						i.org = undefined;
-						i.image = undefined;
-					})
 				)
 			),
 			this.http

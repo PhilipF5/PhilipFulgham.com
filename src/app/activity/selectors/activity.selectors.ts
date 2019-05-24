@@ -1,7 +1,7 @@
 import { createFeatureSelector, createSelector } from "@ngrx/store";
-import { map, orderBy } from "lodash";
 import { ActivityState, blogPostsAdapter, reposAdapter, resumeAdapter } from "app/activity/reducers";
 import { getProjects, getSkills } from "app/projects/selectors";
+import { groupBy, map, orderBy } from "lodash";
 
 const fromBlogPosts = blogPostsAdapter.getSelectors();
 const fromRepos = reposAdapter.getSelectors();
@@ -77,4 +77,9 @@ export const getLanguages = createSelector(
 export const getResume = createSelector(
 	selectResumeState,
 	fromResume.selectAll
+);
+
+export const getResumeByOrg = createSelector(
+	getResume,
+	items => map(groupBy(items, i => i.org), (items, org) => ({ items, org }))
 );
