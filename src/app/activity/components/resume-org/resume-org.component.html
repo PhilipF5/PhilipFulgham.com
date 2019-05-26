@@ -1,0 +1,10 @@
+<resume-org-header [logoUrl]="logo" [link]="link" [orgName]="org.orgName"></resume-org-header>
+<history-item
+	*ngFor="let item of org.items"
+	[image]="item.image"
+	[place]="item.org"
+	[name]="item.title"
+	[start]="item.start"
+	[end]="item.end"
+	[link]="item.orgUrl"
+></history-item>

@@ -1,17 +1,5 @@
-<ng-container *ngIf="!!image">
-	<div class="img-container" *ngIf="!link">
-		<img [src]="image" />
-	</div>
-	<a *ngIf="link" [href]="link" class="org-link">
-		<div class="img-container">
-			<img [src]="image" />
-		</div>
-	</a>
-</ng-container>
-<div *ngIf="!image" class="no-image"></div>
 <div class="details">
 	<div class="name">{{ name }}</div>
-	<div class="place">{{ place }}</div>
 	<div class="subtitle">{{ subtitle }}</div>
 	<div *ngIf="hasDates" class="dates">
 		{{ start | formatDate: "MMM yyyy" }} – {{ (end | formatDate: "MMM yyyy") || "Current" }}

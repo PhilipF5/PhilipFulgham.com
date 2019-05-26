@@ -1,15 +1,5 @@
 <section-title>Résumé</section-title>
-<div *ngFor="let org of (orgs$ | async)" class="org-container">
-	<history-item
-		*ngFor="let item of org.items"
-		[image]="item.image"
-		[place]="item.org"
-		[name]="item.title"
-		[start]="item.start"
-		[end]="item.end"
-		[link]="item.orgUrl"
-	></history-item>
-</div>
+<resume-org *ngFor="let org of (orgs$ | async)" [org]="org"></resume-org>
 <error *ngIf="(error$ | async)">Unable to load preview</error>
 <shadow-button class="resume-link">
 	<a href="https://resume.philipfulgham.com" target="_blank">
