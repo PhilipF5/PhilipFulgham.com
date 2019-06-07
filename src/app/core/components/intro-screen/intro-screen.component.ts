@@ -1,9 +1,7 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
-
+import { ArrowComponent } from "app/shared/components";
 import { Power1, TimelineLite, TweenMax } from "gsap";
 import { ScrollToPlugin } from "gsap/all";
-
-import { ArrowComponent } from "app/shared/components";
 
 const plugins = [ScrollToPlugin];
 
@@ -36,8 +34,8 @@ export class IntroScreenComponent {
 			.to(this.byline, 2, { opacity: 1, ease: Power1.easeInOut }, "-=2")
 			.to(this.scrollArrow, 1, { opacity: 1, ease: Power1.easeInOut })
 			.add(
-				TweenMax.to(this.scrollArrow, 2, { opacity: 0.5, ease: Power1.easeInOut })
-					.repeat(-1)
+				TweenMax.to(this.scrollArrow, 0.5, { opacity: 0.5, ease: Power1.easeInOut })
+					.repeat(4)
 					.yoyo(true)
 			);
 
