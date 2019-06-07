@@ -1,5 +1,7 @@
 <section-title>Résumé</section-title>
-<resume-org *ngFor="let org of (orgs$ | async)" [org]="org"></resume-org>
+<div class="orgs-container">
+	<resume-org *ngFor="let org of (orgs$ | async)" [org]="org"></resume-org>
+</div>
 <error *ngIf="(error$ | async)">Unable to load preview</error>
 <shadow-button class="resume-link">
 	<a href="https://resume.philipfulgham.com" target="_blank">
