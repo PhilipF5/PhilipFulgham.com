@@ -1,12 +1,7 @@
 import { Component } from "@angular/core";
-
-import { Store, select } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
+import { getActivityError, getResumeByOrg } from "app/activity/selectors";
 import { Observable } from "rxjs";
-
-import { ActivityActions } from "app/activity/actions";
-import { ResumeItem } from "app/activity/models";
-import { getActivityError, getResume } from "app/activity/selectors";
-import { ResumeService } from "app/activity/services";
 
 @Component({
 	selector: "resume-preview",
@@ -15,8 +10,8 @@ import { ResumeService } from "app/activity/services";
 })
 export class ResumePreviewComponent {
 	public error$: Observable<boolean> = this.store.pipe(select(getActivityError));
-	public items$: Observable<ResumeItem[]> = this.store.pipe(select(getResume));
 	public loaded: boolean = true;
+	public orgs$ = this.store.pipe(select(getResumeByOrg));
 
 	constructor(private store: Store<any>) {}
 }

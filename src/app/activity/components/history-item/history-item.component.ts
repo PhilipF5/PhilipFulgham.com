@@ -9,6 +9,7 @@ import { DateTime } from "luxon";
 export class HistoryItemComponent {
 	@Input() end: DateTime;
 	@Input() image: string;
+	@Input() link: string;
 	@Input() name: string;
 	@Input() place: string;
 	@Input() start: DateTime;
