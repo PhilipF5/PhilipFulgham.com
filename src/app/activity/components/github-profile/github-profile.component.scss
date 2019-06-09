@@ -91,6 +91,13 @@
 .icon {
 	height: 32px;
 	width: 32px;
+
+	img {
+		height: 100%;
+		object-fit: contain;
+		object-position: center center;
+		width: 100%;
+	}
 }
 
 .view-all {
