@@ -1,6 +1,7 @@
 {
 	"version": 2,
 	"name": "PhilipFulgham.com",
+	"alias": "www.philipfulgham.com",
 	"builds": [{ "src": "package.json", "use": "@now/static-build", "config": { "distDir": "dist" } }],
 	"routes": [
 		{ "src": "/assets/(.*)", "headers": { "cache-control": "s-maxage=31536000,immutable" }, "dest": "/assets/$1" },
