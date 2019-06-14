@@ -1,6 +1,6 @@
-import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
-
-import { ProjectsAction, ProjectsActionTypes } from "app/projects/actions";
+import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
+import { createReducer, on } from "@ngrx/store";
+import { ProjectsActions } from "app/projects/actions";
 import { Project, Skill } from "app/projects/models";
 
 export interface ProjectsState extends EntityState<Project> {
@@ -27,24 +27,18 @@ export const initialSkillsState: SkillsState = skillsAdapter.getInitialState({
 	error: false,
 });
 
-export function projectsReducer(state = initialProjectsState, action: ProjectsAction): ProjectsState {
-	switch (action.type) {
-		case ProjectsActionTypes.ProjectsError:
-			return { ...state, error: true };
-		case ProjectsActionTypes.ProjectsLoaded:
-			return projectsAdapter.addAll(action.payload.projects, { ...state, projectsLoaded: true });
-		default:
-			return state;
-	}
-}
+export const projectsReducer = createReducer(
+	initialProjectsState,
+	on(ProjectsActions.projectsError, state => ({ ...state, error: true })),
+	on(ProjectsActions.projectsLoaded, (state, { projects }) =>
+		projectsAdapter.addAll(projects, { ...state, projectsLoaded: true })
+	)
+);
 
-export function skillsReducer(state = initialSkillsState, action: ProjectsAction): SkillsState {
-	switch (action.type) {
-		case ProjectsActionTypes.ProjectsError:
-			return { ...state, error: true };
-		case ProjectsActionTypes.SkillsLoaded:
-			return skillsAdapter.addAll(action.payload.skills, { ...state, skillsLoaded: true });
-		default:
-			return state;
-	}
-}
+export const skillsReducer = createReducer(
+	initialSkillsState,
+	on(ProjectsActions.projectsError, state => ({ ...state, error: true })),
+	on(ProjectsActions.skillsLoaded, (state, { skills }) =>
+		skillsAdapter.addAll(skills, { ...state, skillsLoaded: true })
+	)
+);

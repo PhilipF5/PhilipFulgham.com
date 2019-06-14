@@ -1,6 +1,6 @@
-import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
-
-import { ActivityAction, ActivityActionTypes } from "app/activity/actions";
+import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
+import { createReducer, on } from "@ngrx/store";
+import { ActivityActions } from "app/activity/actions";
 import { BlogPost, Repo, ResumeItem } from "app/activity/models";
 
 export interface ActivityState {
@@ -33,17 +33,19 @@ export const initialActivityState: ActivityState = {
 	resume: resumeAdapter.getInitialState(),
 };
 
-export function activityReducer(state = initialActivityState, action: ActivityAction): ActivityState {
-	switch (action.type) {
-		case ActivityActionTypes.ActivityError:
-			return { ...state, error: true };
-		case ActivityActionTypes.BlogPostsLoaded:
-			return { ...state, blogPosts: blogPostsAdapter.addAll(action.payload.blogPosts, { ...state.blogPosts }) };
-		case ActivityActionTypes.ReposLoaded:
-			return { ...state, repos: reposAdapter.addAll(action.payload.repos, { ...state.repos }) };
-		case ActivityActionTypes.ResumeLoaded:
-			return { ...state, resume: resumeAdapter.addAll(action.payload.resumeItems, { ...state.resume }) };
-		default:
-			return state;
-	}
-}
+export const activityReducer = createReducer(
+	initialActivityState,
+	on(ActivityActions.activityError, state => ({ ...state, error: true })),
+	on(ActivityActions.blogPostsLoaded, (state, { blogPosts }) => ({
+		...state,
+		blogPosts: blogPostsAdapter.addAll(blogPosts, { ...state.blogPosts }),
+	})),
+	on(ActivityActions.reposLoaded, (state, { repos }) => ({
+		...state,
+		repos: reposAdapter.addAll(repos, { ...state.repos }),
+	})),
+	on(ActivityActions.resumeLoaded, (state, { resumeItems }) => ({
+		...state,
+		resume: resumeAdapter.addAll(resumeItems, { ...state.resume }),
+	}))
+);

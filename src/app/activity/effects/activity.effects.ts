@@ -1,45 +1,43 @@
 import { Injectable } from "@angular/core";
-
 import { Actions, Effect, ofType } from "@ngrx/effects";
 import { Store } from "@ngrx/store";
+import { ActivityActions } from "app/activity/actions";
+import { BlogPostService, RepoService, ResumeService } from "app/activity/services";
 import { flatten } from "lodash";
 import { of } from "rxjs";
-import { catchError, map, mergeMap, switchMap } from "rxjs/operators";
-
-import { ActivityActions, ActivityActionTypes } from "app/activity/actions";
-import { BlogPostService, RepoService, ResumeService } from "app/activity/services";
+import { catchError, map, switchMap } from "rxjs/operators";
 
 @Injectable()
 export class ActivityEffects {
 	@Effect()
 	loadBlogPosts$ = this.actions$.pipe(
-		ofType<ActivityActions.BlogPostsRequested>(ActivityActionTypes.BlogPostsRequested),
+		ofType(ActivityActions.blogPostsRequested),
 		switchMap(() =>
 			this.blogPostService.getBlogPosts().pipe(
-				map(blogPosts => new ActivityActions.BlogPostsLoaded({ blogPosts })),
-				catchError(() => of(new ActivityActions.ActivityError()))
+				map(blogPosts => ActivityActions.blogPostsLoaded({ blogPosts })),
+				catchError(() => of(ActivityActions.activityError()))
 			)
 		)
 	);
 
 	@Effect()
 	loadRepos$ = this.actions$.pipe(
-		ofType<ActivityActions.ReposRequested>(ActivityActionTypes.ReposRequested),
+		ofType(ActivityActions.reposRequested),
 		switchMap(() =>
 			this.repoService.getRepos().pipe(
-				map(repos => new ActivityActions.ReposLoaded({ repos })),
-				catchError(() => of(new ActivityActions.ActivityError()))
+				map(repos => ActivityActions.reposLoaded({ repos })),
+				catchError(() => of(ActivityActions.activityError()))
 			)
 		)
 	);
 
 	@Effect()
 	loadResume$ = this.actions$.pipe(
-		ofType<ActivityActions.ResumeRequested>(ActivityActionTypes.ResumeRequested),
+		ofType(ActivityActions.resumeRequested),
 		switchMap(() =>
 			this.resumeService.getResumeInfo().pipe(
-				map(resumeItems => new ActivityActions.ResumeLoaded({ resumeItems: flatten(resumeItems) })),
-				catchError(() => of(new ActivityActions.ActivityError()))
+				map(resumeItems => ActivityActions.resumeLoaded({ resumeItems: flatten(resumeItems) })),
+				catchError(() => of(ActivityActions.activityError()))
 			)
 		)
 	);

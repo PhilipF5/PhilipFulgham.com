@@ -1,28 +1,26 @@
 import { Injectable } from "@angular/core";
-
 import { Actions, Effect, ofType } from "@ngrx/effects";
-import { merge, of } from "rxjs";
-import { switchMap } from "rxjs/operators";
-
 import { ActivityActions } from "app/activity/actions";
 import { BioActions } from "app/bio/actions";
-import { CoreActions, CoreActionTypes } from "app/core/actions";
+import { CoreActions } from "app/core/actions";
 import { ProjectsActions } from "app/projects/actions";
+import { merge, of } from "rxjs";
+import { switchMap } from "rxjs/operators";
 
 @Injectable()
 export class CoreEffects {
 	@Effect()
 	loadBio$ = this.actions.pipe(
-		ofType<CoreActions.AppLoading>(CoreActionTypes.AppLoading),
+		ofType(CoreActions.appLoading),
 		switchMap(() =>
 			merge(
-				of(new ActivityActions.BlogPostsRequested()),
-				of(new ActivityActions.ReposRequested()),
-				of(new ActivityActions.ResumeRequested()),
-				of(new BioActions.BioRequested()),
-				of(new BioActions.FavoritesRequested()),
-				of(new ProjectsActions.ProjectsRequested()),
-				of(new ProjectsActions.SkillsRequested())
+				of(ActivityActions.blogPostsRequested()),
+				of(ActivityActions.reposRequested()),
+				of(ActivityActions.resumeRequested()),
+				of(BioActions.bioRequested()),
+				of(BioActions.favoritesRequested()),
+				of(ProjectsActions.projectsRequested()),
+				of(ProjectsActions.skillsRequested())
 			)
 		)
 	);

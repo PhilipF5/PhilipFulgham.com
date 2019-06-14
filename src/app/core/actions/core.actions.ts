@@ -1,13 +1,5 @@
-import { Action } from "@ngrx/store";
-
-export enum CoreActionTypes {
-	AppLoading = "[App] App Loading",
-}
+import { createAction } from "@ngrx/store";
 
 export namespace CoreActions {
-	export class AppLoading implements Action {
-		readonly type = CoreActionTypes.AppLoading;
-	}
+	export const appLoading = createAction("[App] App Loading");
 }
-
-export type CoreAction = CoreActions.AppLoading;

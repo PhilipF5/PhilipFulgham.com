@@ -1,6 +1,6 @@
-import { EntityAdapter, EntityState, createEntityAdapter } from "@ngrx/entity";
-
-import { BioAction, BioActionTypes } from "app/bio/actions";
+import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
+import { createReducer, on } from "@ngrx/store";
+import { BioActions } from "app/bio/actions";
 import { Favorite } from "app/bio/models";
 
 export interface BioState {
@@ -21,15 +21,12 @@ export const initialBioState: BioState = {
 	favorites: favoritesAdapter.getInitialState(),
 };
 
-export function bioReducer(state = initialBioState, action: BioAction): BioState {
-	switch (action.type) {
-		case BioActionTypes.BioError:
-			return { ...state, error: true };
-		case BioActionTypes.BioLoaded:
-			return { ...state, bio: action.payload.bio };
-		case BioActionTypes.FavoritesLoaded:
-			return { ...state, favorites: favoritesAdapter.addAll(action.payload.favorites, { ...state.favorites }) };
-		default:
-			return state;
-	}
-}
+export const bioReducer = createReducer(
+	initialBioState,
+	on(BioActions.bioError, state => ({ ...state, error: true })),
+	on(BioActions.bioLoaded, (state, { bio }) => ({ ...state, bio })),
+	on(BioActions.favoritesLoaded, (state, { favorites }) => ({
+		...state,
+		favorites: favoritesAdapter.addAll(favorites, { ...state.favorites }),
+	}))
+);

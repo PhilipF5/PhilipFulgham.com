@@ -1,32 +1,30 @@
 import { Injectable } from "@angular/core";
-
 import { Actions, Effect, ofType } from "@ngrx/effects";
-import { of } from "rxjs";
-import { catchError, map, mergeMap, switchMap } from "rxjs/operators";
-
-import { BioActions, BioActionTypes } from "app/bio/actions";
+import { BioActions } from "app/bio/actions";
 import { ProfileService } from "app/bio/services";
+import { of } from "rxjs";
+import { catchError, map, switchMap } from "rxjs/operators";
 
 @Injectable()
 export class BioEffects {
 	@Effect()
 	loadBio$ = this.actions.pipe(
-		ofType<BioActions.BioRequested>(BioActionTypes.BioRequested),
+		ofType(BioActions.bioRequested),
 		switchMap(() =>
 			this.profileService.getBio().pipe(
-				map(bio => new BioActions.BioLoaded({ bio })),
-				catchError(() => of(new BioActions.BioError()))
+				map(bio => BioActions.bioLoaded({ bio })),
+				catchError(() => of(BioActions.bioError()))
 			)
 		)
 	);
 
 	@Effect()
 	loadFavorites$ = this.actions.pipe(
-		ofType<BioActions.FavoritesRequested>(BioActionTypes.FavoritesRequested),
+		ofType(BioActions.favoritesRequested),
 		switchMap(() =>
 			this.profileService.getFavorites().pipe(
-				map(favorites => new BioActions.FavoritesLoaded({ favorites })),
-				catchError(() => of(new BioActions.BioError()))
+				map(favorites => BioActions.favoritesLoaded({ favorites })),
+				catchError(() => of(BioActions.bioError()))
 			)
 		)
 	);

@@ -1,43 +1,10 @@
-import { Action } from "@ngrx/store";
+import { createAction, props } from "@ngrx/store";
 import { Project, Skill } from "app/projects/models";
 
-export enum ProjectsActionTypes {
-	ProjectsError = "[Projects API] Projects Error",
-	ProjectsRequested = "[Projects API] Projects Requested",
-	ProjectsLoaded = "[Projects API] Projects Loaded",
-	SkillsRequested = "[Skills API] Skills Requested",
-	SkillsLoaded = "[Skills API] Skills Loaded",
-}
-
 export namespace ProjectsActions {
-	export class ProjectsError implements Action {
-		readonly type = ProjectsActionTypes.ProjectsError;
-	}
-
-	export class ProjectsRequested implements Action {
-		readonly type = ProjectsActionTypes.ProjectsRequested;
-	}
-
-	export class ProjectsLoaded implements Action {
-		readonly type = ProjectsActionTypes.ProjectsLoaded;
-
-		constructor(public payload: { projects: Project[] }) {}
-	}
-
-	export class SkillsRequested implements Action {
-		readonly type = ProjectsActionTypes.SkillsRequested;
-	}
-
-	export class SkillsLoaded implements Action {
-		readonly type = ProjectsActionTypes.SkillsLoaded;
-
-		constructor(public payload: { skills: Skill[] }) {}
-	}
+	export const projectsError = createAction("[Projects API] Projects Error");
+	export const projectsRequested = createAction("[Projects API] Projects Requested");
+	export const projectsLoaded = createAction("[Projects API] Projects Loaded", props<{ projects: Project[] }>());
+	export const skillsRequested = createAction("[Skills API] Skills Requested");
+	export const skillsLoaded = createAction("[Skills API] Skills Loaded", props<{ skills: Skill[] }>());
 }
-
-export type ProjectsAction =
-	| ProjectsActions.ProjectsError
-	| ProjectsActions.ProjectsRequested
-	| ProjectsActions.ProjectsLoaded
-	| ProjectsActions.SkillsRequested
-	| ProjectsActions.SkillsLoaded;

@@ -11,6 +11,6 @@ export class AppComponent implements OnInit {
 	constructor(private store: Store<any>) {}
 
 	ngOnInit() {
-		this.store.dispatch(new CoreActions.AppLoading());
+		this.store.dispatch(CoreActions.appLoading());
 	}
 }
