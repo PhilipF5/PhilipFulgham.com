@@ -1,15 +1,12 @@
-<ng-container *ngIf="projects$ | async as projects">
+<ng-container *ngIf="(projects$ | async) as projects">
 	<div class="items" #items>
 		<div
 			class="item"
-			*ngFor="let p of (projects | slice: firstProjectIndex : lastProjectIndex)"
+			*ngFor="let p of (projects | slice: firstProjectIndex:lastProjectIndex)"
 			[ngClass]="{ selected: selectedProject === p }"
 		>
 			<shadow-button>
-				<projects-selector-item
-					[project]="p"
-					(click)="selectProject(p)"
-				></projects-selector-item>
+				<projects-selector-item [project]="p" (click)="selectProject(p)"></projects-selector-item>
 			</shadow-button>
 		</div>
 	</div>
