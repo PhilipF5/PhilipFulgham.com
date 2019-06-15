@@ -5,14 +5,14 @@ import { ArrowComponent } from "../arrow/arrow.component";
 @Component({
 	selector: "section-title",
 	templateUrl: "./section-title.component.html",
-	styleUrls: ["./section-title.component.scss"]
+	styleUrls: ["./section-title.component.scss"],
 })
 export class SectionTitleComponent {
 	@Output() public expand: EventEmitter<void> = new EventEmitter();
 	@Input() public expandable: boolean;
 	@Input() public text: string;
 
-	@ViewChild(ArrowComponent) private arrow: ArrowComponent;
+	@ViewChild(ArrowComponent, { static: false }) private arrow: ArrowComponent;
 	private expanded: boolean;
 
 	public trigger(): void {
@@ -20,8 +20,7 @@ export class SectionTitleComponent {
 			this.arrow.flip();
 			this.expanded = !this.expanded;
 			this.expand.emit();
-		}
-		else if (this.expandable && this.expanded) {
+		} else if (this.expandable && this.expanded) {
 			this.arrow.flipBack();
 			this.expanded = !this.expanded;
 			this.expand.emit();

@@ -9,10 +9,10 @@ import { TimelineLite, TweenMax } from "gsap";
 	styleUrls: ["./site-nav.component.scss"],
 })
 export class SiteNavComponent {
-	@ViewChild("bottomPiece", { read: ElementRef }) private _bottomPiece: ElementRef;
-	@ViewChild("middlePiece", { read: ElementRef }) private _middlePiece: ElementRef;
-	@ViewChild("topLeftPiece", { read: ElementRef }) private _topLeftPiece: ElementRef;
-	@ViewChild("topRightPiece", { read: ElementRef }) private _topRightPiece: ElementRef;
+	@ViewChild("bottomPiece", { read: ElementRef, static: true }) private _bottomPiece: ElementRef;
+	@ViewChild("middlePiece", { read: ElementRef, static: true }) private _middlePiece: ElementRef;
+	@ViewChild("topLeftPiece", { read: ElementRef, static: true }) private _topLeftPiece: ElementRef;
+	@ViewChild("topRightPiece", { read: ElementRef, static: true }) private _topRightPiece: ElementRef;
 
 	public isOpen: boolean = false;
 	public menuIconPiece = faMinus;

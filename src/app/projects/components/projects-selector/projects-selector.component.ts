@@ -17,7 +17,7 @@ import { getProjects } from "app/projects/selectors";
 })
 export class ProjectsSelectorComponent {
 	@Output() projectSelected: EventEmitter<Project> = new EventEmitter();
-	@ViewChild("items") _itemsContainer: ElementRef;
+	@ViewChild("items", { static: false }) _itemsContainer: ElementRef;
 	public pageIndex: number = 0;
 	public projects$: Observable<Project[]> = this.store.pipe(
 		select(getProjects),

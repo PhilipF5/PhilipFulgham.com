@@ -11,9 +11,9 @@ const plugins = [ScrollToPlugin];
 	styleUrls: ["./intro-screen.component.scss"],
 })
 export class IntroScreenComponent {
-	@ViewChild("byline") private _byline: ElementRef;
-	@ViewChild("quote") private _quote: ElementRef;
-	@ViewChild(ArrowComponent) private _scrollArrow: ArrowComponent;
+	@ViewChild("byline", { static: true }) private _byline: ElementRef;
+	@ViewChild("quote", { static: true }) private _quote: ElementRef;
+	@ViewChild(ArrowComponent, { static: true }) private _scrollArrow: ArrowComponent;
 
 	private get byline(): HTMLElement {
 		return this._byline.nativeElement;

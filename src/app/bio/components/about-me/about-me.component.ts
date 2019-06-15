@@ -15,7 +15,7 @@ import { CollapsibleDirective } from "app/shared/directives";
 	styleUrls: ["./about-me.component.scss"],
 })
 export class AboutMeComponent {
-	@ViewChild(CollapsibleDirective) private subsection: CollapsibleDirective;
+	@ViewChild(CollapsibleDirective, { static: false }) private subsection: CollapsibleDirective;
 
 	public bio$: Observable<string> = this.store.pipe(select(getBio));
 	public error$: Observable<boolean> = this.store.pipe(select(getBioError));

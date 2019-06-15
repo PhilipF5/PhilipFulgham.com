@@ -27,7 +27,7 @@ export class ArrowComponent {
 		};
 	}
 
-	@ViewChild("arrow") private _svg: ElementRef;
+	@ViewChild("arrow", { static: true }) private _svg: ElementRef;
 
 	private get svg(): HTMLElement {
 		return this._svg.nativeElement;

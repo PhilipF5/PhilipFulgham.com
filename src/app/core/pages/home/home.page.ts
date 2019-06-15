@@ -10,8 +10,8 @@ import { IntroScreenComponent } from "app/core/components";
 	styleUrls: ["./home.page.scss"],
 })
 export class HomePage implements OnInit {
-	@ViewChild("background") private _background: ElementRef;
-	@ViewChild(IntroScreenComponent) private introScreen: IntroScreenComponent;
+	@ViewChild("background", { static: true }) private _background: ElementRef;
+	@ViewChild(IntroScreenComponent, { static: true }) private introScreen: IntroScreenComponent;
 
 	private get background(): HTMLElement {
 		return this._background.nativeElement;

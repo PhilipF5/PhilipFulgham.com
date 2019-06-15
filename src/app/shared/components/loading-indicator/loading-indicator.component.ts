@@ -5,11 +5,11 @@ import { Linear, TweenMax } from "gsap";
 @Component({
 	selector: "loading-indicator",
 	templateUrl: "./loading-indicator.component.html",
-	styleUrls: ["./loading-indicator.component.scss"]
+	styleUrls: ["./loading-indicator.component.scss"],
 })
 export class LoadingIndicatorComponent implements AfterViewInit {
-	@ViewChild("back") private _back: ElementRef;
-	@ViewChild("front") private _front: ElementRef;
+	@ViewChild("back", { static: true }) private _back: ElementRef;
+	@ViewChild("front", { static: true }) private _front: ElementRef;
 
 	private get back(): HTMLElement {
 		return this._back.nativeElement;
@@ -21,10 +21,8 @@ export class LoadingIndicatorComponent implements AfterViewInit {
 
 	ngAfterViewInit() {
 		TweenMax.set(this.front, { x: 1 });
-		TweenMax.to(
-			this.front,
-			3,
-			{ rotationZ: 360, transformOrigin: "11.5px 12.5px", ease: Linear.easeInOut },
-		).repeat(-1);
+		TweenMax.to(this.front, 3, { rotationZ: 360, transformOrigin: "11.5px 12.5px", ease: Linear.easeInOut }).repeat(
+			-1
+		);
 	}
 }
