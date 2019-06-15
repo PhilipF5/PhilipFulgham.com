@@ -9,7 +9,6 @@
 	text-shadow: 0 0 7px rgb(255, 255, 255);
 	text-transform: uppercase;
 
-
 	&.expandable {
 		.clickable {
 			cursor: pointer;
@@ -23,6 +22,7 @@
 	}
 
 	arrow {
+		bottom: 0;
 		position: absolute;
 		right: -30px;
 		transform: translateY(-0.1em);
