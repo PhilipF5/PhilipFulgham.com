@@ -6,3 +6,11 @@
 	<div class="text" *ngIf="(bio$ | async) as bio" [innerHTML]="bio"></div>
 	<error *ngIf="(error$ | async)">Unable to load bio</error>
 </div>
+<section-title *ngIf="!(error$ | async)" [expandable]="true" (expand)="toggleFavorites()">
+	Favorite Things
+</section-title>
+<div class="favorites" *ngIf="(favorites$ | async) as favorites" collapsible>
+	<favorites-list [items]="favorites.game" title="Games"></favorites-list>
+	<favorites-list [items]="favorites.show" title="TV Shows"></favorites-list>
+	<favorites-list [items]="favorites.tool" title="Software"></favorites-list>
+</div>

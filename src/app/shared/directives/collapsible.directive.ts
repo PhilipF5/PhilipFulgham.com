@@ -1,5 +1,4 @@
 import { Directive, ElementRef, OnInit } from "@angular/core";
-
 import { Power1, TimelineLite } from "gsap";
 
 @Directive({
@@ -42,7 +41,7 @@ export class CollapsibleDirective implements OnInit {
 		return new TimelineLite()
 			.set(this.elem, { height: "auto" }, "start")
 			.from(this.elem, 2, { height: 0, ease: Power1.easeInOut }, "start")
-			.to(this.elem, 2, this.shownStyle, "start")
+			.to(this.elem, 2, { ...this.shownStyle, height: this.elem.scrollHeight }, "start")
 			.timeScale(2) as TimelineLite;
 	}
 
