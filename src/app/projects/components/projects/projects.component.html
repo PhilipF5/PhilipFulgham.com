@@ -1,8 +1,8 @@
-<section-title>Projects</section-title>
+<pf-section-title>Projects</pf-section-title>
 <div *ngIf="!(error$ | async)" class="container">
-	<projects-selector (projectSelected)="changeSelectedProject($event)"></projects-selector>
-	<project-info [selectedProject]="selectedProject" (closed)="clearSelectedProject()"></project-info>
+	<pf-projects-selector (projectSelected)="changeSelectedProject($event)"></pf-projects-selector>
+	<pf-project-info [selectedProject]="selectedProject" (closed)="clearSelectedProject()"></pf-project-info>
 </div>
 <div *ngIf="(error$ | async)" class="error">
-	<error>Unable to load projects</error>
+	<pf-error>Unable to load projects</pf-error>
 </div>

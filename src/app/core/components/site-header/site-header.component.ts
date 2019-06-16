@@ -1,11 +1,10 @@
 import { Component, ElementRef, OnInit } from "@angular/core";
-
 import { Power1, TimelineLite } from "gsap";
 
 @Component({
-	selector: "site-header",
+	selector: "pf-site-header",
 	templateUrl: "./site-header.component.html",
-	styleUrls: ["./site-header.component.scss"]
+	styleUrls: ["./site-header.component.scss"],
 })
 export class SiteHeaderComponent implements OnInit {
 	private get elem(): HTMLElement {

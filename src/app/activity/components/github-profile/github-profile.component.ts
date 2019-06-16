@@ -1,16 +1,13 @@
 import { Component, Input } from "@angular/core";
-
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { Store, select } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
+import { Repo } from "app/activity/models";
+import { getActivityError, getLanguages, getReposWithProjects } from "app/activity/selectors";
 import { Observable } from "rxjs";
 import { filter } from "rxjs/operators";
 
-import { ActivityActions } from "app/activity/actions";
-import { Repo } from "app/activity/models";
-import { getActivityError, getLanguages, getReposWithProjects } from "app/activity/selectors";
-
 @Component({
-	selector: "github-profile",
+	selector: "pf-github-profile",
 	templateUrl: "./github-profile.component.html",
 	styleUrls: ["./github-profile.component.scss"],
 })

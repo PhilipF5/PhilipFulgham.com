@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 import { ResumeItem } from "app/activity/models";
 
 @Component({
-	selector: "resume-org",
+	selector: "pf-resume-org",
 	templateUrl: "./resume-org.component.html",
 	styleUrls: ["./resume-org.component.scss"],
 })

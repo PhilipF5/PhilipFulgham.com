@@ -1,12 +1,10 @@
 import { Component, Input } from "@angular/core";
-
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { Project, Skill } from "app/projects/models";
 import { sortBy } from "lodash";
 
-import { Project, Skill } from "app/projects/models";
-
 @Component({
-	selector: "projects-selector-item",
+	selector: "pf-projects-selector-item",
 	templateUrl: "./projects-selector-item.component.html",
 	styleUrls: ["./projects-selector-item.component.scss"],
 })

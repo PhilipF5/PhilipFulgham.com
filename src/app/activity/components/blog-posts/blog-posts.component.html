@@ -1,4 +1,4 @@
-<section-title>Blog</section-title>
+<pf-section-title>Blog</pf-section-title>
 <div *ngIf="!(error$ | async)" class="header">
 	<div class="username">
 		<a [href]="blogUrl" target="_blank">Philip's Tech Corner</a>
@@ -6,21 +6,21 @@
 	<div class="post-count" *ngIf="(posts$ | async) as posts">{{ posts.length }} articles published</div>
 </div>
 <div class="posts" *ngIf="(posts$ | async) as posts">
-	<shadow-button *ngFor="let post of (posts | slice: 0:5)">
+	<pf-shadow-button *ngFor="let post of (posts | slice: 0:5)">
 		<a [href]="post.link" target="_blank">
 			<div class="post-row">
 				<div class="post-title">{{ post.title }}</div>
 				<div class="post-date">Posted on {{ post.publishDate | formatDate: "MMM d" }}</div>
 			</div>
 		</a>
-	</shadow-button>
+	</pf-shadow-button>
 </div>
-<error *ngIf="(error$ | async)">Unable to load posts</error>
-<shadow-button class="view-all">
+<pf-error *ngIf="(error$ | async)">Unable to load posts</pf-error>
+<pf-shadow-button class="view-all">
 	<a *ngIf="!(error$ | async)" [href]="blogUrl" target="_blank">
 		More...
 	</a>
 	<a *ngIf="(error$ | async)" [href]="blogUrl" target="_blank">
 		View on Blog Site
 	</a>
-</shadow-button>
+</pf-shadow-button>

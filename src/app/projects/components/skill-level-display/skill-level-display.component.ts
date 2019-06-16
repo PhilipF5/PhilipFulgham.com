@@ -1,9 +1,8 @@
 import { Component, HostBinding, Input } from "@angular/core";
-
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
-	selector: "skill-level-display",
+	selector: "pf-skill-level-display",
 	templateUrl: "./skill-level-display.component.html",
 	styleUrls: ["./skill-level-display.component.scss"],
 })

@@ -1,9 +1,8 @@
-import { Component, EventEmitter, Input, ViewChild, Output } from "@angular/core";
-
+import { Component, EventEmitter, Input, Output, ViewChild } from "@angular/core";
 import { ArrowComponent } from "../arrow/arrow.component";
 
 @Component({
-	selector: "section-title",
+	selector: "pf-section-title",
 	templateUrl: "./section-title.component.html",
 	styleUrls: ["./section-title.component.scss"],
 })

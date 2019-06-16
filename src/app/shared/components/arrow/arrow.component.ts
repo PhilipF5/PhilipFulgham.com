@@ -1,9 +1,8 @@
-import { Component, ElementRef, ViewChild, Input } from "@angular/core";
-
+import { Component, ElementRef, Input, ViewChild } from "@angular/core";
 import { Power1, TweenMax } from "gsap";
 
 @Component({
-	selector: "arrow",
+	selector: "pf-arrow",
 	templateUrl: "./arrow.component.html",
 	styleUrls: ["./arrow.component.scss"],
 })

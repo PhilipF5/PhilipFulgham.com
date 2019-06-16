@@ -1,7 +1,7 @@
 import { Component, Input } from "@angular/core";
 
 @Component({
-	selector: "resume-org-header",
+	selector: "pf-resume-org-header",
 	templateUrl: "./resume-org-header.component.html",
 	styleUrls: ["./resume-org-header.component.scss"],
 })

@@ -1,16 +1,11 @@
 import { Component, ViewChild } from "@angular/core";
-
-import { Store, select } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
+import { getBio, getBioError, getFavorites } from "app/bio/selectors";
+import { CollapsibleDirective } from "app/shared/directives";
 import { Observable } from "rxjs";
 
-import { BioActions } from "app/bio/actions";
-import { Favorite } from "app/bio/models";
-import { getBio, getBioError, getFavorites } from "app/bio/selectors";
-import { ProfileService } from "app/bio/services";
-import { CollapsibleDirective } from "app/shared/directives";
-
 @Component({
-	selector: "about-me",
+	selector: "pf-about-me",
 	templateUrl: "./about-me.component.html",
 	styleUrls: ["./about-me.component.scss"],
 })

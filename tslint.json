@@ -60,8 +60,8 @@
 		"variable-name": false,
 		"whitespace": [true, "check-branch", "check-decl", "check-operator", "check-separator", "check-type"],
 
-		"directive-selector": [true, "attribute", "app", "camelCase"],
-		"component-selector": [true, "element", "app", "kebab-case"],
+		"directive-selector": [true, "attribute", "camelCase"],
+		"component-selector": [true, "element", "pf", "kebab-case"],
 		"no-inputs-metadata-property": true,
 		"no-outputs-metadata-property": true,
 		"no-host-metadata-property": true,
@@ -69,8 +69,6 @@
 		"no-output-rename": true,
 		"use-lifecycle-interface": true,
 		"use-pipe-transform-interface": true,
-		"component-class-suffix": true,
-		"directive-class-suffix": true,
 		"no-access-missing-member": true,
 		"templates-use-public": true,
 		"invoke-injectable": true

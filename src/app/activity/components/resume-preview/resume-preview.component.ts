@@ -4,7 +4,7 @@ import { getActivityError, getResumeByOrg } from "app/activity/selectors";
 import { Observable } from "rxjs";
 
 @Component({
-	selector: "resume-preview",
+	selector: "pf-resume-preview",
 	templateUrl: "./resume-preview.component.html",
 	styleUrls: ["./resume-preview.component.scss"],
 })

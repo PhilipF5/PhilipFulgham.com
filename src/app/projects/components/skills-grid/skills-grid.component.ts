@@ -1,14 +1,11 @@
 import { Component } from "@angular/core";
-
-import { Store, select } from "@ngrx/store";
-import { Observable } from "rxjs";
-
-import { ProjectsActions } from "app/projects/actions";
+import { select, Store } from "@ngrx/store";
 import { Skill } from "app/projects/models";
 import { getProjectsError, getSkills } from "app/projects/selectors";
+import { Observable } from "rxjs";
 
 @Component({
-	selector: "skills-grid",
+	selector: "pf-skills-grid",
 	templateUrl: "./skills-grid.component.html",
 	styleUrls: ["./skills-grid.component.scss"],
 })

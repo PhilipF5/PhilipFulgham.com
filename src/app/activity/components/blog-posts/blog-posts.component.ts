@@ -1,16 +1,12 @@
 import { Component } from "@angular/core";
-
-import { Store, select } from "@ngrx/store";
-import { Observable } from "rxjs";
-
-import { ActivityActions } from "app/activity/actions";
+import { select, Store } from "@ngrx/store";
 import { BlogPost } from "app/activity/models";
 import { getActivityError, getBlogPosts } from "app/activity/selectors";
-
 import { environment } from "environments/environment";
+import { Observable } from "rxjs";
 
 @Component({
-	selector: "blog-posts",
+	selector: "pf-blog-posts",
 	templateUrl: "./blog-posts.component.html",
 	styleUrls: ["./blog-posts.component.scss"],
 })

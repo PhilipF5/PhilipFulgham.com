@@ -3,7 +3,7 @@ import { environment } from "environments/environment";
 import { DateTime } from "luxon";
 
 @Component({
-	selector: "site-footer",
+	selector: "pf-site-footer",
 	templateUrl: "./site-footer.component.html",
 	styleUrls: ["./site-footer.component.scss"],
 })

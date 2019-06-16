@@ -5,13 +5,13 @@
 			*ngFor="let p of (projects | slice: firstProjectIndex:lastProjectIndex)"
 			[ngClass]="{ selected: selectedProject === p }"
 		>
-			<shadow-button>
-				<projects-selector-item [project]="p" (click)="selectProject(p)"></projects-selector-item>
-			</shadow-button>
+			<pf-shadow-button>
+				<pf-projects-selector-item [project]="p" (click)="selectProject(p)"></pf-projects-selector-item>
+			</pf-shadow-button>
 		</div>
 	</div>
 	<div class="controls">
-		<glass-button (click)="onPageUp()"><arrow class="up"></arrow></glass-button>
-		<glass-button (click)="onPageDown(projects.length)"><arrow></arrow></glass-button>
+		<pf-glass-button (click)="onPageUp()"><pf-arrow class="up"></pf-arrow></pf-glass-button>
+		<pf-glass-button (click)="onPageDown(projects.length)"><pf-arrow></pf-arrow></pf-glass-button>
 	</div>
 </ng-container>

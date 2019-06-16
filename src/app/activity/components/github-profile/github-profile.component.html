@@ -1,4 +1,4 @@
-<section-title>Code</section-title>
+<pf-section-title>Code</pf-section-title>
 <div *ngIf="!(error$ | async)" class="header">
 	<div class="username">
 		<a [href]="profileUrl" target="_blank">
@@ -15,7 +15,7 @@
 	</div>
 </div>
 <div class="repos" *ngIf="(repos$ | async) as repos">
-	<shadow-button *ngFor="let repo of (repos | slice: 0:5)">
+	<pf-shadow-button *ngFor="let repo of (repos | slice: 0:5)">
 		<a [href]="repo.url" target="_blank">
 			<div class="repo-row">
 				<div class="name-and-date">
@@ -27,10 +27,10 @@
 				</div>
 			</div>
 		</a>
-	</shadow-button>
+	</pf-shadow-button>
 </div>
-<error *ngIf="(error$ | async)">Unable to load repos</error>
-<shadow-button class="view-all">
+<pf-error *ngIf="(error$ | async)">Unable to load repos</pf-error>
+<pf-shadow-button class="view-all">
 	<a *ngIf="!(error$ | async)" [href]="profileUrl + '/?tab=repositories'" target="_blank">
 		More...
 	</a>
@@ -39,4 +39,4 @@
 		<fa-icon [icon]="githubIcon"></fa-icon>
 		GitHub
 	</a>
-</shadow-button>
+</pf-shadow-button>

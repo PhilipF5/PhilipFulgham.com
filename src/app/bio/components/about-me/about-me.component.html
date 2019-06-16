@@ -1,16 +1,16 @@
-<section-title>About Me</section-title>
+<pf-section-title>About Me</pf-section-title>
 <div class="profile">
 	<div class="portrait">
 		<img src="assets/portrait.png" />
 	</div>
 	<div class="text" *ngIf="(bio$ | async) as bio" [innerHTML]="bio"></div>
-	<error *ngIf="(error$ | async)">Unable to load bio</error>
+	<pf-error *ngIf="(error$ | async)">Unable to load bio</pf-error>
 </div>
-<section-title *ngIf="!(error$ | async)" [expandable]="true" (expand)="toggleFavorites()">
+<pf-section-title *ngIf="!(error$ | async)" [expandable]="true" (expand)="toggleFavorites()">
 	Favorite Things
-</section-title>
+</pf-section-title>
 <div class="favorites" *ngIf="(favorites$ | async) as favorites" collapsible>
-	<favorites-list [items]="favorites.game" title="Games"></favorites-list>
-	<favorites-list [items]="favorites.show" title="TV Shows"></favorites-list>
-	<favorites-list [items]="favorites.tool" title="Software"></favorites-list>
+	<pf-favorites-list [items]="favorites.game" title="Games"></pf-favorites-list>
+	<pf-favorites-list [items]="favorites.show" title="TV Shows"></pf-favorites-list>
+	<pf-favorites-list [items]="favorites.tool" title="Software"></pf-favorites-list>
 </div>

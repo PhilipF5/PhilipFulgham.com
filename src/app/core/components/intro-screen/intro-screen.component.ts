@@ -6,7 +6,7 @@ import { ScrollToPlugin } from "gsap/all";
 const plugins = [ScrollToPlugin];
 
 @Component({
-	selector: "intro-screen",
+	selector: "pf-intro-screen",
 	templateUrl: "./intro-screen.component.html",
 	styleUrls: ["./intro-screen.component.scss"],
 })

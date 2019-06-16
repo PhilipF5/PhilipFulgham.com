@@ -1,10 +1,10 @@
-<section-title>Résumé</section-title>
+<pf-section-title>Résumé</pf-section-title>
 <div class="orgs-container">
-	<resume-org *ngFor="let org of (orgs$ | async)" [org]="org"></resume-org>
+	<pf-resume-org *ngFor="let org of (orgs$ | async)" [org]="org"></pf-resume-org>
 </div>
-<error *ngIf="(error$ | async)">Unable to load preview</error>
-<shadow-button class="resume-link">
+<pf-error *ngIf="(error$ | async)">Unable to load preview</pf-error>
+<pf-shadow-button class="resume-link">
 	<a href="https://resume.philipfulgham.com" target="_blank">
 		View full resume
 	</a>
-</shadow-button>
+</pf-shadow-button>

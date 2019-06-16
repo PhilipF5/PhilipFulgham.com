@@ -1,9 +1,8 @@
 import { Component, Input } from "@angular/core";
-
 import { Favorite } from "app/bio/models";
 
 @Component({
-	selector: "favorites-list",
+	selector: "pf-favorites-list",
 	templateUrl: "./favorites-list.component.html",
 	styleUrls: ["./favorites-list.component.scss"],
 })

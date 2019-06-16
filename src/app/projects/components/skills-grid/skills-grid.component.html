@@ -1,7 +1,7 @@
-<section-title>Skills</section-title>
+<pf-section-title>Skills</pf-section-title>
 <div *ngIf="(error$ | async)" class="error">
-	<error>Unable to load skills</error>
+	<pf-error>Unable to load skills</pf-error>
 </div>
 <div *ngIf="!(error$ | async)" class="list">
-	<skills-grid-item *ngFor="let skill of (skills$ | async)" [skill]="skill"></skills-grid-item>
+	<pf-skills-grid-item *ngFor="let skill of (skills$ | async)" [skill]="skill"></pf-skills-grid-item>
 </div>

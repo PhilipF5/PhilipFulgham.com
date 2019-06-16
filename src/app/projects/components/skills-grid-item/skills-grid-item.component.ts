@@ -1,9 +1,8 @@
 import { Component, Input } from "@angular/core";
-
 import { Skill } from "app/projects/models";
 
 @Component({
-	selector: "skills-grid-item",
+	selector: "pf-skills-grid-item",
 	templateUrl: "./skills-grid-item.component.html",
 	styleUrls: ["./skills-grid-item.component.scss"],
 })

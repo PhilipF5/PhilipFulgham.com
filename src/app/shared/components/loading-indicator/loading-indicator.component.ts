@@ -1,9 +1,8 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from "@angular/core";
-
 import { Linear, TweenMax } from "gsap";
 
 @Component({
-	selector: "loading-indicator",
+	selector: "pf-loading-indicator",
 	templateUrl: "./loading-indicator.component.html",
 	styleUrls: ["./loading-indicator.component.scss"],
 })

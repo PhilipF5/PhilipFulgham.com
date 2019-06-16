@@ -1,12 +1,10 @@
 import { Component, ElementRef, EventEmitter, Input, NgZone, Output } from "@angular/core";
-
 import { faImage, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Project } from "app/projects/models";
 import { TimelineLite } from "gsap";
 
-import { Project } from "app/projects/models";
-
 @Component({
-	selector: "project-info",
+	selector: "pf-project-info",
 	templateUrl: "./project-info.component.html",
 	styleUrls: ["./project-info.component.scss"],
 })

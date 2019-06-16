@@ -1,11 +1,9 @@
 import { Component, ElementRef, OnInit, ViewChild } from "@angular/core";
-
+import { IntroScreenComponent } from "app/core/components";
 import { Power1 } from "gsap";
 
-import { IntroScreenComponent } from "app/core/components";
-
 @Component({
-	selector: "home-page",
+	selector: "pf-home-page",
 	templateUrl: "./home.page.html",
 	styleUrls: ["./home.page.scss"],
 })

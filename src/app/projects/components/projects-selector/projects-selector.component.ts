@@ -1,17 +1,14 @@
-import { Component, EventEmitter, NgZone, Output, ViewChild, ElementRef } from "@angular/core";
+import { Component, ElementRef, EventEmitter, NgZone, Output, ViewChild } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-
-import { Store, select } from "@ngrx/store";
+import { select, Store } from "@ngrx/store";
+import { Project } from "app/projects/models";
+import { getProjects } from "app/projects/selectors";
 import { TimelineLite } from "gsap";
 import { Observable } from "rxjs";
 import { filter, take, tap } from "rxjs/operators";
 
-import { ProjectsActions } from "app/projects/actions";
-import { Project } from "app/projects/models";
-import { getProjects } from "app/projects/selectors";
-
 @Component({
-	selector: "projects-selector",
+	selector: "pf-projects-selector",
 	templateUrl: "projects-selector.component.html",
 	styleUrls: ["projects-selector.component.scss"],
 })

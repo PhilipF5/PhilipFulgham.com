@@ -1,10 +1,9 @@
 import { Component, ElementRef, ViewChild } from "@angular/core";
-
 import { faMinus } from "@fortawesome/free-solid-svg-icons";
 import { TimelineLite, TweenMax } from "gsap";
 
 @Component({
-	selector: "site-nav",
+	selector: "pf-site-nav",
 	templateUrl: "./site-nav.component.html",
 	styleUrls: ["./site-nav.component.scss"],
 })

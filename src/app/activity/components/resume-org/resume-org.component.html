@@ -1,5 +1,5 @@
-<resume-org-header [logoUrl]="logo" [link]="link" [orgName]="org.orgName"></resume-org-header>
-<history-item
+<pf-resume-org-header [logoUrl]="logo" [link]="link" [orgName]="org.orgName"></pf-resume-org-header>
+<pf-history-item
 	*ngFor="let item of org.items"
 	[image]="item.image"
 	[place]="item.org"
@@ -7,4 +7,4 @@
 	[start]="item.start"
 	[end]="item.end"
 	[link]="item.orgUrl"
-></history-item>
+></pf-history-item>

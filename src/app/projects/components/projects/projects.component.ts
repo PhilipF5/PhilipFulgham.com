@@ -1,18 +1,16 @@
-import { Component, ElementRef } from "@angular/core";
+import { AfterViewInit, Component, ElementRef } from "@angular/core";
 import { ActivatedRoute } from "@angular/router";
-
-import { Store, select } from "@ngrx/store";
-import { filter, take, withLatestFrom } from "rxjs/operators";
-
+import { select, Store } from "@ngrx/store";
 import { Project } from "app/projects/models";
 import { getProjects, getProjectsError } from "app/projects/selectors";
+import { filter, take, withLatestFrom } from "rxjs/operators";
 
 @Component({
-	selector: "projects",
+	selector: "pf-projects",
 	templateUrl: "./projects.component.html",
 	styleUrls: ["./projects.component.scss"],
 })
-export class ProjectsComponent {
+export class ProjectsComponent implements AfterViewInit {
 	public error$ = this.store.pipe(select(getProjectsError));
 	public selectedProject: Project;
 

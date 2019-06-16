@@ -2,7 +2,7 @@ import { Component, Input } from "@angular/core";
 import { DateTime } from "luxon";
 
 @Component({
-	selector: "history-item",
+	selector: "pf-history-item",
 	templateUrl: "./history-item.component.html",
 	styleUrls: ["./history-item.component.scss"],
 })
