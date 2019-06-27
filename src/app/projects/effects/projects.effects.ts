@@ -13,7 +13,7 @@ export class ProjectsEffects {
 		ofType(ProjectsActions.projectsRequested),
 		switchMap(() =>
 			this.projectService.getProjects().pipe(
-				map(projects => ProjectsActions.projectsLoaded({ projects })),
+				map(projects => ProjectsActions.projectsLoaded(projects)),
 				catchError(() => of(ProjectsActions.projectsError()))
 			)
 		)
@@ -24,7 +24,7 @@ export class ProjectsEffects {
 		ofType(ProjectsActions.skillsRequested),
 		switchMap(() =>
 			this.skillService.getSkills().pipe(
-				map(skills => ProjectsActions.skillsLoaded({ skills })),
+				map(skills => ProjectsActions.skillsLoaded(skills)),
 				catchError(() => of(ProjectsActions.projectsError()))
 			)
 		)

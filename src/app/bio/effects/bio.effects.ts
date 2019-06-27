@@ -12,7 +12,7 @@ export class BioEffects {
 		ofType(BioActions.bioRequested),
 		switchMap(() =>
 			this.profileService.getBio().pipe(
-				map(bio => BioActions.bioLoaded({ bio })),
+				map(bio => BioActions.bioLoaded(bio)),
 				catchError(() => of(BioActions.bioError()))
 			)
 		)
@@ -23,7 +23,7 @@ export class BioEffects {
 		ofType(BioActions.favoritesRequested),
 		switchMap(() =>
 			this.profileService.getFavorites().pipe(
-				map(favorites => BioActions.favoritesLoaded({ favorites })),
+				map(favorites => BioActions.favoritesLoaded(favorites)),
 				catchError(() => of(BioActions.bioError()))
 			)
 		)

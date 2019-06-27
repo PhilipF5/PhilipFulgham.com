@@ -14,7 +14,7 @@ export class ActivityEffects {
 		ofType(ActivityActions.blogPostsRequested),
 		switchMap(() =>
 			this.blogPostService.getBlogPosts().pipe(
-				map(blogPosts => ActivityActions.blogPostsLoaded({ blogPosts })),
+				map(blogPosts => ActivityActions.blogPostsLoaded(blogPosts)),
 				catchError(() => of(ActivityActions.activityError()))
 			)
 		)
@@ -25,7 +25,7 @@ export class ActivityEffects {
 		ofType(ActivityActions.reposRequested),
 		switchMap(() =>
 			this.repoService.getRepos().pipe(
-				map(repos => ActivityActions.reposLoaded({ repos })),
+				map(repos => ActivityActions.reposLoaded(repos)),
 				catchError(() => of(ActivityActions.activityError()))
 			)
 		)
@@ -36,7 +36,7 @@ export class ActivityEffects {
 		ofType(ActivityActions.resumeRequested),
 		switchMap(() =>
 			this.resumeService.getResumeInfo().pipe(
-				map(resumeItems => ActivityActions.resumeLoaded({ resumeItems: flatten(resumeItems) })),
+				map(resumeItems => ActivityActions.resumeLoaded(flatten(resumeItems))),
 				catchError(() => of(ActivityActions.activityError()))
 			)
 		)

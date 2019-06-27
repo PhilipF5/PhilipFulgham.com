@@ -81,5 +81,5 @@ export const getResume = createSelector(
 
 export const getResumeByOrg = createSelector(
 	getResume,
-	items => map(groupBy(items, i => i.org), (items, orgName) => ({ items, orgName }))
+	resumeItems => map(groupBy(resumeItems, i => i.org), (items, orgName) => ({ items, orgName }))
 );
