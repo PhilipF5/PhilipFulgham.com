@@ -1,7 +1,12 @@
 <div *ngIf="selectedProject" class="active">
 	<div class="close" (click)="closeProject()"><fa-icon [icon]="closeIcon"></fa-icon></div>
 	<div *ngIf="hasImage" class="image">
-		<img class="image" [src]="selectedProject.image" (error)="hasImage = false" />
+		<img
+			class="image"
+			[src]="selectedProject.image"
+			(error)="hasImage = false"
+			[alt]="'Screenshot of ' + selectedProject.name"
+		/>
 	</div>
 	<div *ngIf="!hasImage" class="no-image">
 		<fa-icon [icon]="imageIcon"></fa-icon>

@@ -1,7 +1,7 @@
 <pf-section-title>About Me</pf-section-title>
 <div class="profile">
 	<div class="portrait">
-		<img src="assets/portrait.png" />
+		<img src="assets/portrait.png" alt="Profile photo" />
 	</div>
 	<div class="text" *ngIf="(bio$ | async) as bio" [innerHTML]="bio"></div>
 	<pf-error *ngIf="(error$ | async)">Unable to load bio</pf-error>
