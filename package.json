@@ -19,6 +19,9 @@
 			"pre-commit": "pretty-quick --staged"
 		}
 	},
+	"engines": {
+		"node": ">=10.9"
+	},
 	"dependencies": {
 		"@angular/common": "^8.0.1",
 		"@angular/compiler": "^8.0.1",
