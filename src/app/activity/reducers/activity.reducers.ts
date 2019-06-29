@@ -1,5 +1,5 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
-import { createReducer, on } from "@ngrx/store";
+import { Action, createReducer, on } from "@ngrx/store";
 import { ActivityActions } from "app/activity/actions";
 import { BlogPost, Repo, ResumeItem } from "app/activity/models";
 
@@ -33,7 +33,7 @@ export const initialActivityState: ActivityState = {
 	resume: resumeAdapter.getInitialState(),
 };
 
-export const activityReducer = createReducer(
+export const reducer = createReducer(
 	initialActivityState,
 	on(ActivityActions.activityError, state => ({ ...state, error: true })),
 	on(ActivityActions.blogPostsLoaded, (state, { blogPosts }) => ({
@@ -49,3 +49,7 @@ export const activityReducer = createReducer(
 		resume: resumeAdapter.addAll(resumeItems, { ...state.resume }),
 	}))
 );
+
+export function activityReducer(state: ActivityState | undefined, action: Action) {
+	return reducer(state, action);
+}

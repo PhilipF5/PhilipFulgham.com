@@ -1,5 +1,5 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
-import { createReducer, on } from "@ngrx/store";
+import { Action, createReducer, on } from "@ngrx/store";
 import { ProjectsActions } from "app/projects/actions";
 import { Project, Skill } from "app/projects/models";
 
@@ -27,18 +27,27 @@ export const initialSkillsState: SkillsState = skillsAdapter.getInitialState({
 	error: false,
 });
 
-export const projectsReducer = createReducer(
-	initialProjectsState,
-	on(ProjectsActions.projectsError, state => ({ ...state, error: true })),
-	on(ProjectsActions.projectsLoaded, (state, { projects }) =>
-		projectsAdapter.addAll(projects, { ...state, projectsLoaded: true })
-	)
-);
+export const reducers = {
+	projects: createReducer(
+		initialProjectsState,
+		on(ProjectsActions.projectsError, state => ({ ...state, error: true })),
+		on(ProjectsActions.projectsLoaded, (state, { projects }) =>
+			projectsAdapter.addAll(projects, { ...state, projectsLoaded: true })
+		)
+	),
+	skills: createReducer(
+		initialSkillsState,
+		on(ProjectsActions.projectsError, state => ({ ...state, error: true })),
+		on(ProjectsActions.skillsLoaded, (state, { skills }) =>
+			skillsAdapter.addAll(skills, { ...state, skillsLoaded: true })
+		)
+	),
+};
 
-export const skillsReducer = createReducer(
-	initialSkillsState,
-	on(ProjectsActions.projectsError, state => ({ ...state, error: true })),
-	on(ProjectsActions.skillsLoaded, (state, { skills }) =>
-		skillsAdapter.addAll(skills, { ...state, skillsLoaded: true })
-	)
-);
+export function projectsReducer(state: ProjectsState | undefined, action: Action) {
+	return reducers.projects(state, action);
+}
+
+export function skillsReducer(state: SkillsState | undefined, action: Action) {
+	return reducers.skills(state, action);
+}

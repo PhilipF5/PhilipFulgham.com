@@ -1,5 +1,5 @@
 import { createEntityAdapter, EntityAdapter, EntityState } from "@ngrx/entity";
-import { createReducer, on } from "@ngrx/store";
+import { Action, createReducer, on } from "@ngrx/store";
 import { BioActions } from "app/bio/actions";
 import { Favorite } from "app/bio/models";
 
@@ -21,7 +21,7 @@ export const initialBioState: BioState = {
 	favorites: favoritesAdapter.getInitialState(),
 };
 
-export const bioReducer = createReducer(
+export const reducer = createReducer(
 	initialBioState,
 	on(BioActions.bioError, state => ({ ...state, error: true })),
 	on(BioActions.bioLoaded, (state, { bio }) => ({ ...state, bio })),
@@ -30,3 +30,7 @@ export const bioReducer = createReducer(
 		favorites: favoritesAdapter.addAll(favorites, { ...state.favorites }),
 	}))
 );
+
+export function bioReducer(state: BioState | undefined, action: Action) {
+	return reducer(state, action);
+}
