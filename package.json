@@ -38,7 +38,6 @@
 		"@ngrx/entity": "^8.1.0",
 		"@ngrx/store": "^8.1.0",
 		"@ngrx/store-devtools": "^8.1.0",
-		"core-js": "^2.6.3",
 		"gsap": "^2.0.2",
 		"lodash": "^4.17.14",
 		"luxon": "^1.17.1",
